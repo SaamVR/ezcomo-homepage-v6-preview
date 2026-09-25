@@ -217,6 +217,7 @@ body.v6-mature .journey-shell[data-storefront-mode="customer"] .editable-layer.s
  body.v6-mature .journey-playback{gap:4px}
  body.v6-mature .journey-context{min-height:32px;padding:5px 14px;font-size:12px}
  body.v6-mature .journey-shell[data-mode="guided"] .journey-stage{height:clamp(500px,calc(100svh - 238px),625px);min-height:0;overflow:hidden}
+ body.v6-mature .journey-shell[data-mode="manual"] .journey-stage{height:clamp(500px,calc(100svh - 238px),625px);min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
  body.v6-mature .journey-shell[data-mode="guided"] .journey-scene.is-active{height:100%;min-height:0}
  body.v6-mature .journey-shell[data-mode="guided"] .journey-demo-card{height:100%;min-height:0;box-sizing:border-box}
  body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-build .editor-demo.builder-ui{height:100%;min-height:0;grid-template-rows:42px minmax(0,1fr)}
@@ -239,12 +240,12 @@ body.v6-mature .journey-shell[data-storefront-mode="customer"] .editable-layer.s
  body.v6-mature .journey-director{min-height:56px}
  body.v6-mature .journey-controls button{min-height:34px;font-size:11px}
  body.v6-mature .journey-context{min-height:30px;padding-block:4px}
- body.v6-mature .journey-shell[data-mode="guided"] .journey-stage{height:clamp(440px,calc(100svh - 235px),520px)}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-stage,body.v6-mature .journey-shell[data-mode="manual"] .journey-stage{height:clamp(440px,calc(100svh - 235px),520px)}
 }
 @media(min-width:701px) and (max-width:960px){
  body.v6-mature .journey-director{grid-template-columns:1fr}
  body.v6-mature .journey-narration strong{font-size:13px;max-width:none}
  body.v6-mature .journey-controls{justify-content:flex-end;border-top:1px solid #35473b}
  body.v6-mature .journey-controls button{padding-inline:7px;font-size:11px}
- body.v6-mature .journey-shell[data-mode="guided"] .journey-stage{height:clamp(440px,calc(100svh - 285px),560px)}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-stage,body.v6-mature .journey-shell[data-mode="manual"] .journey-stage{height:clamp(440px,calc(100svh - 285px),560px)}
 }
