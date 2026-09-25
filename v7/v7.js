@@ -118,7 +118,7 @@
   let story={
     beat:0,elapsed:0,beatStarted:0,playback:'idle',pauseReason:null,runId:0,
     fired:new Set(),visited:new Set(['build']),focused:false,paced:false,phase:'idle',
-    directSample:false,merchantHeadline:null,baselineHeadline:'Make the everyday unmistakably yours.'
+    directSample:false,merchantHeadline:null,baselineHeadline:'Make the everyday unmistakably yours.',demoEditApplied:false
   };
   let raf=0;
   let managedAnimations=[];
@@ -213,9 +213,10 @@
     player.dataset.delivery=business.delivery==='picked-up'?'picked':business.delivery==='awaiting-pickup'?'awaiting':'none';
     const paymentText=business.payment==='paid'?t('paid'):'—';
     const deliveryText=business.delivery==='picked-up'?t('pickedUp'):business.delivery==='awaiting-pickup'?t('awaiting'):t('notBooked');
+    const detailStatus=business.delivery==='awaiting-pickup'&&business.bookingRef?deliveryText+' · '+business.bookingRef:deliveryText;
     $$('[data-v7-payment]').forEach(el=>el.textContent=paymentText);
     $$('[data-v7-delivery]').forEach(el=>el.textContent=deliveryText);
-    $$('[data-v7-status]').forEach(el=>el.textContent=deliveryText);
+    $('[data-v7-status]').forEach(el=>el.textContent=detailStatus);
     $$('[data-v7-progress="booked"]').forEach(el=>el.classList.toggle('is-current',business.delivery==='awaiting-pickup'));
     $$('[data-v7-progress="pickup"]').forEach(el=>el.classList.toggle('is-current',business.delivery==='picked-up'));
 
@@ -245,7 +246,7 @@
     if(els.caption)els.caption.textContent=(story.directSample&&beat.chapter==='manage'&&story.pauseReason==='chapter')?t('sampleLoaded'):currentCaptions()[i];
     if(els.actor)els.actor.textContent=currentActors()[i];
     if(els.step)els.step.textContent=(isBn()?'ধাপ ':'Step ')+(i+1)+(isBn()?' / ':' of ')+beats.length;
-    const headline=(i>=2&&!story.merchantHeadline)?demoHeadline():effectiveHeadline();
+    const headline=story.merchantHeadline||story.demoEditApplied?story.merchantHeadline||demoHeadline():effectiveHeadline();
     if(els.headline)els.headline.textContent=headline;if(els.customerHeadline)els.customerHeadline.textContent=headline;if(els.input)els.input.value=headline;
     if(els.saved)els.saved.textContent=i===1?t('fieldReady'):i===2?t('savedDemo'):t('previewReady');
     if(els.previewState)els.previewState.textContent=i>=3?t('customerPreview'):'Preview';
@@ -301,7 +302,7 @@
       case 'reveal-field':setIndicator(els.input);break;
       case 'edit-focus':setIndicator(els.input);break;
       case 'apply-headline':
-        if(!story.merchantHeadline){if(els.headline)els.headline.textContent=demoHeadline();if(els.customerHeadline)els.customerHeadline.textContent=demoHeadline();if(els.input)els.input.value=demoHeadline()}break;
+        if(!story.merchantHeadline){story.demoEditApplied=true;if(els.headline)els.headline.textContent=demoHeadline();if(els.customerHeadline)els.customerHeadline.textContent=demoHeadline();if(els.input)els.input.value=demoHeadline()}break;
       case 'saved':if(els.saved)els.saved.textContent=t('savedDemo');break;
       case 'clear-selection':hideIndicator();break;
       case 'customer-preview':hideIndicator();break;
@@ -359,7 +360,7 @@
   }
 
   function resetDemoEvents(){
-    business=createBusiness();story.elapsed=0;story.beat=0;story.phase='idle';story.directSample=false;story.pauseReason=null;story.fired.clear();story.runId++;
+    business=createBusiness();story.elapsed=0;story.beat=0;story.phase='idle';story.directSample=false;story.pauseReason=null;story.demoEditApplied=false;story.fired.clear();story.runId++;
     cancelManagedAnimations();hideIndicator();renderBeat();renderBusiness();
   }
 
@@ -384,6 +385,7 @@
 
   function stepTo(next){
     cancelManagedAnimations();hideIndicator();story.beat=Math.max(0,Math.min(beats.length-1,next));story.elapsed=0;story.playback='paused';story.pauseReason='paced';story.runId++;story.fired.clear();
+    story.demoEditApplied=story.beat>=2&&!story.merchantHeadline;
     if(story.beat>=6){business.orderCreated=true;business.payment='paid'}else business=createBusiness();
     if(story.beat>=9){business.delivery='awaiting-pickup';business.bookingRef=fixture.bookingRef}if(story.beat>=10)business.delivery='picked-up';if(story.beat===11)story.playback='complete';
     renderBeat();renderBusiness();renderControls();
@@ -391,11 +393,12 @@
 
   function jumpChapter(chapter){
     if(story.playback==='playing')pauseStory('chapter');cancelManagedAnimations();story.directSample=false;
-    if(chapter==='build'){story.beat=0;business=createBusiness()}
+    if(chapter==='build'){story.beat=0;business=createBusiness();story.demoEditApplied=false}
     if(chapter==='sell'){story.beat=5;business=createBusiness()}
     if(chapter==='manage'){story.beat=8;business={orderCreated:true,payment:'paid',delivery:'not-booked',bookingRef:null};story.directSample=true}
     story.elapsed=0;story.playback='paused';story.pauseReason='chapter';story.runId++;story.fired.clear();renderBeat();renderBusiness();renderControls();
-    if(!story.paced){enterFocus();requestAnimationFrame(()=>requestAnimationFrame(alignPlayer))}
+    if(story.focused)requestAnimationFrame(()=>requestAnimationFrame(alignPlayer));
+    else player.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'center'})
   }
 
   function syncLegacyFixture(){
