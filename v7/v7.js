@@ -283,21 +283,27 @@
   function runSignatureTransfer(){
     if(story.paced||reducedMotion.matches||!els.receipt||!els.orderRow){setScene('manage');return}
     cancelManagedAnimations();
-    const from=els.receipt.getBoundingClientRect();
+    const source=$('.v7-receipt-top',els.receipt)||els.receipt;
+    const from=source.getBoundingClientRect();
     if(!from.width){setScene('manage');return}
-    const proxy=els.receipt.cloneNode(true);
-    proxy.removeAttribute('id');proxy.classList.add('v7-transfer-proxy');proxy.setAttribute('aria-hidden','true');
-    Object.assign(proxy.style,{left:from.left+'px',top:from.top+'px',width:from.width+'px',height:from.height+'px'});
+    const proxy=document.createElement('div');
+    proxy.className='v7-transfer-proxy';proxy.setAttribute('aria-hidden','true');
+    proxy.innerHTML='<div class="flat-product flat-tee"><i></i><b></b></div><div class="v7-transfer-copy"><small>ORDER #1051</small><strong>Studio Tee</strong><span>Black / M · Qty 1</span></div><b>৳1,550</b>';
+    const proxyWidth=Math.min(320,Math.max(260,from.width));
+    const proxyHeight=72;
+    Object.assign(proxy.style,{left:from.left+'px',top:from.top+'px',width:proxyWidth+'px',height:proxyHeight+'px'});
     document.body.appendChild(proxy);els.receipt.style.visibility='hidden';
     setScene('manage');renderBusiness();
     requestAnimationFrame(()=>{
       const to=els.orderRow.getBoundingClientRect();
       if(!to.width){proxy.remove();els.receipt.style.visibility='';return}
       els.orderRow.style.visibility='hidden';
-      const dx=to.left-from.left,dy=to.top-from.top,sx=to.width/from.width,sy=Math.min(1,to.height/from.height);
+      const endLeft=to.left+12,endTop=to.top+(to.height-proxyHeight)/2;
+      const dx=endLeft-from.left,dy=endTop-from.top;
       const a=manageAnimation(proxy.animate([
-        {transform:'translate(0,0) scale(1)',transformOrigin:'top left',opacity:1},
-        {transform:'translate('+dx+'px,'+dy+'px) scale('+sx+','+sy+')',transformOrigin:'top left',opacity:1}
+        {transform:'translate(0,0) scale(1)',opacity:1},
+        {transform:'translate('+dx+'px,'+dy+'px) scale(.98)',opacity:1,offset:.82},
+        {transform:'translate('+dx+'px,'+dy+'px) scale(.98)',opacity:0}
       ],{duration:700,easing:'cubic-bezier(.22,1,.36,1)',fill:'forwards'}));
       a?.finished.then(()=>{
         proxy.remove();els.receipt.style.visibility='';els.orderRow.style.visibility='';
