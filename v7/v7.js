@@ -215,7 +215,7 @@
     const detailStatus=business.delivery==='awaiting-pickup'&&business.bookingRef?deliveryText+' · '+business.bookingRef:deliveryText;
     $$('[data-v7-payment]').forEach(el=>el.textContent=paymentText);
     $$('[data-v7-delivery]').forEach(el=>el.textContent=deliveryText);
-    $('[data-v7-status]').forEach(el=>el.textContent=detailStatus);
+    $$('[data-v7-status]').forEach(el=>el.textContent=detailStatus);
     $$('[data-v7-progress="booked"]').forEach(el=>el.classList.toggle('is-current',business.delivery==='awaiting-pickup'));
     $$('[data-v7-progress="pickup"]').forEach(el=>el.classList.toggle('is-current',business.delivery==='picked-up'));
 
@@ -414,7 +414,7 @@
   }
 
   function syncLegacyFixture(){
-    const checkoutTotals=$('#workflowDemo .checkout-total strong'),checkoutTotal=checkoutTotals[checkoutTotals.length-1];if(checkoutTotal)checkoutTotal.textContent=money(fixture.total);
+    const checkoutTotals=$$('#workflowDemo .checkout-total strong'),checkoutTotal=checkoutTotals[checkoutTotals.length-1];if(checkoutTotal)checkoutTotal.textContent=money(fixture.total);
     const paymentEm=$('.workflow-step[data-step="payment"] em');if(paymentEm)paymentEm.textContent=money(fixture.total);
     const rowAmount=$('#workspaceOrderRow > strong');if(rowAmount)rowAmount.textContent=money(fixture.total);
     const detailPayment=$('#workspacePaymentDetail + small');if(detailPayment)detailPayment.textContent=money(fixture.total);
