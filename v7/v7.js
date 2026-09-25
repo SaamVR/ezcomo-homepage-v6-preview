@@ -155,7 +155,6 @@
       const k=el.dataset.v7Copy;
       if(copy[isBn()?'bn':'en'][k]||copy.en[k])el.textContent=t(k);
     });
-    story.baselineHeadline=readLegacyHeadline();
     const watchText=els.watch?.querySelector('[data-v7-copy="watch"]');
     if(watchText)watchText.textContent=isPaced()?t('watchStep'):t('watch');
     renderBeat({preservePhase:true});
@@ -231,7 +230,8 @@
     if(book){
       book.disabled=business.delivery!=='not-booked';
       const label=$('[data-v7-copy="bookSample"]',book);
-      if(label)label.textContent=business.delivery==='not-booked'?t('bookSample'):business.delivery==='awaiting-pickup'?t('awaiting'):t('pickedUp');
+      const buttonText=business.delivery==='not-booked'?t('bookSample'):business.delivery==='awaiting-pickup'?t('awaiting'):t('pickedUp');
+      if(label)label.textContent=buttonText;else book.textContent=buttonText;
     }
   }
 
@@ -319,7 +319,7 @@
       case 'open-order':setIndicator(els.orderRow);break;
       case 'next-action':setIndicator($('#v7BookDelivery'));break;
       case 'press-book':setIndicator($('#v7BookDelivery'));break;
-      case 'booking':setPhase('booking');if($('#v7BookDelivery'))$('#v7BookDelivery').textContent=t('booking');break;
+      case 'booking':setPhase('booking');{const book=$('#v7BookDelivery'),label=book&&$('[data-v7-copy="bookSample"]',book);if(label)label.textContent=t('booking');else if(book)book.textContent=t('booking')}break;
       case 'booked':business.delivery='awaiting-pickup';business.bookingRef=fixture.bookingRef;setPhase('booked');hideIndicator();break;
       case 'later':setPhase('later');break;
       case 'picked-up':business.delivery='picked-up';setPhase('picked');break;
@@ -402,7 +402,7 @@
   }
 
   function syncLegacyFixture(){
-    const checkoutTotal=$('#workflowDemo .checkout-total strong');if(checkoutTotal)checkoutTotal.textContent=money(fixture.total);
+    const checkoutTotals=$('#workflowDemo .checkout-total strong'),checkoutTotal=checkoutTotals[checkoutTotals.length-1];if(checkoutTotal)checkoutTotal.textContent=money(fixture.total);
     const paymentEm=$('.workflow-step[data-step="payment"] em');if(paymentEm)paymentEm.textContent=money(fixture.total);
     const rowAmount=$('#workspaceOrderRow > strong');if(rowAmount)rowAmount.textContent=money(fixture.total);
     const detailPayment=$('#workspacePaymentDetail + small');if(detailPayment)detailPayment.textContent=money(fixture.total);
@@ -429,7 +429,7 @@
     requestAnimationFrame(()=>{const btn=$('[data-journey-chapter="'+chapter+'"]');btn?.click();$('#v7HandsOnLegacy')?.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'})});
   }
   function closeHandsOn(){
-    const legacyHeadline=readLegacyHeadline();if(legacyHeadline&&legacyHeadline!==story.baselineHeadline)story.merchantHeadline=legacyHeadline;
+    const legacyHeadline=readLegacyHeadline();story.merchantHeadline=legacyHeadline&&legacyHeadline!==story.baselineHeadline?legacyHeadline:null;
     document.body.classList.remove('v7-hands-on');story.playback='paused';story.pauseReason='hands-on';renderBeat();renderControls();
     requestAnimationFrame(()=>player.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'center'}));
   }
