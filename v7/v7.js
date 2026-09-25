@@ -398,7 +398,9 @@
     story.demoEditApplied=story.beat>=2&&!story.merchantHeadline;
     if(story.beat>=6){business.orderCreated=true;business.payment='paid'}else business=createBusiness();
     if(story.beat>=9){business.delivery='awaiting-pickup';business.bookingRef=fixture.bookingRef}if(story.beat>=10)business.delivery='picked-up';if(story.beat===11)story.playback='complete';
-    renderBeat();renderBusiness();renderControls();
+    renderBeat();
+    if(story.beat===6)setPhase('confirmed');
+    renderBusiness();renderControls();
   }
 
   function jumpChapter(chapter){
