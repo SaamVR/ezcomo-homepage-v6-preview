@@ -18,7 +18,7 @@
   --v7-control-radius:8px;
 }
 body.v6-mature{background:var(--v7-canvas)}
-.v7-demo-section{background:var(--v7-stage);color:var(--v7-dark-text);border-block:1px solid #2d3c34;padding-block:76px 88px}
+.v7-demo-section{background:var(--v7-stage);color:var(--v7-dark-text);border-block:1px solid #2d3c34;padding-block:76px 88px;font-family:"Noto Sans Bengali",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .v7-demo-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.78fr);gap:clamp(28px,5vw,76px);align-items:end;margin-bottom:28px}
 .v7-demo-heading .kicker{color:var(--v7-warm-soft)}
 .v7-demo-heading h2{max-width:760px;margin:10px 0 0;color:var(--v7-dark-text);font-size:clamp(34px,4vw,54px);line-height:1.05;letter-spacing:-.04em;text-wrap:balance}
@@ -158,7 +158,7 @@ body.v7-focused .v7-back-page{display:inline-flex}
 .v7-player[data-beat="4"] .v7-sell-layout{grid-template-columns:1fr}
 .v7-player[data-beat="5"] .v7-order-summary{opacity:1;transform:none;pointer-events:auto}
 .v7-player[data-beat="6"][data-phase="checkout"] .v7-checkout,.v7-player[data-beat="6"][data-phase="pending"] .v7-checkout{opacity:1;transform:none;pointer-events:auto}
-.v7-player[data-beat="6"][data-phase="confirmed"] .v7-receipt{opacity:1;transform:none;pointer-events:auto}
+.v7-player[data-beat="6"][data-phase="confirmed"] .v7-receipt,.v7-player[data-beat="7"] .v7-receipt{opacity:1;transform:none;pointer-events:auto}
 .v7-player[data-beat="6"][data-phase="pending"] .v7-checkout-status>span{background:#b68a46}
 .v7-player[data-beat="6"][data-phase="confirmed"] .v7-order-panel{background:#edf3ef}
 
@@ -328,4 +328,13 @@ html[lang="bn"] .v7-demo-heading h2{letter-spacing:-.02em}
 }
 @media(prefers-reduced-motion:reduce){
   .v7-scene,.v7-share-cue,.v7-order-summary,.v7-checkout,.v7-receipt,.v7-result-strip,.v7-action-indicator,.site-nav{transition:none!important}
+}
+
+/* V7 QA refinements */
+.v7-order-row>strong,.v7-muted-row>strong,.v7-summary-product b,.v7-summary-line b,.v7-summary-total strong,.v7-receipt-top>b,.v7-detail-product>b,.v7-detail-grid dd{font-family:"Noto Sans Bengali",system-ui,sans-serif}
+@media(max-width:760px){
+  body:not(.v7-focused) .v7-back-page{display:none!important}
+  .v7-edit-context input{font-size:13px;text-overflow:ellipsis}
+  .v7-headline-wrap{max-height:190px;overflow:hidden}
+  .v7-headline-wrap h3{max-width:100%;font-size:clamp(22px,7vw,28px)}
 }
