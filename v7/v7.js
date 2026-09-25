@@ -385,7 +385,12 @@
     root.style.scrollBehavior='auto';scrollTo({top,left:0,behavior:'auto'});root.style.scrollBehavior=old;
   }
   function enterFocus(){
-    if(story.paced)return;story.focused=true;document.body.classList.add('v7-focused');updateViewportPolicy();requestAnimationFrame(()=>requestAnimationFrame(alignPlayer));
+    if(story.paced)return;
+    story.focused=true;
+    document.body.classList.add('v7-focused');
+    updateViewportPolicy();
+    alignPlayer();
+    setTimeout(()=>{if(story.focused)alignPlayer()},120);
   }
   function exitFocus({pause=true,scroll=false}={}){
     if(pause&&story.playback==='playing')pauseStory('leave-focus');story.focused=false;document.body.classList.remove('v7-focused');updateViewportPolicy();
@@ -395,7 +400,12 @@
   function beginStory(){
     story.paced=isPaced();resetDemoEvents();
     if(story.paced){exitFocus({pause:false});story.playback='paused';story.pauseReason='paced';renderControls();player.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'});return}
-    enterFocus();requestAnimationFrame(()=>requestAnimationFrame(()=>{alignPlayer();startClock()}));
+    enterFocus();
+    setTimeout(()=>{
+      if(!story.focused||story.playback!=='idle')return;
+      alignPlayer();
+      startClock();
+    },140);
   }
   function replayStory(){resetDemoEvents();beginStory()}
 
