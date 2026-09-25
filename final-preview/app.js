@@ -1189,11 +1189,15 @@
     const settle=()=>{
       const offset=(siteNav?.offsetHeight||0)+8;
       const top=Math.max(0,shell.getBoundingClientRect().top+window.scrollY-offset);
+      const root=document.documentElement;
+      const previousBehavior=root.style.scrollBehavior;
+      root.style.scrollBehavior='auto';
       window.scrollTo({top,left:0,behavior:'auto'});
+      root.style.scrollBehavior=previousBehavior;
     };
     settle();
     requestAnimationFrame(()=>requestAnimationFrame(settle));
-    setTimeout(settle,180);
+    setTimeout(settle,220);
   };
   const setChapter=(chapter,{focus=false,internal=false,sampleLoaded=false,align=false}={})=>{
     if(!['build','sell','manage'].includes(chapter))return;
