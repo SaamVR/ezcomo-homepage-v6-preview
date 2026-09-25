@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171916">
+  <meta name="description" content="EZComo helps Bangladeshi merchants launch branded online stores and manage products, orders, payments and delivery from one workspace.">
+  <link rel="icon" href="data:,">
+  <title>EZComo — Build your store. Run the business behind it.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="v6-mature">
+<div id="pageTop" class="page-top-anchor" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="announcement" id="announcement">
+  <div class="shell announcement-inner">
+    <span data-i18n="announcement">Built for Bangladesh commerce — bKash, Nagad, COD and Pathao workflows.</span>
+    <a href="#templates" data-i18n="announcementCta">Explore storefronts</a>
+    <button type="button" id="announcementClose" aria-label="Dismiss announcement">×</button>
+  </div>
+</div>
+
+<header class="site-nav" id="top">
+  <div class="shell nav-inner">
+    <a class="brand" href="#pageTop" aria-label="EZComo home"><span class="brand-symbol">E</span><span>EZCOMO</span></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#features" data-i18n="navWhy">Product</a>
+      <a href="#templates" data-i18n="navTemplates">Storefronts</a>
+      <a href="#integrations" data-i18n="navIntegrations">Local commerce</a>
+      <a href="#pricing" data-i18n="navPricing">Pricing</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-lamp navbar-lamp" id="navLamp">
+        <button class="lamp-toggle" id="themeToggle" type="button" aria-label="Switch theme" aria-pressed="false">
+          <span class="lamp-fixture" aria-hidden="true"><i></i><b></b></span>
+          <span class="lamp-glow" aria-hidden="true"></span>
+        </button>
+        <button class="lamp-pull" id="lampPull" type="button" aria-label="Pull lamp cord to switch theme">
+          <span class="lamp-cord" aria-hidden="true"></span>
+          <span class="lamp-weight" aria-hidden="true"></span>
+        </button>
+      </div>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language"><span>EN</span><span>বাংলা</span></button>
+      <a class="nav-login" href="https://ezcomo.shop/login" data-i18n="login">Log in</a>
+      <a class="btn btn-primary nav-cta" data-signup href="https://ezcomo.shop/signup?template=threads" data-i18n="startFree">Start free</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="#features" data-i18n="navWhy">Product</a><a href="#templates" data-i18n="navTemplates">Storefronts</a><a href="#integrations" data-i18n="navIntegrations">Local commerce</a><a href="#pricing" data-i18n="navPricing">Pricing</a><a href="https://ezcomo.shop/login" data-i18n="login">Log in</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="hero">
+  <div class="ambient a1" aria-hidden="true"></div><div class="ambient a2" aria-hidden="true"></div><div class="hero-grid-lines" aria-hidden="true"></div>
+  <div class="shell hero-grid">
+    <div class="hero-copy reveal is-visible">
+      <div class="eyebrow"><span class="status-dot"></span><span data-i18n="heroEyebrow">Commerce built around Bangladesh</span></div>
+      <h1 data-i18n-html="heroTitle">Your online store. Your daily business. <em>Connected.</em></h1>
+      <p class="hero-lede" data-i18n="heroLede">Build a branded storefront and manage products, orders, payments, stock and delivery from one workspace—built around selling in Bangladesh.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-large" data-signup href="https://ezcomo.shop/signup?template=threads"><span data-i18n="createStore">Create free store</span><b>→</b></a>
+        <a class="btn btn-ghost btn-large" href="#features"><span data-i18n="seeStores">Try the editor</span><b>↓</b></a>
+      </div>
+      <p class="hero-platform-note" data-i18n="heroSupport">Selling through Facebook or Instagram? Keep them for discovery—move browsing and orders into your own store.</p>
+    </div>
+
+    <div class="hero-stage reveal is-visible" id="heroStage">
+      <div class="stage-glow" aria-hidden="true"></div>
+      <div class="hero-store-shell">
+        <div class="hero-store-meta"><span><i></i>LIVE STOREFRONT</span><b id="heroWindowTitle">Threads</b></div>
+        <div class="hero-preview-frame" id="heroStoreVisual" data-template-visual="threads">
+          <div class="storefront-ui">
+            <header class="storefront-nav">
+              <b id="heroStoreBrand">THREADS</b>
+              <nav><span>New</span><span>Shop</span><span>Stories</span></nav>
+              <div class="mini-cart">Cart <i>1</i></div>
+            </header>
+            <section class="storefront-hero">
+              <div class="storefront-copy-box">
+                <small id="heroStoreEyebrow">NEW DROP 06</small>
+                <h3 id="visualHeadline">Built for the city after dark.</h3>
+                <p id="heroStoreBody">Everyday pieces with a sharper point of view.</p>
+                <div class="storefront-cta-row"><button type="button" id="heroStoreCta">Shop collection</button><span>View lookbook →</span></div>
+              </div>
+              <div class="product-sculpture" aria-hidden="true"><span></span><span></span><span></span></div>
+            </section>
+            <section class="storefront-featured">
+              <div class="storefront-featured-head"><strong id="heroFeaturedTitle">Featured products</strong><span>View all →</span></div>
+              <div class="storefront-products">
+                <article><div class="flat-product flat-tee" aria-hidden="true"><i></i><b></b></div><strong id="heroProduct1Name">Studio Tee</strong><span id="heroProduct1Price">৳1,490</span></article>
+                <article><div class="flat-product flat-tote" aria-hidden="true"><i></i><b></b></div><strong id="heroProduct2Name">Canvas Tote</strong><span id="heroProduct2Price">৳990</span></article>
+                <article><div class="flat-product flat-mug" aria-hidden="true"><i></i><b></b></div><strong id="heroProduct3Name">Rib Mug</strong><span id="heroProduct3Price">৳690</span></article>
+              </div>
+            </section>
+          </div>
+          <div class="preview-sheen" aria-hidden="true"></div>
+        </div>
+        <aside class="hero-ops-dock" aria-label="Sample merchant workspace">
+          <div class="hero-ops-head"><span data-i18n="heroWorkspaceLabel">SAMPLE MERCHANT WORKSPACE</span><b><i></i><span data-i18n="heroWorkspaceLive">Today at a glance</span></b></div>
+          <div class="hero-ops-grid">
+            <div><small data-i18n="heroOrders">Orders</small><strong>14</strong><em>+4 today</em></div>
+            <div><small data-i18n="heroPayments">Payment</small><strong>11 paid</strong><em>3 COD</em></div>
+            <div><small data-i18n="heroStock">Low stock</small><strong>2</strong><em data-i18n="heroNeedsAction">needs action</em></div>
+            <div><small data-i18n="heroCourier">Courier</small><strong>4 ready</strong><em>Pathao</em></div>
+          </div>
+        </aside>
+        <span class="store-tabs-label" data-i18n="heroPreviewLabel">QUICK STOREFRONT EXAMPLES</span>
+        <div class="store-tabs" role="tablist" aria-label="Choose storefront preview">
+          <button class="store-tab active" role="tab" type="button" data-template="threads" aria-selected="true" aria-controls="heroStoreVisual">Threads</button>
+          <button class="store-tab" role="tab" type="button" data-template="electronics" aria-selected="false" aria-controls="heroStoreVisual">Electronics</button>
+          <button class="store-tab" role="tab" type="button" data-template="crafts" aria-selected="false" aria-controls="heroStoreVisual">Crafts</button>
+          <button class="store-tab" role="tab" type="button" data-template="food" aria-selected="false" aria-controls="heroStoreVisual">Food</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof-rail capability-map" id="why">
+  <div class="shell proof-rail-inner reveal">
+    <div class="proof-intro">
+      <span class="mini-label" data-i18n="proofLabel">ONE CONNECTED BUSINESS</span>
+      <strong data-i18n="proofIntro">The storefront and the work behind it stay in the same flow.</strong>
+    </div>
+    <div class="proof-flow" aria-label="EZComo capability map">
+      <div class="proof-node"><b>01</b><strong data-i18n="proofStore">Storefront</strong><small data-i18n="proofStoreNote">Customers browse</small></div><i aria-hidden="true">→</i>
+      <div class="proof-node"><b>02</b><strong data-i18n="proofProducts">Products</strong><small data-i18n="proofProductsNote">Catalog + stock</small></div><i aria-hidden="true">→</i>
+      <div class="proof-node"><b>03</b><strong data-i18n="proofOrder">Orders</strong><small data-i18n="proofOrderNote">Structured details</small></div><i aria-hidden="true">→</i>
+      <div class="proof-node"><b>04</b><strong data-i18n="proofPayments">Payments</strong><small data-i18n="proofPaymentsNote">Paid or COD</small></div><i aria-hidden="true">→</i>
+      <div class="proof-node"><b>05</b><strong data-i18n="proofStock">Inventory</strong><small data-i18n="proofStockNote">Stock stays visible</small></div><i aria-hidden="true">→</i>
+      <div class="proof-node"><b>06</b><strong data-i18n="proofDelivery">Delivery</strong><small data-i18n="proofDeliveryNote">Next action ready</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section features-section cms-story-section connected-journey" id="features">
+  <div class="shell">
+    <div class="section-heading split reveal journey-intro">
+      <div>
+        <p class="kicker" data-i18n="journeyKicker">YOUR BUSINESS, CONNECTED</p>
+        <h2 data-i18n="journeyTitle">Build your store. Turn orders into action.</h2>
+      </div>
+      <div class="journey-intro-copy">
+        <p data-i18n="journeyLead">Customize your storefront, see a customer place an order, and manage what happens next—all in EZComo.</p>
+        <div class="journey-intro-actions">
+          <button class="btn btn-primary" type="button" id="journeyWatch" data-i18n="journeyWatch">Watch the journey</button>
+          <button class="btn btn-ghost" type="button" id="journeyExplore" data-i18n="journeyExplore">Try it yourself</button>
+        </div>
+        <small class="journey-disclosure" data-i18n="journeyDisclosure">Interactive demo · Sample data · No real payments or deliveries</small>
+      </div>
+    </div>
+
+    <article class="journey-shell reveal" id="journeyShell" data-chapter="build" data-mode="guided" data-playback="idle" data-storefront-mode="editor">
+      <nav class="journey-chapters" id="journeyChapterNav" aria-label="Product demonstration chapters">
+        <button type="button" class="journey-chapter is-active" data-journey-chapter="build" aria-current="step">
+          <span class="journey-chapter-marker"><b>01</b></span>
+          <span><strong data-i18n="chapterBuild">Build</strong><small data-i18n="journeyBuildCopy">Make it yours</small></span>
+        </button>
+        <span class="journey-progress-line" aria-hidden="true"></span>
+        <button type="button" class="journey-chapter" data-journey-chapter="sell">
+          <span class="journey-chapter-marker"><b>02</b></span>
+          <span><strong data-i18n="chapterSell">Sell</strong><small data-i18n="journeySellCopy">Receive an order</small></span>
+        </button>
+        <span class="journey-progress-line" aria-hidden="true"></span>
+        <button type="button" class="journey-chapter" data-journey-chapter="manage">
+          <span class="journey-chapter-marker"><b>03</b></span>
+          <span><strong data-i18n="chapterManage">Manage</strong><small data-i18n="journeyManageCopy">Prepare delivery</small></span>
+        </button>
+      </nav>
+
+      <div class="journey-context" id="journeyContext">
+        <span><b>Studio Tee</b> · Black / M · Qty 1 · <strong>৳1,490</strong></span>
+        <span id="journeyOrderId" hidden>Order #1051</span>
+      </div>
+
+      <div class="journey-stage" id="journeyStage">
+        <span id="chapter-build" class="journey-fragment-anchor" aria-hidden="true"></span>
+        <div class="journey-scene journey-scene-build is-active" data-journey-scene="build">
+          <div id="buildEditorMount">
+<article class="product-story-card editor-story chapter-demo-card journey-demo-card" id="editorStoryPanel" data-spotlight>
+      <div class="story-card-head">
+        <div><span class="mini-label" data-i18n="builderLabel">01 · STOREFRONT EDITOR</span><h3 data-i18n="builderTitle">Make the storefront feel like your business.</h3><p data-i18n="builderCopy">Change the headline, color or section order and watch the storefront update immediately.</p></div>
+        <div class="story-card-note editor-interaction-cue"><i></i><span data-i18n="builderHint">Try one clear change: edit the headline or move a section.</span></div>
+      </div>
+
+      <div class="product-shot ui-shot builder-ui editor-demo" id="editorDemo">
+        <div class="editor-topbar">
+          <div class="editor-brand"><b>E</b><span data-i18n="editorTitle">Store editor</span><em data-i18n="editorPreview">Preview</em></div>
+          <div class="editor-top-actions"><span class="editor-saved"><i></i><span data-i18n="editorLive">Live changes</span></span><button type="button" id="editorReset" data-i18n="editorReset">Reset demo</button></div>
+        </div>
+
+        <aside class="editor-palette" aria-label="Storefront blocks">
+          <span class="editor-panel-label" data-i18n="editorPage">PAGE</span>
+          <button type="button" class="editor-block-btn" data-editor-target="announcementBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorAnnouncement">Announcement</span><b>01</b></button>
+          <button type="button" class="editor-block-btn" data-editor-target="headerBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorHeader">Header</span><b>02</b></button>
+          <button type="button" class="editor-block-btn active" data-editor-target="heroBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorHero">Hero</span><b>03</b></button>
+          <button type="button" class="editor-block-btn" data-editor-target="categoriesBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorCategories">Categories</span><b>04</b></button>
+          <button type="button" class="editor-block-btn" data-editor-target="productsBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorFeatured">Featured products</span><b>05</b></button>
+          <button type="button" class="editor-block-btn" data-editor-target="promoBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorPromo">Collection promo</span><b>06</b></button>
+          <button type="button" class="editor-block-btn" data-editor-target="newBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorNew">New arrivals</span><b>07</b></button>
+          <button type="button" class="editor-block-btn" data-editor-target="storyBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorStory">Brand story</span><b>08</b></button>
+          <button type="button" class="editor-block-btn" data-editor-target="benefitsBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorBenefits">Store benefits</span><b>09</b></button>
+          <button type="button" class="editor-block-btn" data-editor-target="newsletterBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorNewsletter">Newsletter</span><b>10</b></button>
+          <button type="button" class="editor-block-btn" data-editor-target="footerBlock"><span class="section-drag-grip" aria-hidden="true">⠿</span><i></i><span data-i18n="editorFooter">Footer</span><b>11</b></button>
+          <div class="editor-palette-tip"><strong data-i18n="editorTry">Try it</strong><span data-i18n="editorTryHint">Drag sections → edit → move content</span></div>
+        </aside>
+
+        <div class="editor-stage">
+          <div class="editor-stage-head"><span>THREADS / HOME</span><div><i></i><i></i><i></i></div></div>
+          <div class="editor-canvas" id="editorCanvas">
+            <section class="editor-section editor-announcement-block" id="announcementBlock" data-section-name="Announcement">
+              <span class="section-chip">ANNOUNCEMENT</span>
+              <div class="editable-layer editor-content-group compact-group" data-editable="announcementText" style="left:7%;top:28%">
+                <button class="drag-handle" type="button" aria-label="Drag announcement">⠿</button>
+                <div class="editable-group-body"><span class="editable-text editable-kicker" contenteditable="plaintext-only" spellcheck="false">Free delivery over ৳1,500 · Dhaka delivery available</span></div>
+              </div>
+            </section>
+
+            <section class="editor-section editor-header-block" id="headerBlock" data-section-name="Header">
+              <span class="section-chip">HEADER</span>
+              <div class="editor-store-header">
+                <strong>THREADS</strong><nav><span>New</span><span>Shop</span><span>Stories</span></nav><span>Cart (1)</span>
+              </div>
+            </section>
+
+            <section class="editor-section editor-hero-block active" id="heroBlock" data-section-name="Hero">
+              <span class="section-chip">HERO</span>
+              <div class="editable-layer editor-content-group selected" data-editable="heroTitle" style="left:8%;top:20%">
+                <button class="drag-handle" type="button" aria-label="Drag hero content">⠿</button>
+                <div class="editable-group-body">
+                  <span class="editable-text editable-kicker" data-field-label="Eyebrow" contenteditable="plaintext-only" spellcheck="false">NEW DROP 06</span>
+                  <span class="editable-text editable-title" data-field-label="Headline" contenteditable="plaintext-only" spellcheck="false">Make the everyday unmistakably yours.</span>
+                  <span class="editable-text editable-body" data-field-label="Body" contenteditable="plaintext-only" spellcheck="false">Everyday pieces with a sharper point of view.</span>
+                  <div class="editor-button-row"><span>Shop collection</span><i>View lookbook →</i></div>
+                </div>
+              </div>
+              <div class="editor-art-shapes" aria-hidden="true"><i></i><i></i><i></i></div>
+            </section>
+
+            <section class="editor-section editor-categories-block" id="categoriesBlock" data-section-name="Categories">
+              <span class="section-chip">CATEGORIES</span>
+              <div class="editable-layer editor-content-group" data-editable="categoriesTitle" style="left:7%;top:12%">
+                <button class="drag-handle" type="button" aria-label="Drag categories content">⠿</button>
+                <div class="editable-group-body"><span class="editable-text editable-subtitle" contenteditable="plaintext-only" spellcheck="false">Shop by collection</span></div>
+              </div>
+              <div class="editor-category-row"><span>New drop</span><span>T-shirts</span><span>Accessories</span><span>Everyday</span></div>
+            </section>
+
+            <section class="editor-section editor-products-block" id="productsBlock" data-section-name="Featured products">
+              <span class="section-chip">FEATURED PRODUCTS</span>
+              <div class="editable-layer editor-content-group" data-editable="productsTitle" style="left:7%;top:8%">
+                <button class="drag-handle" type="button" aria-label="Drag featured heading">⠿</button>
+                <div class="editable-group-body">
+                  <span class="editable-text editable-kicker" contenteditable="plaintext-only" spellcheck="false">CURATED FOR YOU</span>
+                  <span class="editable-text editable-subtitle" contenteditable="plaintext-only" spellcheck="false">Featured products</span>
+                </div>
+              </div>
+              <div class="editor-product-row editor-product-row-four" aria-label="Example featured products">
+                <article class="editor-product-card"><div class="flat-product flat-tee" aria-hidden="true"><i></i><b></b></div><div><strong>Studio Tee</strong><span>৳1,490</span><small>18 in stock</small></div></article>
+                <article class="editor-product-card"><div class="flat-product flat-tote" aria-hidden="true"><i></i><b></b></div><div><strong>Canvas Tote</strong><span>৳990</span><small>12 in stock</small></div></article>
+                <article class="editor-product-card"><div class="flat-product flat-mug" aria-hidden="true"><i></i><b></b></div><div><strong>Rib Mug</strong><span>৳690</span><small>26 in stock</small></div></article>
+                <article class="editor-product-card"><div class="flat-product flat-cap" aria-hidden="true"><i></i><b></b></div><div><strong>Field Cap</strong><span>৳790</span><small>9 in stock</small></div></article>
+              </div>
+            </section>
+
+            <section class="editor-section editor-promo-block" id="promoBlock" data-section-name="Collection promo">
+              <span class="section-chip">COLLECTION PROMO</span>
+              <div class="editable-layer editor-content-group" data-editable="promoTitle" style="left:8%;top:20%">
+                <button class="drag-handle" type="button" aria-label="Drag promo content">⠿</button>
+                <div class="editable-group-body">
+                  <span class="editable-text editable-kicker" contenteditable="plaintext-only" spellcheck="false">WEEKEND EDIT</span>
+                  <span class="editable-text editable-promo" contenteditable="plaintext-only" spellcheck="false">Three pieces. One easy uniform.</span>
+                  <div class="editor-button-row"><span>Explore edit</span></div>
+                </div>
+              </div>
+              <div class="promo-illustration" aria-hidden="true"><i></i><i></i><i></i></div>
+            </section>
+
+            <section class="editor-section editor-new-block" id="newBlock" data-section-name="New arrivals">
+              <span class="section-chip">NEW ARRIVALS</span>
+              <div class="editable-layer editor-content-group" data-editable="newTitle" style="left:7%;top:7%">
+                <button class="drag-handle" type="button" aria-label="Drag new arrivals heading">⠿</button>
+                <div class="editable-group-body"><span class="editable-text editable-subtitle" contenteditable="plaintext-only" spellcheck="false">New this week</span></div>
+              </div>
+              <div class="editor-new-grid"><article><div class="flat-product flat-tee"><i></i><b></b></div><strong>Box Tee</strong><span>৳1,290</span></article><article><div class="flat-product flat-tote"><i></i><b></b></div><strong>Day Tote</strong><span>৳890</span></article><article><div class="flat-product flat-cap"><i></i><b></b></div><strong>Soft Cap</strong><span>৳690</span></article><article><div class="flat-product flat-mug"><i></i><b></b></div><strong>Rib Mug</strong><span>৳690</span></article></div>
+            </section>
+
+            <section class="editor-section editor-story-block" id="storyBlock" data-section-name="Brand story">
+              <span class="section-chip">BRAND STORY</span>
+              <div class="story-flat-art" aria-hidden="true"><i></i><i></i></div>
+              <div class="editable-layer editor-content-group" data-editable="storyTitle" style="left:51%;top:20%">
+                <button class="drag-handle" type="button" aria-label="Drag brand story">⠿</button>
+                <div class="editable-group-body">
+                  <span class="editable-text editable-kicker" contenteditable="plaintext-only" spellcheck="false">OUR POINT OF VIEW</span>
+                  <span class="editable-text editable-subtitle" contenteditable="plaintext-only" spellcheck="false">Fewer things. Better chosen.</span>
+                  <span class="editable-text editable-body" contenteditable="plaintext-only" spellcheck="false">Designed for repeat wear, easy combinations and real everyday use.</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="editor-section editor-benefits-block" id="benefitsBlock" data-section-name="Store benefits">
+              <span class="section-chip">STORE BENEFITS</span>
+              <div class="benefits-row"><span><b>৳</b><i>bKash & Nagad</i></span><span><b>→</b><i>Delivery options</i></span><span><b>↺</b><i>Easy support</i></span></div>
+            </section>
+
+            <section class="editor-section editor-newsletter-block" id="newsletterBlock" data-section-name="Newsletter">
+              <span class="section-chip">NEWSLETTER</span>
+              <div class="editable-layer editor-content-group" data-editable="newsletterTitle" style="left:8%;top:18%">
+                <button class="drag-handle" type="button" aria-label="Drag newsletter content">⠿</button>
+                <div class="editable-group-body">
+                  <span class="editable-text editable-subtitle" contenteditable="plaintext-only" spellcheck="false">Get the next drop first.</span>
+                  <span class="editable-text editable-body" contenteditable="plaintext-only" spellcheck="false">New products, limited edits and occasional offers.</span>
+                  <div class="newsletter-field"><span>Your email</span><b>Join</b></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="editor-section editor-footer-block" id="footerBlock" data-section-name="Footer">
+              <span class="section-chip">FOOTER</span>
+              <div class="editor-footer-content"><strong>THREADS</strong><div><span>Shop</span><span>Delivery</span><span>Contact</span></div><small>© 2026 Threads</small></div>
+            </section>
+          </div>
+        </div>
+
+        <aside class="editor-inspector">
+          <span class="editor-panel-label" data-i18n="editorSelected">SELECTED</span>
+          <div class="inspector-name"><small data-i18n="editorContentGroup">Content group</small><strong id="inspectorLayerName">Hero content</strong></div>
+          <label><span data-i18n="editorText">Focused text</span><input id="editorTextInput" type="text" value="Make the everyday unmistakably yours."></label>
+          <label><span data-i18n="editorColor">Section color</span><div class="editor-swatches" id="editorSwatches"><button type="button" data-color="#ae9461" style="--swatch:#ae9461" aria-label="Muted brass"></button><button type="button" data-color="#788379" style="--swatch:#788379" aria-label="Faded sage"></button><button type="button" data-color="#33483d" style="--swatch:#33483d" aria-label="Forest moss"></button><button type="button" data-color="#9b5845" style="--swatch:#9b5845" aria-label="Oxidized clay"></button></div></label>
+          <div class="editor-position-readout"><span data-i18n="editorPosition">Position</span><strong id="positionReadout">X 8% · Y 20%</strong></div>
+          <div class="inspector-options"><button type="button" data-align="left" class="active">Left</button><button type="button" data-align="center">Center</button><button type="button" data-align="right">Right</button></div>
+          <div class="editor-help"><i></i><span data-i18n="editorHelp">Select any text line to rewrite it. Drag the handle to move the whole content group.</span></div>
+        </aside>
+      </div>
+    </article>
+          </div>
+        </div>
+
+        <span id="chapter-sell" class="journey-fragment-anchor" aria-hidden="true"></span>
+        <div class="journey-scene journey-scene-sell" data-journey-scene="sell" hidden aria-hidden="true">
+          <div class="sell-composition">
+            <div class="customer-storefront-mount" id="customerStorefrontMount"></div>
+            <div class="sell-runner-mount" id="sellRunnerMount">
+              <div class="sell-workflow-mount" id="sellWorkflowMount">
+<article class="product-story-card workflow-story chapter-demo-card journey-demo-card" id="orderWorkflowCard" data-spotlight>
+      <div class="workflow-head">
+        <div><span class="mini-label" data-i18n="workflowLabel">02 · SELL · CUSTOMER ORDER</span><h3 data-i18n="workflowTitle">A customer places an order from the same storefront.</h3><p data-i18n="workflowCopy">The same Studio Tee checkout creates order #1051 with its payment and product details attached.</p></div>
+        <button type="button" class="workflow-run" id="workflowRun"><span class="run-dot"></span><span data-i18n="workflowRun">Place sample order</span></button>
+      </div>
+      <div class="workflow-demo" id="workflowDemo">
+        <div class="workflow-checkout">
+          <div class="checkout-top"><span>CUSTOMER CHECKOUT</span><i></i></div>
+          <div class="checkout-product"><div class="flat-product flat-tee workflow-product" aria-hidden="true"><i></i><b></b></div><div><strong>Studio Tee</strong><small>Black · M · Qty 1</small><span>৳1,490</span></div></div>
+          <div class="checkout-total"><span>Total</span><strong>৳1,490</strong></div>
+          <button type="button" class="place-order-btn" id="placeOrderDemo"><span data-i18n="placeOrder">Place order</span><i class="auto-cursor">↖</i></button>
+          <small class="workflow-disclaimer" data-i18n="workflowDisclaimer">Illustrative demo data</small><small class="workflow-cod-note" data-i18n="workflowCodNote">This run shows paid bKash. COD stays unpaid until collection/settlement.</small>
+        </div>
+        <div class="workflow-runner">
+          <div class="runner-top"><span data-i18n="automationRunner">AUTOMATION RUNNER</span><div><i></i><b id="workflowStatus">Waiting</b></div></div>
+          <div class="workflow-now" id="workflowNowPanel"><small data-i18n="workflowNowLabel">NOW HAPPENING</small><strong id="workflowNow" data-i18n="workflowNowReady">Ready to run the order.</strong></div>
+          <div class="workflow-steps">
+            <div class="workflow-step" data-step="payment"><span class="step-icon">৳</span><div><small data-i18n="stepPayment">PAYMENT</small><strong data-i18n="stepPaymentTitle">Payment received</strong></div><em>৳1,490</em></div>
+            <div class="workflow-step" data-step="order"><span class="step-icon">#</span><div><small data-i18n="stepOrder">ORDER</small><strong data-i18n="stepOrderTitle">Order received</strong></div><em>#1051</em></div>
+            <div class="workflow-step workflow-action-step" data-step="courier"><span class="step-icon">→</span><div><small data-i18n="stepCourier">FULFILMENT</small><strong data-i18n="stepCourierTitle">Book courier</strong></div><button type="button" class="courier-action" id="courierAction"><span data-i18n="bookCourier">Book courier</span><i class="action-cursor">↖</i></button></div>
+            <div class="workflow-step" data-step="booked"><span class="step-icon">✓</span><div><small>PATHAO</small><strong data-i18n="stepBookedTitle">Courier booked</strong></div><em>PX-84721</em></div>
+            <div class="workflow-step" data-step="pickup"><span class="step-icon">↑</span><div><small data-i18n="stepPickup">PICKUP</small><strong data-i18n="stepPickupTitle">Courier picked up</strong></div><em data-i18n="collected">Collected</em></div>
+            <div class="workflow-step" data-step="inventory"><span class="step-icon">▦</span><div><small data-i18n="stepInventory">INVENTORY</small><strong data-i18n="stepInventoryTitle">Stock updated</strong></div><em><s>18</s> → 17</em></div>
+            <div class="workflow-step" data-step="profit"><span class="step-icon">↗</span><div><small data-i18n="stepProfit">EST. MARGIN</small><strong data-i18n="stepProfitTitle">Estimated margin</strong></div><em>+৳690</em></div>
+          </div>
+          <div class="workflow-result" id="workflowResult"><span class="pulse-dot"></span><strong data-i18n="workflowResult">Order #1051 has reached the merchant workspace.</strong><small data-i18n="workflowResultNote">Payment and product details are attached. Delivery is the merchant’s next action.</small></div>
+        </div>
+      </div>
+    </article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span id="chapter-manage" class="journey-fragment-anchor" aria-hidden="true"></span>
+        <div class="journey-scene journey-scene-manage" data-journey-scene="manage" hidden aria-hidden="true">
+<article class="product-story-card workspace-story chapter-demo-card journey-demo-card" id="merchantWorkspace" data-spotlight>
+      <div class="story-card-head">
+        <div><span class="mini-label" data-i18n="workspaceLabel">03 · MANAGE · ORDER WORKSPACE</span><h3 data-i18n="workspaceTitle">Take the next action on the same order.</h3><p data-i18n="workspaceCopy">Review Studio Tee order #1051, confirm its payment and stock, then prepare sample delivery.</p></div>
+        <div class="story-card-note"><i></i><span data-i18n="workspaceHint">Interactive demo · sample data · same order #1051</span></div>
+      </div>
+      <div class="workspace-demo workspace-journey" id="workspaceDemo">
+        <aside class="workspace-nav" aria-label="Workspace areas"><b>E</b><span class="active" data-i18n="workspaceOverview">Overview</span><span data-i18n="workspaceOrders">Orders</span><span data-i18n="workspaceProducts">Products</span><span data-i18n="workspacePayments">Payments</span><span data-i18n="workspaceDelivery">Delivery</span></aside>
+        <div class="workspace-main">
+          <div class="workspace-top">
+            <div><small data-i18n="workspaceToday">TODAY · SAMPLE WORKSPACE</small><strong id="workspaceGreeting" data-i18n="workspaceGreeting">Order #1051 is waiting for the Sell workflow.</strong></div>
+            <button type="button" id="workspaceOrdersBtn" data-i18n="workspaceNewOrder">Open order #1051</button>
+          </div>
+          <div class="workspace-metrics">
+            <article><span data-i18n="workspaceMetricOrders">Order</span><b>#1051</b><small>Studio Tee · Black · M</small></article>
+            <article><span data-i18n="workspaceMetricPayments">Payment</span><b id="workspacePaymentMetric">Waiting</b><small>bKash · ৳1,490</small></article>
+            <article><span data-i18n="workspaceMetricStock">Stock</span><b id="workspaceStockMetric">18</b><small data-i18n="workspaceMetricStockNote">Studio Tee remaining</small></article>
+            <article><span data-i18n="workspaceMetricCourier">Delivery</span><b id="workspaceCourierMetric">Not booked</b><small>Pathao</small></article>
+          </div>
+          <div class="workspace-grid workspace-order-flow">
+            <div class="workspace-orders">
+              <div class="workspace-title"><b data-i18n="workspaceRecent">Order #1051</b><span id="workspaceSampleState" data-i18n="workspaceSample">sample order · waiting</span></div>
+              <button type="button" class="workspace-order-row active" id="workspaceOrderRow">
+                <span><b>Studio Tee</b><small>Black · M · Qty 1</small></span><strong>৳1,490</strong><em id="workspaceOrderState">Waiting</em>
+              </button>
+              <div class="workspace-order-detail" id="workspaceOrderDetail" hidden>
+                <div><span data-i18n="workspacePaymentLabel">Payment</span><b id="workspacePaymentDetail">Waiting · bKash</b><small>৳1,490</small></div>
+                <div><span data-i18n="workspaceStockLabel">Inventory</span><b id="workspaceStockDetail">18 in stock</b><small data-i18n="workspaceStockRecorded">Updates after the sample order</small></div>
+                <div><span data-i18n="workspaceDeliveryLabel">Delivery</span><b id="workspaceDeliveryState">Not booked</b><small id="workspaceCourierRef">—</small></div>
+                <div><span data-i18n="workspaceMarginLabel">Estimated margin</span><b id="workspaceMarginState">—</b><small data-i18n="workspaceMarginNote">Sample item cost assumed in demo</small></div>
+              </div>
+            </div>
+            <aside class="workspace-next">
+              <span class="mini-label" data-i18n="workspaceNext">NEXT ACTION</span>
+              <div class="workspace-next-primary"><i></i><b id="workspaceNextText" data-i18n="journeyPrepareDelivery">Prepare delivery</b></div>
+              <div class="workspace-action-stack" id="deliveryActionPanel">
+                <button type="button" class="workspace-action primary" id="prepareDelivery" data-i18n="journeyPrepareDelivery">Prepare delivery</button>
+                <button type="button" class="workspace-action primary" id="bookSampleDelivery" data-i18n="journeyBookDelivery" hidden>Book sample delivery</button>
+                <div class="later-pickup-panel" id="laterPickupPanel" hidden>
+                  <div class="workspace-later" id="laterPickupCaption" data-i18n="journeyLaterPickup">Later · courier pickup update</div>
+                  <button type="button" class="workspace-action secondary" id="simulatePickupUpdate" data-i18n="journeySimulatePickup">Simulate pickup update</button>
+                </div>
+              </div>
+              <a class="workspace-next-link" href="#chapter-sell" data-i18n="workspaceBackToSell">Return to customer order ↑</a>
+              <small id="workspaceNextNote" data-i18n="workspaceNextNote">The same sample order #1051 is used in both chapters.</small>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </article>
+          <aside class="manage-workflow-rail">
+            <div class="manage-flow-intro">
+              <span class="mini-label" data-i18n="manageFlowLabel">FULFILMENT FLOW</span>
+              <strong data-i18n="manageFlowTitle">Prepare delivery, then see the later courier update.</strong>
+              <small data-i18n="manageFlowNote">Sample Pathao booking · no real delivery is created</small>
+            </div>
+            <div id="manageWorkflowMount" class="manage-workflow-mount"></div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="journey-narration" id="journeyNarration" aria-live="polite">
+        <span class="mini-label" data-i18n="journeyNow">GUIDED DEMO</span>
+        <strong id="journeyNarrationText" data-i18n="journeyBuildNarration">Edit your content and layout. See your storefront change as you work.</strong>
+      </div>
+
+      <div class="journey-controls" id="journeyControls">
+        <div class="journey-playback">
+          <button type="button" id="journeyPause" data-i18n="journeyPause" disabled>Pause</button>
+          <button type="button" class="journey-next" id="journeyNext" data-i18n="journeyNext" hidden>Next step</button>
+          <button type="button" id="journeyReplay" data-i18n="journeyReplay">Replay</button>
+          <button type="button" id="journeyReset" data-i18n="journeyReset">Reset demo</button>
+        </div>
+        <button type="button" class="journey-manual" id="journeyExploreStage" data-i18n="journeyExplore">Try it yourself</button>
+      </div>
+
+      <footer class="journey-outcome">
+        <div><span class="mini-label" data-i18n="journeyOutcomeLabel">ONE CONNECTED FLOW</span><strong data-i18n="journeyOutcome">One storefront. One order. A connected way to run your business.</strong></div>
+        <div>
+          <a class="btn btn-primary" data-signup href="https://ezcomo.shop/signup?template=threads" data-i18n="journeyStart">Start building your store</a>
+          <button type="button" class="btn btn-ghost" id="journeyExploreFinal" data-i18n="journeyExploreDemo">Explore the demo</button>
+        </div>
+      </footer>
+    </article>
+  </div>
+</section>
+
+<section class="section templates-section" id="templates">
+  <div class="shell">
+    <div class="template-heading reveal">
+      <div>
+        <p class="kicker" data-i18n="templatesKicker">Choose a starting point</p>
+        <h2 data-i18n="templatesTitle">See what your business could look like online.</h2>
+        <p class="template-lede" data-i18n="templatesCopy">Choose a business type, explore its customer journey, then open a finished demo storefront.</p>
+      </div>
+      <div class="template-count"><span id="templateCount">01</span><i></i><span>04</span></div>
+    </div>
+
+    <div class="template-showcase reveal">
+      <div class="template-nav" role="tablist" aria-label="Storefront structure previews">
+        <button type="button" class="template-option active" role="tab" data-template-full="fashion" aria-selected="true" aria-controls="direction-fashion"><span>01</span><div><b>Fashion</b><small data-i18n="fashionDesc">Catalog + variants</small></div></button>
+        <button type="button" class="template-option" role="tab" data-template-full="booking" aria-selected="false" aria-controls="direction-booking"><span>02</span><div><b>Booking</b><small data-i18n="bookingDesc">Services + time slots</small></div></button>
+        <button type="button" class="template-option" role="tab" data-template-full="hotel" aria-selected="false" aria-controls="direction-hotel"><span>03</span><div><b>Hotel</b><small data-i18n="hotelDesc">Rooms + availability</small></div></button>
+        <button type="button" class="template-option" role="tab" data-template-full="digital" aria-selected="false" aria-controls="direction-digital"><span>04</span><div><b>Digital</b><small data-i18n="digitalDesc">Files + licences</small></div></button>
+      </div>
+
+      <div class="template-canvas">
+        <div class="template-browser">
+          <div class="window-top">
+            <div class="window-lights"><i></i><i></i><i></i></div>
+            <span id="templateLabel">Fashion · structure</span>
+            <span class="window-state"><i></i> DEMO STRUCTURE</span>
+          </div>
+
+          <div class="direction-stage" id="templateVisual">
+            <div class="direction-preview direction-fashion active" id="direction-fashion" role="tabpanel" data-direction-panel="fashion">
+              <div class="direction-nav"><b>ATELIER 27</b><div><span>New</span><span>Women</span><span>Men</span><span>Journal</span></div><em>Bag · 02</em></div>
+              <div class="fashion-hero">
+                <div class="fashion-copy"><small>DROP / 07</small><h3>Quiet forms.<br>Strong silhouettes.</h3><p>Seasonal pieces built around texture, proportion and movement.</p><button type="button">Shop the collection</button></div>
+                <div class="fashion-art"><i></i><i></i><i></i><b>NEW<br>SEASON</b></div>
+              </div>
+              <div class="fashion-products">
+                <article><div class="fashion-product-art fp-one"></div><b>Box Shirt</b><span>৳2,490 · 4 colours</span></article>
+                <article><div class="fashion-product-art fp-two"></div><b>Column Trouser</b><span>৳2,890 · 3 sizes</span></article>
+                <article><div class="fashion-product-art fp-three"></div><b>Studio Tote</b><span>৳1,290 · 2 colours</span></article>
+              </div>
+            </div>
+
+            <div class="direction-preview direction-booking" id="direction-booking" role="tabpanel" data-direction-panel="booking">
+              <div class="direction-nav booking-nav"><b>STUDIO NO.7</b><div><span>Services</span><span>Team</span><span>Journal</span></div><em>My booking</em></div>
+              <div class="booking-layout">
+                <div class="booking-intro">
+                  <small>APPOINTMENTS / DHAKA</small><h3>Choose the service.<br>We’ll find the time.</h3>
+                  <div class="service-list"><button class="active" type="button"><b>Cut + style</b><span>60 min · ৳1,200</span></button><button type="button"><b>Colour session</b><span>120 min · from ৳2,800</span></button><button type="button"><b>Consultation</b><span>30 min · ৳500</span></button></div>
+                </div>
+                <div class="booking-card">
+                  <div class="booking-card-head"><span><small>SELECTED SERVICE</small><b>Cut + style</b></span><em>60 min</em></div>
+                  <div class="booking-month"><button type="button">‹</button><b>September 2026</b><button type="button">›</button></div>
+                  <div class="booking-days"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><i></i><i></i><i>23</i><i class="chosen">24</i><i>25</i><i>26</i><i>27</i></div>
+                  <small class="slot-label">AVAILABLE TIMES</small>
+                  <div class="booking-slots"><button type="button">10:30</button><button class="active" type="button">12:00</button><button type="button">15:30</button></div>
+                  <button type="button" class="booking-cta">Continue booking · ৳1,200</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="direction-preview direction-hotel" id="direction-hotel" role="tabpanel" data-direction-panel="hotel">
+              <div class="direction-nav hotel-nav"><b>NORTH HOUSE</b><div><span>Stay</span><span>Dining</span><span>Explore</span><span>About</span></div><em>Dhaka · BD</em></div>
+              <div class="hotel-hero">
+                <div><small>STAY / REST / RESET</small><h3>A quieter place<br>inside the city.</h3><p>Thoughtful rooms, slow mornings and everything you need within reach.</p></div>
+                <div class="hotel-mark"><i></i><span>NORTH<br>HOUSE</span></div>
+              </div>
+              <div class="hotel-search">
+                <label><span>CHECK IN</span><b>24 Sep</b></label><label><span>CHECK OUT</span><b>26 Sep</b></label><label><span>GUESTS</span><b>2 adults</b></label><button type="button">Check rooms</button>
+              </div>
+              <div class="hotel-rooms">
+                <article><div class="room-art room-one"><i></i><i></i></div><div><small>01 / KING</small><b>Garden King</b><span>Breakfast · Wi-Fi · 2 guests</span><strong>৳8,900 <em>/ night</em></strong></div></article>
+                <article><div class="room-art room-two"><i></i><i></i></div><div><small>02 / SUITE</small><b>Corner Suite</b><span>Lounge · Tub · 3 guests</span><strong>৳12,500 <em>/ night</em></strong></div></article>
+              </div>
+            </div>
+
+            <div class="direction-preview direction-digital" id="direction-digital" role="tabpanel" data-direction-panel="digital">
+              <div class="direction-nav digital-nav"><b>FIELD NOTES</b><div><span>Library</span><span>Bundles</span><span>Licence</span></div><em>Account</em></div>
+              <div class="digital-hero">
+                <div><small>CREATOR TOOLKIT / VOL. 04</small><h3>Useful files.<br>Ready when you are.</h3><p>A focused library of editable assets, templates and working files.</p><div class="digital-actions"><button type="button">Get the bundle · ৳1,990</button><span>Commercial licence included</span></div></div>
+                <div class="digital-stack"><i>PSD</i><i>AI</i><i>PDF</i><b>42<br><small>FILES</small></b></div>
+              </div>
+              <div class="digital-library">
+                <article><span>01</span><div><b>Brand presentation kit</b><small>12 files · AI / PDF</small></div><em>Preview →</em></article>
+                <article><span>02</span><div><b>Social launch pack</b><small>18 files · PSD / PNG</small></div><em>Preview →</em></article>
+                <article><span>03</span><div><b>Packaging mockup set</b><small>12 files · PSD</small></div><em>Preview →</em></article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="direction-data" aria-label="Selected storefront structure data">
+          <div><span>COMMERCE MODEL</span><strong id="directionModel">Product catalog</strong></div>
+          <div><span>PRIMARY FLOW</span><strong id="directionFlow">Collection → Product → Cart</strong></div>
+          <div><span>CORE BLOCKS</span><strong id="directionBlocks">Hero · Collections · Product grid · Cart</strong></div>
+        </div>
+
+        <div class="template-footer">
+          <div><span class="mini-label" data-i18n="selectedDirection">YOUR STARTING POINT</span><h3 id="templateTitle">Fashion</h3><p id="templateDescription">Editorial catalog structure for collections, variants and product-led storytelling.</p><small class="direction-note" data-i18n="directionNote">Interactive demo · sample content.</small></div>
+          <div><a class="btn btn-primary" data-signup id="templateSignup" href="https://ezcomo.shop/signup?template=fashion" data-i18n="useTemplate">Use this structure</a></div>
+        </div>
+        <div class="template-breadth"><span data-i18n="moreStructures">Also built for</span><div><b>Beauty</b><b>Gadgets</b><b>Food</b><b>Crafts</b><b>Single Product</b><b>Wholesale</b><b>Subscriptions</b><b>Real Estate</b></div></div>
+      </div>
+    </div>
+
+    <div class="template-outcomes reveal" aria-label="Finished storefront demos">
+      <div class="template-outcomes-head"><span class="mini-label" data-i18n="examplesKicker">FINISHED DEMO STORES</span><strong data-i18n="examplesTitle">Open a complete example, not just a category photo.</strong></div>
+      <div class="store-example-grid compact">
+        <article class="store-example-card">
+          <div class="storefront-shot storefront-shot-fashion">
+            <div class="demo-browser-bar"><i></i><i></i><i></i><span>atelier-27.demo</span></div>
+            <div class="demo-store-nav"><b>ATELIER 27</b><span>New · Shop · Journal</span></div>
+            <div class="demo-store-hero"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1100&q=82" alt="Person wearing a white T-shirt in a fashion storefront example" loading="lazy"><div><small>DROP / 07</small><strong>Quiet forms.<br>Strong silhouettes.</strong><span>Shop collection →</span></div></div>
+            <div class="demo-phone"><span>ATELIER</span><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=480&q=78" alt="" loading="lazy"></div>
+          </div>
+          <div class="store-example-copy"><span>FASHION</span><h3>Editorial product storefront</h3><ul><li>Collections + variants</li><li>Product-led storytelling</li><li>Mobile-first browsing</li></ul><a href="./demos/fashion.html" data-i18n="openDemoStore">Open demo store ↗</a></div>
+        </article>
+        <article class="store-example-card">
+          <div class="storefront-shot storefront-shot-hotel">
+            <div class="demo-browser-bar"><i></i><i></i><i></i><span>north-house.demo</span></div>
+            <div class="demo-store-nav"><b>NORTH HOUSE</b><span>Stay · Dining · Explore</span></div>
+            <div class="demo-store-hero"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1100&q=82" alt="Modern hotel with pool in a hospitality storefront example" loading="lazy"><div><small>DHAKA / STAY</small><strong>A quieter place<br>inside the city.</strong><span>Check rooms →</span></div></div>
+            <div class="demo-phone"><span>NORTH</span><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=480&q=78" alt="" loading="lazy"></div>
+          </div>
+          <div class="store-example-copy"><span>HOTEL</span><h3>Availability-led booking</h3><ul><li>Date + guest search</li><li>Room availability</li><li>Reservation-first flow</li></ul><a href="./demos/hotel.html" data-i18n="openDemoStore">Open demo store ↗</a></div>
+        </article>
+        <article class="store-example-card">
+          <div class="storefront-shot storefront-shot-food">
+            <div class="demo-browser-bar"><i></i><i></i><i></i><span>table.demo</span></div>
+            <div class="demo-store-nav"><b>TABLE</b><span>Today · Menu · Order</span></div>
+            <div class="demo-store-hero"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1100&q=82" alt="Prepared dishes arranged on a table in a food storefront example" loading="lazy"><div><small>TODAY / FRESH</small><strong>Good food.<br>Ready when you are.</strong><span>Order today →</span></div></div>
+            <div class="demo-phone"><span>TABLE</span><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=480&q=78" alt="" loading="lazy"></div>
+          </div>
+          <div class="store-example-copy"><span>FOOD</span><h3>Menu-first ordering</h3><ul><li>Clear menu + price</li><li>Fast product browsing</li><li>Direct order action</li></ul><a href="./demos/food.html" data-i18n="openDemoStore">Open demo store ↗</a></div>
+        </article>
+      </div>
+      <small class="demo-proof-note" data-i18n="examplesCopy">Interactive demo stores use sample businesses and sample data; they are not merchant testimonials.</small>
+    </div>
+  </div>
+</section>
+
+<section class="section local-proof-section" id="integrations">
+  <div class="shell local-proof-layout">
+    <div class="local-proof-copy reveal">
+      <p class="kicker" data-i18n="localKicker">Built to sell here</p>
+      <h2 data-i18n="localTitle">Local commerce should feel native, not patched together.</h2>
+      <p data-i18n="localCopy">EZComo is designed around the payment habits, delivery workflows and storefront expectations Bangladeshi merchants already work with.</p>
+      <div class="local-principles">
+        <div><span>01</span><b data-i18n="localPayTitle">Familiar checkout</b><small data-i18n="localPayCopy">bKash, Nagad and cash on delivery can appear in the storefront.</small></div>
+        <div><span>02</span><b data-i18n="localDeliveryTitle">Delivery in the order flow</b><small data-i18n="localDeliveryCopy">Pathao merchant-API booking is available when configured.</small></div>
+        <div><span>03</span><b data-i18n="localBrandTitle">Your storefront, your domain</b><small data-i18n="localBrandCopy">Eligible paid plans can connect a verified custom domain.</small></div>
+      </div>
+    </div>
+    <div class="local-connection-board reveal">
+      <div class="connection-head"><div><span class="mini-label" data-i18n="connectionState">SETUP REQUIREMENTS</span><strong data-i18n="connectionTitle">Know what is supported and what needs merchant setup.</strong></div><span class="connection-live"><i></i><span data-i18n="connectionDemo">DEMO STATUS</span></span></div>
+      <div class="connection-group">
+        <span class="mini-label" data-i18n="payments">PAYMENTS</span>
+        <div class="connection-row active"><b>bKash</b><span data-i18n="autoConnected">Supported · connect merchant account</span><em data-i18n="supported">supported</em></div>
+        <div class="connection-row"><b>Nagad</b><span data-i18n="storeOption">Supported storefront checkout option</span><em data-i18n="supported">supported</em></div>
+        <div class="connection-row"><b>COD</b><span data-i18n="codOption">Supported · payment collected later</span><em data-i18n="supported">supported</em></div>
+      </div>
+      <div class="connection-group">
+        <span class="mini-label" data-i18n="delivery">DELIVERY</span>
+        <div class="connection-row active"><b>Pathao</b><span data-i18n="merchantApi">Automated booking when configured</span><em data-i18n="setupRequired">setup required</em></div>
+        <div class="connection-row setup"><b>Steadfast</b><span data-i18n="setupAvailable">Setup available</span><em data-i18n="setupRequired">setup required</em></div>
+        <div class="connection-row setup"><b>REDX</b><span data-i18n="setupAvailable">Setup available</span><em data-i18n="setupRequired">setup required</em></div>
+      </div>
+      <div class="connection-group compact">
+        <span class="mini-label" data-i18n="storefront">STOREFRONT</span>
+        <div class="connection-row"><b data-i18n="customDomain">Custom domain</b><span data-i18n="eligiblePlans">Eligible paid plans</span><em>DNS</em></div>
+        <div class="connection-row"><b data-i18n="responsiveStore">Responsive store</b><span data-i18n="allScreens">Phone to desktop</span><em>360→1440</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="onboarding-strip" id="onboarding">
+  <div class="shell onboarding-inner reveal">
+    <div><span class="mini-label" data-i18n="onboardKicker">FROM SIGNUP TO LIVE</span><strong data-i18n="onboardTitle">Four practical steps to launch.</strong></div>
+    <ol><li><b>01</b><span data-i18n="onboard1">Create your account</span></li><li><b>02</b><span data-i18n="onboard2">Add products and brand details</span></li><li><b>03</b><span data-i18n="onboard3">Set up payment and delivery</span></li><li><b>04</b><span data-i18n="onboard4">Publish your storefront</span></li></ol>
+  </div>
+</section>
+
+<section class="section pricing-section pricing-v7" id="pricing">
+  <div class="shell">
+    <div class="section-heading split reveal">
+      <div><p class="kicker" data-i18n="pricingKicker">Pricing</p><h2 data-i18n="pricingTitle">Start free. Choose the tools you need as you grow.</h2></div>
+      <p data-i18n="pricingCopy">Current plan prices and capabilities are summarized from the live EZComo plan catalog. External payment, courier, messaging and domain-provider charges remain separate where they apply.</p>
+    </div>
+    <div class="pricing-compare reveal">
+      <article>
+        <span class="pricing-plan">FREE</span><h3 data-i18n="priceFree">Free</h3>
+        <p data-i18n="priceFreeNote">Start one storefront on an EZComo-managed URL and upgrade later without rebuilding it.</p>
+        <strong>৳0<small>/mo</small></strong>
+        <ul class="plan-features"><li data-i18n="freeFeature1">1 storefront</li><li data-i18n="freeFeature2">EZComo-managed store URL</li><li data-i18n="freeFeature3">No trial countdown</li></ul>
+        <a class="btn btn-ghost plan-signup" data-plan-id="free" href="https://ezcomo.shop/signup?planId=free&template=fashion" data-i18n="startFree">Start free</a>
+      </article>
+      <article class="featured">
+        <span class="pricing-plan">BASIC</span><h3>Basic</h3>
+        <p data-i18n="priceBasicNote">For one store that needs the core CMS, theme tools and manual or assisted payments.</p>
+        <strong>৳499<small>/mo</small></strong>
+        <ul class="plan-features"><li data-i18n="basicFeature1">1 storefront</li><li data-i18n="basicFeature2">Core CMS blocks + theme tools</li><li data-i18n="basicFeature3">14-day trial configured</li></ul>
+        <a class="btn btn-primary plan-signup" data-plan-id="basic" href="https://ezcomo.shop/signup?planId=basic&template=fashion" data-i18n="chooseBasic">Choose Basic</a>
+      </article>
+      <article>
+        <span class="pricing-plan">ADVANCED</span><h3>Advanced</h3>
+        <p data-i18n="priceAdvancedNote">For growing teams running campaigns and richer storefront operations.</p>
+        <strong>৳999<small>/mo</small></strong>
+        <ul class="plan-features"><li data-i18n="advancedFeature1">Up to 3 storefronts</li><li data-i18n="advancedFeature2">Campaigns, teams, coupons + reviews</li><li data-i18n="advancedFeature3">14-day trial configured</li></ul>
+        <a class="btn btn-ghost plan-signup" data-plan-id="advanced" href="https://ezcomo.shop/signup?planId=advanced&template=fashion" data-i18n="chooseAdvanced">Choose Advanced</a>
+      </article>
+    </div>
+    <div class="pricing-fineprint reveal"><span data-i18n="pricingFineprint">Plan availability is checked at signup. Custom domains are available only on eligible paid plans and still require DNS setup and verification.</span><a href="https://ezcomo.shop/plans"><span data-i18n="comparePlans">Compare full plan details</span> ↗</a></div>
+  </div>
+</section>
+
+<section class="section faq-section" id="faq">
+  <div class="shell">
+    <div class="section-heading centered reveal"><p class="kicker">FAQ</p><h2 data-i18n="faqTitle">The questions that matter before you move beyond DMs.</h2></div>
+    <div class="faq-categories reveal" role="tablist" aria-label="FAQ categories"><button class="faq-tab active" role="tab" type="button" data-faq="start" data-i18n="faqStart" aria-selected="true" aria-controls="faqList">Getting started</button><button class="faq-tab" role="tab" type="button" data-faq="payments" data-i18n="faqPayments" aria-selected="false" aria-controls="faqList">Payments</button><button class="faq-tab" role="tab" type="button" data-faq="delivery" data-i18n="faqDelivery" aria-selected="false" aria-controls="faqList">Delivery</button><button class="faq-tab" role="tab" type="button" data-faq="domains" data-i18n="faqDomains" aria-selected="false" aria-controls="faqList">Domains</button></div>
+    <div class="faq-list reveal" id="faqList" role="tabpanel"></div>
+    <div class="faq-help reveal"><span data-i18n="anotherQuestion">Have another question?</span><a href="https://ezcomo.shop/support"><span data-i18n="talkSupport">Talk to support</span> →</a></div>
+  </div>
+</section>
+
+<section class="closing-section" id="closing">
+  <div class="closing-ambient" aria-hidden="true"></div>
+  <div class="shell closing-panel reveal">
+    <div><p class="kicker" data-i18n="closingKicker">Your next storefront</p><h2 data-i18n="closingTitle">Let customers shop while you get back to running the business.</h2><p data-i18n="closingCopy">Pick a direction, start free and carry that storefront choice directly into setup.</p></div>
+    <div class="closing-actions"><a class="btn btn-light btn-large" data-signup id="closingSignup" href="https://ezcomo.shop/signup?template=threads">Start with Threads</a><a href="#templates" class="closing-link"><span data-i18n="browseAgain">Browse storefronts again</span> ↑</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand"><a class="brand" href="#pageTop"><span class="brand-symbol">E</span><span>EZCOMO</span></a><p data-i18n="footerTag">A storefront customers can use. A workspace merchants can run.</p><small data-i18n="footerIdentity">Bangladesh-first commerce platform · Platform support available from the support page.</small></div>
+    <div><b data-i18n="product">Product</b><a href="#features" data-i18n="navFeatures">Features</a><a href="#templates" data-i18n="navTemplates">Templates</a><a href="#integrations" data-i18n="navIntegrations">Integrations</a><a href="#pricing" data-i18n="navPricing">Pricing</a></div>
+    <div><b data-i18n="support">Support</b><a href="https://ezcomo.shop/support" data-i18n="helpCenter">Contact support</a><a href="#faq">FAQ</a><a href="https://ezcomo.shop/login" data-i18n="login">Log in</a></div>
+    <div><b data-i18n="legal">Legal</b><a href="https://ezcomo.shop/privacy" data-i18n="privacy">Privacy</a><a href="https://ezcomo.shop/terms" data-i18n="terms">Terms</a><a href="https://ezcomo.shop/billing-policy" data-i18n="billing">Billing policy</a></div>
+  </div>
+  <div class="shell footer-bottom"><span>© 2026 EZComo</span><span data-i18n="previewLabel">Redesign preview · demo/sample data is labeled where it appears.</span></div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta" aria-hidden="true"><div class="shell sticky-inner"><div><span class="status-dot"></span><b data-i18n="stickyText">Ready to give customers somewhere better than the DM inbox?</b></div><div><a class="btn btn-primary" data-signup href="https://ezcomo.shop/signup?template=threads" data-i18n="startFree">Start free</a><button id="stickyClose" type="button" aria-label="Dismiss">×</button></div></div></div>
+<script src="./app.js" defer></script>
+</body>
+</html>
