@@ -1270,12 +1270,14 @@ html[data-theme="dark"] body.v6-mature .pricing-compare article .btn.btn-ghost{
 
 .journey-shell{
   position:relative;
-  overflow:clip;
+  overflow:visible;
   border:1px solid #344039;
   border-radius:22px;
   background:#101713;
   box-shadow:0 34px 90px rgba(0,0,0,.26);
 }
+.journey-shell>.journey-chapters{border-radius:21px 21px 0 0}
+.journey-shell>.journey-outcome{border-radius:0 0 21px 21px}
 .journey-chapters{
   position:sticky;top:72px;z-index:24;
   display:grid;
@@ -1491,6 +1493,8 @@ body.v6-mature .connected-journey #orderWorkflowCard .workflow-now strong{color:
   .connected-journey .shell{width:min(100% - 30px,var(--max))}
   .journey-intro-copy>p{font-size:16px}
   .journey-shell{border-radius:16px}
+  .journey-shell>.journey-chapters{border-radius:15px 15px 0 0}
+  .journey-shell>.journey-outcome{border-radius:0 0 15px 15px}
   .journey-chapters{position:sticky;top:66px;z-index:24;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:5px;background:rgba(21,31,26,.96);backdrop-filter:blur(14px)}
   .journey-progress-line{display:none}
   .journey-chapter{min-height:48px;display:flex;align-items:center;justify-content:center;gap:5px;padding:7px 4px;text-align:center}
