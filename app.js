@@ -177,7 +177,7 @@
 
   Object.assign(i18n.en,{
     journeyKicker:'YOUR BUSINESS, CONNECTED',journeyTitle:'Build your store. Turn orders into action.',journeyLead:'Customize your storefront, see a customer place an order, and manage what happens next—all in EZComo.',
-    journeyWatch:'Watch the journey',journeyExplore:'Try it yourself',journeyDisclosure:'Interactive demo · Sample data · No real payments or deliveries',
+    journeyWatch:'Watch the journey · 50 sec',journeyExplore:'Try it yourself',journeyDisclosure:'Interactive demo · Sample data · No real payments or deliveries',
     journeyBuildCopy:'Make it yours',journeySellCopy:'Receive an order',journeyManageCopy:'Prepare delivery',journeyNow:'GUIDED DEMO',
     journeyBuildNarration:'Edit your content and layout. See your storefront change as you work.',journeyCustomerTransition:'Now see it as your customer.',journeySellNarration:"Your customer's order reaches your workspace with the payment and product details attached.",journeyManageTransition:'Now it is your order to manage.',journeyManageNarration:'Review the order and prepare delivery from the same workspace.',
     journeyPause:'Pause',journeyResume:'Resume',journeyNext:'Next step',journeyReplay:'Replay',journeyReset:'Reset demo',journeyOutcomeLabel:'ONE CONNECTED FLOW',journeyOutcome:'One storefront. One order. A connected way to run your business.',journeyStart:'Start building your store',journeyExploreDemo:'Explore the demo',journeySampleLoaded:'Sample order loaded',
@@ -192,7 +192,7 @@
   });
   Object.assign(i18n.bn,{
     journeyKicker:'আপনার ব্যবসা, একসাথে যুক্ত',journeyTitle:'স্টোর বানান। অর্ডারকে পরের কাজে নিয়ে যান।',journeyLead:'স্টোরফ্রন্ট নিজের মতো সাজান, ক্রেতার একটি অর্ডার দেখুন, তারপর EZComo-তেই পরের কাজ সামলান।',
-    journeyWatch:'পুরো যাত্রা দেখুন',journeyExplore:'নিজে করে দেখুন',journeyDisclosure:'ইন্টার‌্যাকটিভ ডেমো · নমুনা ডেটা · কোনো আসল পেমেন্ট বা ডেলিভারি নয়',
+    journeyWatch:'পুরো যাত্রা দেখুন · ৫০ সেকেন্ড',journeyExplore:'নিজে করে দেখুন',journeyDisclosure:'ইন্টার‌্যাকটিভ ডেমো · নমুনা ডেটা · কোনো আসল পেমেন্ট বা ডেলিভারি নয়',
     journeyBuildCopy:'নিজের মতো করুন',journeySellCopy:'অর্ডার নিন',journeyManageCopy:'ডেলিভারি প্রস্তুত করুন',journeyNow:'গাইডেড ডেমো',
     journeyBuildNarration:'কনটেন্ট ও লেআউট সম্পাদনা করুন। কাজ করার সাথে স্টোরফ্রন্টে পরিবর্তন দেখুন।',journeyCustomerTransition:'এবার ক্রেতার চোখে স্টোরফ্রন্ট দেখুন।',journeySellNarration:'ক্রেতার অর্ডার পেমেন্ট ও পণ্যের তথ্যসহ আপনার ওয়ার্কস্পেসে পৌঁছে যায়।',journeyManageTransition:'এবার অর্ডারটি আপনার পরিচালনার পালা।',journeyManageNarration:'একই ওয়ার্কস্পেস থেকে অর্ডার দেখে ডেলিভারি প্রস্তুত করুন।',
     journeyPause:'থামান',journeyResume:'চালিয়ে যান',journeyNext:'পরের ধাপ',journeyReplay:'আবার চালান',journeyReset:'ডেমো রিসেট',journeyOutcomeLabel:'একটি যুক্ত কাজের ধারা',journeyOutcome:'একটি স্টোরফ্রন্ট। একটি অর্ডার। ব্যবসা চালানোর একটি সংযুক্ত ধারা।',journeyStart:'নিজের স্টোর বানানো শুরু করুন',journeyExploreDemo:'ডেমো নিজে দেখুন',journeySampleLoaded:'নমুনা অর্ডার লোড করা হয়েছে',
@@ -205,6 +205,9 @@
     workspaceGreeting:'#1051 অর্ডার নমুনা চেকআউটের অপেক্ষায়।',workspaceNewOrder:'#1051 অর্ডার খুলুন',workspaceSample:'নমুনা অর্ডার · অপেক্ষায়',workspaceNext:'পরের কাজ',workspaceNextNote:'একই নমুনা অর্ডার পুরো ধারাজুড়ে যুক্ত থাকে।',workspaceBackToSell:'ক্রেতার অর্ডারে ফিরুন ↑',workspaceMarginLabel:'পণ্যের আনুমানিক মার্জিন',workspaceMarginNote:'নমুনা পণ্যের খরচ ৳800 · কুরিয়ার, পেমেন্ট ও অন্যান্য প্রযোজ্য ফি বাদ',
     workspaceWaiting:'অপেক্ষায়',workspaceReceived:'গৃহীত',workspaceBooking:'বুক হচ্ছে…',workspaceBooked:'বুকড',workspacePickedUp:'পিকআপ হয়েছে',workspaceRecorded:'রেকর্ড করা হয়েছে',workspaceSynced:'#1051 অর্ডার যুক্ত হয়েছে',workspaceRunSell:'#1051 ওয়ার্কস্পেসে পাঠাতে নমুনা অর্ডার দিন।'
   });
+
+  Object.assign(i18n.en,{customerCheckout:'CUSTOMER CHECKOUT',seeStores:'See how it works',journeyReset:'Reset all',builderTitle:'Make the storefront yours.',workflowTitle:'From your storefront to your first order.',workspaceTitle:'Your order. Your next move.',manageFlowTitle:'From booking to pickup.',heroSupport:'Already selling on social? Give customers a store to browse and a clear way to order.',pricingCopy:'Start with a free storefront. Upgrade when you need more tools. Payment, courier and domain-provider charges are separate.'});
+  Object.assign(i18n.bn,{customerCheckout:'ক্রেতার চেকআউট',seeStores:'কীভাবে কাজ করে দেখুন',journeyReset:'সব রিসেট',builderTitle:'নিজের মতো স্টোর সাজান।',workflowTitle:'আপনার স্টোর থেকে প্রথম অর্ডার।',workspaceTitle:'আপনার অর্ডার। পরের কাজও এখানেই।',manageFlowTitle:'বুকিং থেকে পিকআপ।',heroSupport:'সোশ্যাল মিডিয়ায় বিক্রি করছেন? ক্রেতাকে পণ্য দেখা ও অর্ডার করার জন্য নিজের স্টোর দিন।'});
 
   const faq = {
     en:{
@@ -975,9 +978,47 @@
     economics:{sampleItemCost:800,estimatedItemMargin:null}
   });
   const reducedMotionMedia=matchMedia('(prefers-reduced-motion: reduce)');
+  const pacedTour=()=>reducedMotionMedia.matches||matchMedia('(max-width:700px)').matches;
   let demoState=createDemoState();
   const journeyState={chapter:"build",mode:"guided",playback:"idle",beat:0,caption:"",reducedMotion:reducedMotionMedia.matches,workflowDone:[],completedChapters:[],pauseReason:null};
   let journeyTimers=[],segmentTimers=[],segmentRunning=false,activeStep=null;
+  let guidedEditApplied=false,merchantEdited=false,segmentResume=null;
+  let motion=[];
+  const stopMotion=()=>{motion.forEach(a=>a.cancel());motion=[];document.querySelectorAll('.journey-transfer').forEach(el=>el.remove())};
+  const animate=(el,frames,options)=>{
+    if(!el||journeyState.reducedMotion||!el.animate)return;
+    const animation=el.animate(frames,{duration:700,easing:'cubic-bezier(.22,1,.36,1)',...options});
+    motion.push(animation);animation.finished.catch(()=>{}).finally(()=>{motion=motion.filter(a=>a!==animation)});return animation;
+  };
+  const highlight=(el)=>animate(el,[{boxShadow:'0 0 0 0 rgba(172,67,44,0)'},{boxShadow:'0 0 0 5px rgba(172,67,44,.27)'},{boxShadow:'0 0 0 0 rgba(172,67,44,0)'}],{duration:1100});
+  const cue=message=>{setText('#journeySceneCue',message);shell.dataset.cue=message?'visible':'hidden'};
+  const demonstrateEdit=()=>{
+    const title=$('#heroBlock .editable-title');
+    if(!title)return;
+    if(!merchantEdited&&!guidedEditApplied){
+      title.textContent=isBn()?'প্রতিদিনের স্টাইলে আপনার নিজস্বতা।':'Everyday essentials. Unmistakably yours.';
+      guidedEditApplied=true;window.__syncEditor?.();captureStorefront();
+    }
+    highlight(title);cue(isBn()?'আপনার পরিবর্তন, সঙ্গে সঙ্গেই প্রিভিউতে।':'Your changes. Visible immediately.');
+  };
+  const handoff=(chapter)=>{
+    if(journeyState.reducedMotion){setChapter(chapter,{internal:true});return}
+    const source=chapter==='sell'?$('#editorCanvas'):$('.workflow-step[data-step="order"]');
+    const before=source?.getBoundingClientRect();
+    setChapter(chapter,{internal:true});
+    const target=chapter==='sell'?$('#editorCanvas'):$('#workspaceOrderRow');
+    const after=target?.getBoundingClientRect();
+    if(!before||!after||!before.width||!after.width)return;
+    if(chapter==='sell'){
+      animate(target,[{transformOrigin:'top left',transform:`translate(${before.left-after.left}px,${before.top-after.top}px) scale(${before.width/after.width},${before.height/after.height})`},{transformOrigin:'top left',transform:'none'}],{duration:850});
+    }else{
+      const transfer=document.createElement('div');transfer.className='journey-transfer';transfer.setAttribute('aria-hidden','true');
+      transfer.innerHTML='<span>STUDIO TEE</span><strong>#1051</strong><b>৳1,490</b>';
+      Object.assign(transfer.style,{left:before.left+'px',top:before.top+'px',width:Math.min(before.width,280)+'px'});document.body.appendChild(transfer);
+      const animation=animate(transfer,[{opacity:1,transform:'translate(0,0) scale(1)'},{opacity:1,offset:.8,transform:`translate(${after.left-before.left}px,${after.top-before.top}px) scale(.95)`},{opacity:0,transform:`translate(${after.left-before.left}px,${after.top-before.top}px) scale(.95)`}],{duration:950});
+      if(animation)animation.finished.then(()=>highlight(target)).catch(()=>{}).finally(()=>transfer.remove());else transfer.remove();
+    }
+  };
 
   const cloneState=()=>JSON.parse(JSON.stringify({demo:demoState,journey:journeyState}));
   const markComplete=chapter=>{if(!journeyState.completedChapters.includes(chapter))journeyState.completedChapters.push(chapter)};
@@ -989,7 +1030,7 @@
     $$('.workflow-step.active',demo||document).forEach(el=>el.classList.remove('active'));
     const run=$('#workflowRun'),place=$('#placeOrderDemo');if(run)run.disabled=false;if(place)place.disabled=false;
   };
-  const cancelJourney=()=>{clearTimers(journeyTimers);clearSegment()};
+  const cancelJourney=()=>{clearTimers(journeyTimers);clearSegment();segmentResume=null};
 
   const dispatch=event=>{
     if(!event||!event.type)return cloneState();
@@ -1060,13 +1101,19 @@
   const renderPlayback=()=>{
     shell.dataset.mode=journeyState.mode;shell.dataset.playback=journeyState.playback;
     const pause=$('#journeyPause'),watch=$('#journeyWatch'),next=$('#journeyNext');
-    if(watch)watch.disabled=journeyState.playback==='playing';
+    if(watch){watch.disabled=journeyState.playback==='playing';watch.textContent=pacedTour()?(isBn()?'ধাপে ধাপে দেখুন':'Watch the journey'):(isBn()?'পুরো যাত্রা দেখুন · ৫০ সেকেন্ড':'Watch the journey · 50 sec')}
     if(pause){
       const paused=journeyState.playback==='paused';
-      pause.disabled=journeyState.reducedMotion||(!paused&&journeyState.playback!=='playing');
+      pause.disabled=pacedTour()||(!paused&&journeyState.playback!=='playing'&&!segmentRunning);
       pause.textContent=paused?t('resume'):t('pause');pause.setAttribute('aria-pressed',String(paused));
     }
-    if(next)next.hidden=!(journeyState.reducedMotion&&journeyState.playback==='paused'&&journeyState.mode==='guided');
+    if(next)next.hidden=!(pacedTour()&&journeyState.playback==='paused'&&journeyState.mode==='guided');
+    const progress=journeyState.playback==='complete'?100:Math.round(Math.min(journeyState.beat,14)/14*100);
+    const bar=$('#journeyProgress');if(bar){bar.setAttribute('aria-valuenow',String(progress));bar.style.setProperty('--progress',progress+'%')}
+    setText('#journeyModeLabel',journeyState.mode==='manual'?(isBn()?'নিজে ব্যবহার করুন':'EXPLORING'):journeyState.playback==='paused'?(pacedTour()?(isBn()?'নিজের গতিতে দেখুন':'AT YOUR PACE'):(isBn()?'থামানো আছে':'PAUSED')):journeyState.playback==='complete'?(isBn()?'যাত্রা সম্পন্ন':'JOURNEY COMPLETE'):(isBn()?'গাইডেড ডেমো':'GUIDED DEMO'));
+    const nextOrder=$('#journeyOpenOrder');if(nextOrder){nextOrder.hidden=!demoState.order.id||journeyState.chapter!=='sell';nextOrder.textContent=isBn()?'ওয়ার্কস্পেসে এই অর্ডারটি খুলুন →':'Open this order in your workspace →'}
+    $('#journeyOutcome')?.classList.toggle('is-complete',journeyState.playback==='complete');
+    const explore=$('#journeyExploreStage');if(explore)explore.textContent=journeyState.mode==='manual'?(isBn()?'গাইডেড ডেমো দেখুন':'Watch guided demo'):(isBn()?'নিজে করে দেখুন':'Try it yourself');
   };
   const setText=(id,value)=>{const el=$(id);if(el)el.textContent=value};
   const renderAll=()=>{
@@ -1090,6 +1137,8 @@
 
     const detail=$('#workspaceOrderDetail');if(detail)detail.hidden=!order.opened;
     $('#workspaceOrderRow')?.classList.toggle('open',!!order.opened);
+    ['#workspaceOrderRow','#workspaceOrdersBtn'].forEach(id=>$(id)?.setAttribute('aria-expanded',String(order.opened)));
+    ['#workspaceOrdersBtn','#workspaceOrderRow'].forEach(id=>{if($(id))$(id).disabled=!orderExists});
     const prepare=$('#prepareDelivery'),book=$('#bookSampleDelivery'),later=$('#laterPickupPanel'),simulate=$('#simulatePickupUpdate');
     if(prepare){prepare.hidden=!orderExists||order.opened||booked;prepare.disabled=!orderExists}
     if(book){book.hidden=!orderExists||!order.opened||booked;book.disabled=!orderExists||booked}
@@ -1115,7 +1164,7 @@
       step.classList.toggle('active',step.dataset.step===activeStep);
     });
     const status=$('#workflowStatus');
-    if(status)status.textContent=segmentRunning?(isBn()?'চলছে':'Running'):(journeyState.workflowDone.length?(isBn()?'সম্পন্ন':'Complete'):t('waiting'));
+    if(status)status.textContent=(segmentRunning||journeyState.playback==='playing')?(isBn()?'চলছে':'Running'):(journeyState.workflowDone.length?(isBn()?'সম্পন্ন':'Complete'):t('waiting'));
     const now=$('#workflowNow');
     if(now&&!activeStep)now.textContent=journeyState.chapter==='sell'?(journeyState.workflowDone.includes('order')?t('sellDone'):t('sellReady')):(booked?t('laterPickup'):t('prepare'));
     const result=$('#workflowResult');
@@ -1144,7 +1193,7 @@
   const setChapter=(chapter,{focus=false,internal=false,sampleLoaded=false,align=false}={})=>{
     if(!['build','sell','manage'].includes(chapter))return;
     if(!internal&&journeyState.playback==='playing')pauseJourney('chapter-selection');
-    journeyState.chapter=chapter;shell.dataset.chapter=chapter;
+    journeyState.chapter=chapter;shell.dataset.chapter=chapter;cue('');
     if(chapter==='build'){enterBuild();moveWorkflow('sellWorkflowMount')}
     else if(chapter==='sell'){enterCustomer();moveWorkflow('sellWorkflowMount')}
     else{enterBuild();moveWorkflow('manageWorkflowMount')}
@@ -1154,7 +1203,7 @@
     const narration=$('#journeyNarrationText');
     if(narration)narration.textContent=sampleLoaded?t('sampleLoaded'):(chapter==='build'?t('buildNarration'):chapter==='sell'?t('sellNarration'):t('manageNarration'));
     renderAll();
-    if(focus){const scene=$('[data-journey-scene="'+chapter+'"]');$('h3,button,input,[tabindex]',scene||document)?.focus?.({preventScroll:true})}
+    if(focus)$('[data-journey-scene="'+chapter+'"]')?.focus({preventScroll:true});
     if(align)requestAnimationFrame(alignJourneyViewport);
   };
 
@@ -1165,25 +1214,26 @@
   })[name]||'';
   const activateStep=(name,hold=1000)=>{
     activeStep=name;const demo=$('#workflowDemo');demo?.classList.add('running');if(name==='courier')demo?.classList.add('courier-click');
-    setText('#workflowNow',stepNarration(name));const step=$('.workflow-step[data-step="'+name+'"]');if(step)step.style.setProperty('--workflow-hold',hold+'ms');renderAll();
+    setText('#workflowNow',stepNarration(name));const step=$('.workflow-step[data-step="'+name+'"]');if(step)step.style.setProperty('--workflow-hold',hold+'ms');setText('#journeyNarrationText',stepNarration(name));renderAll();
   };
   const completeStep=name=>{
     addDone(name);if(name==='payment')dispatch({type:'SAMPLE_PAYMENT_CONFIRMED',method:'bkash'});if(name==='order')dispatch({type:'SAMPLE_ORDER_PLACED'});if(name==='booked')dispatch({type:'SAMPLE_DELIVERY_BOOKED'});if(name==='pickup')dispatch({type:'SAMPLE_PICKUP_UPDATED'});
+    if(segmentRunning&&segmentResume)segmentResume.steps=segmentResume.steps.filter(step=>step!==name);
     activeStep=null;$('#workflowDemo')?.classList.remove('courier-click');renderAll();
   };
   const runSegment=(steps,{kind='sell',onComplete}={})=>{
-    if(segmentRunning)return;clearSegment();segmentRunning=true;
+    if(segmentRunning)return;clearSegment();segmentRunning=true;segmentResume={steps:[...steps],kind,onComplete};renderPlayback();
     const demo=$('#workflowDemo');demo?.classList.add('running',kind+'-running');
     const run=$('#workflowRun'),place=$('#placeOrderDemo');if(run)run.disabled=true;if(place)place.disabled=true;
-    let time=250;
+    let time=journeyState.reducedMotion?0:250;
     steps.forEach(name=>{
-      const hold=name==='courier'?1700:950;
+      const hold=journeyState.reducedMotion?0:(name==='courier'?2600:2200);
       segmentTimers.push(setTimeout(()=>activateStep(name,hold),time));
       segmentTimers.push(setTimeout(()=>completeStep(name),time+hold));
-      time+=hold+260;
+      time+=hold+(journeyState.reducedMotion?0:260);
     });
     segmentTimers.push(setTimeout(()=>{
-      segmentRunning=false;activeStep=null;demo?.classList.remove('running',kind+'-running');demo?.classList.add(kind+'-complete');
+      segmentRunning=false;segmentResume=null;activeStep=null;demo?.classList.remove('running',kind+'-running');demo?.classList.add(kind+'-complete');
       if(run)run.disabled=false;if(place)place.disabled=false;renderAll();onComplete?.();
     },time+250));
   };
@@ -1192,7 +1242,7 @@
     enterManual('sell-action');setChapter('sell',{internal:true});
     runSegment(['payment','order'],{kind:'sell',onComplete:()=>{markComplete('build');markComplete('sell');setText('#journeyNarrationText',t('sellNarration'));renderAll()}});
   };
-  const openOrder=()=>{if(!demoState.order.id)return;dispatch({type:'ORDER_OPENED'});renderAll()};
+  const openOrder=()=>{if(!demoState.order.id)return;dispatch({type:'ORDER_OPENED'});highlight($('#workspaceOrderRow'));renderAll()};
   const runBooking=()=>{
     enterManual('delivery-action');if(!demoState.order.id||demoState.delivery.state!=='not-booked')return;openOrder();moveWorkflow('manageWorkflowMount');
     runSegment(['courier','booked'],{kind:'manage-booking',onComplete:()=>{setText('#journeyNarrationText',t('laterPickup'));renderAll()}});
@@ -1211,30 +1261,34 @@
   };
   const runJourneyBeat=()=>{
     if(journeyState.playback!=='playing'||journeyState.reducedMotion)return;clearGuide();
+    const next=(delay)=>schedule(()=>{journeyState.beat++;runJourneyBeat()},delay);
     switch(journeyState.beat){
-      case 0:setChapter('build',{internal:true});setText('#journeyNarrationText',t('buildNarration'));$('#heroBlock')?.classList.add('journey-guide-focus');$('.editor-block-btn[data-editor-target="heroBlock"]')?.classList.add('journey-guide-focus');schedule(()=>{markComplete('build');journeyState.beat=1;runJourneyBeat()},1400);break;
-      case 1:setText('#journeyNarrationText',t('customerTransition'));setChapter('sell',{internal:true});schedule(()=>{journeyState.beat=2;runJourneyBeat()},850);break;
-      case 2:guidedStep('payment',1000);break;
-      case 3:guidedStep('order',1100);break;
-      case 4:markComplete('sell');setText('#journeyNarrationText',t('manageTransition'));setChapter('manage',{internal:true});schedule(()=>{journeyState.beat=5;runJourneyBeat()},900);break;
-      case 5:openOrder();setText('#journeyNarrationText',t('manageNarration'));schedule(()=>{journeyState.beat=6;runJourneyBeat()},850);break;
-      case 6:guidedStep('courier',1400);break;
-      case 7:guidedStep('booked',1000);break;
-      case 8:setText('#journeyNarrationText',t('laterPickup'));renderAll();schedule(()=>{journeyState.beat=9;runJourneyBeat()},1150);break;
-      case 9:guidedStep('pickup',950);break;
-      case 10:guidedStep('inventory',800);break;
-      case 11:guidedStep('profit',850);break;
-      default:markComplete('manage');journeyState.playback='complete';journeyState.pauseReason=null;setText('#journeyNarrationText',t('outcome'));renderAll();
+      case 0:setChapter('build',{internal:true});setText('#journeyNarrationText',t('buildNarration'));$('#heroBlock')?.classList.add('journey-guide-focus');next(3500);break;
+      case 1:demonstrateEdit();setText('#journeyNarrationText',isBn()?'একটি শিরোনাম বদলান। নিজের ব্র্যান্ডকে সামনে আনুন।':'Change a headline. Make the storefront feel like your brand.');next(4500);break;
+      case 2:markComplete('build');handoff('sell');setText('#journeyNarrationText',t('customerTransition'));next(4000);break;
+      case 3:highlight($('#placeOrderDemo'));setText('#journeyNarrationText',isBn()?'ক্রেতা Studio Tee বেছে নিয়ে নমুনা অর্ডার দিচ্ছেন।':'Your customer chooses Studio Tee and places a sample order.');next(3500);break;
+      case 4:guidedStep('payment',3500);break;
+      case 5:guidedStep('order',3500);break;
+      case 6:markComplete('sell');handoff('manage');setText('#journeyNarrationText',t('manageTransition'));next(3500);break;
+      case 7:openOrder();setText('#journeyNarrationText',t('manageNarration'));next(3500);break;
+      case 8:guidedStep('courier',4000);break;
+      case 9:guidedStep('booked',3500);break;
+      case 10:cue(t('laterPickup'));setText('#journeyNarrationText',isBn()?'সময় এগিয়ে: কুরিয়ারের পিকআপ আপডেট একই অর্ডারে আসছে।':'Later in the day: the courier pickup update reaches the same order.');next(3500);break;
+      case 11:guidedStep('pickup',3500);break;
+      case 12:guidedStep('inventory',2500);break;
+      case 13:guidedStep('profit',2500);break;
+      default:markComplete('manage');journeyState.playback='complete';journeyState.pauseReason=null;cue('');setText('#journeyNarrationText',t('outcome'));renderAll();highlight($('#journeyOutcome'));
     }
   };
-  const pauseJourney=reason=>{clearTimers(journeyTimers);clearSegment();clearGuide();if(journeyState.playback==='playing')journeyState.playback='paused';journeyState.pauseReason=reason||'manual';renderAll()};
+  const pauseJourney=reason=>{const wasRunning=segmentRunning;stopMotion();clearTimers(journeyTimers);clearSegment();clearGuide();if(journeyState.playback==='playing'||wasRunning)journeyState.playback='paused';journeyState.pauseReason=reason||'manual';renderAll()};
   const resumeJourney=()=>{
     if(journeyState.playback!=='paused')return;journeyState.pauseReason=null;
-    if(journeyState.reducedMotion){renderAll();return}
+    if(journeyState.mode==='manual'&&segmentResume){const pending=segmentResume;journeyState.playback='idle';runSegment(pending.steps,pending);renderAll();return}
+    if(pacedTour()){renderAll();return}
     journeyState.playback='playing';renderAll();runJourneyBeat();
   };
   const resetBusiness=({preserveStorefront=false}={})=>{
-    cancelJourney();clearGuide();
+    cancelJourney();stopMotion();cue('');clearGuide();
     if(preserveStorefront)captureStorefront({manual:false});
     const storefront=preserveStorefront?JSON.parse(JSON.stringify(demoState.storefront)):null;
     demoState=createDemoState();if(storefront)demoState.storefront=storefront;
@@ -1244,17 +1298,17 @@
   };
   const playJourney=()=>{
     journeyState.mode='guided';journeyState.pauseReason=null;
-    if(journeyState.reducedMotion){journeyState.playback='paused';journeyState.beat=0;setChapter('build',{internal:true});renderAll();return}
+    if(pacedTour()){journeyState.playback='paused';journeyState.beat=0;setChapter('build',{internal:true});renderAll();return}
     journeyState.playback='playing';renderAll();runJourneyBeat();
   };
-  const replayJourney=()=>{resetBusiness({preserveStorefront:true});playJourney()};
+  const replayJourney=()=>{resetBusiness({preserveStorefront:true});alignJourneyViewport();playJourney()};
   function enterManual(reason='manual'){
-    if(journeyState.playback==='playing')pauseJourney(reason);journeyState.mode='manual';if(journeyState.playback!=='paused')journeyState.playback='idle';shell.dataset.mode='manual';renderAll();
+    if(journeyState.playback==='playing')pauseJourney(reason);journeyState.mode='manual';journeyState.playback='idle';shell.dataset.mode='manual';renderAll();
   }
   const advanceReduced=()=>{
-    if(!journeyState.reducedMotion||journeyState.mode!=='guided'||journeyState.playback==='complete')return;
+    if(!pacedTour()||journeyState.mode!=='guided'||journeyState.playback==='complete')return;
     switch(journeyState.beat){
-      case 0:markComplete('build');setChapter('sell',{internal:true,align:true});setText('#journeyNarrationText',t('customerTransition'));journeyState.beat=1;break;
+      case 0:demonstrateEdit();markComplete('build');setChapter('sell',{internal:true,align:true});setText('#journeyNarrationText',t('customerTransition'));journeyState.beat=1;break;
       case 1:dispatch({type:'SAMPLE_PAYMENT_CONFIRMED',method:'bkash'});dispatch({type:'SAMPLE_ORDER_PLACED'});addDone('payment');addDone('order');markComplete('sell');setText('#journeyNarrationText',t('sellNarration'));journeyState.beat=2;break;
       case 2:setChapter('manage',{internal:true,align:true});openOrder();setText('#journeyNarrationText',t('manageNarration'));journeyState.beat=3;break;
       case 3:dispatch({type:'SAMPLE_DELIVERY_BOOKED'});addDone('courier');addDone('booked');setText('#journeyNarrationText',t('laterPickup'));journeyState.beat=4;break;
@@ -1263,13 +1317,14 @@
     renderAll();
   };
 
-  document.querySelectorAll('[data-journey-chapter]').forEach(btn=>btn.addEventListener('click',()=>{pauseJourney('chapter-selection');setChapter(btn.dataset.journeyChapter,{focus:true,internal:true,align:true})}));
+  document.querySelectorAll('[data-journey-chapter]').forEach(btn=>btn.addEventListener('click',()=>{pauseJourney('chapter-selection');journeyState.mode='manual';journeyState.playback='idle';const chapter=btn.dataset.journeyChapter;let sampleLoaded=false;if(chapter==='manage'&&!demoState.order.id){dispatch({type:'LOAD_SAMPLE_ORDER'});sampleLoaded=true}setChapter(chapter,{focus:true,internal:true,align:true,sampleLoaded})}));
   $('#journeyWatch')?.addEventListener('click',replayJourney);
   $('#journeyPause')?.addEventListener('click',()=>journeyState.playback==='paused'?resumeJourney():pauseJourney('user'));
   $('#journeyReplay')?.addEventListener('click',replayJourney);
   $('#journeyNext')?.addEventListener('click',advanceReduced);
-  [$('#journeyExplore'),$('#journeyExploreStage'),$('#journeyExploreFinal')].filter(Boolean).forEach(btn=>btn.addEventListener('click',()=>enterManual('manual-explore')));
-  $('#journeyReset')?.addEventListener('click',()=>$('#editorReset')?.click());
+  [$('#journeyExplore'),$('#journeyExploreStage'),$('#journeyExploreFinal')].filter(Boolean).forEach(btn=>btn.addEventListener('click',()=>{if(btn.id==='journeyExploreStage'&&journeyState.mode==='manual'){replayJourney();return}enterManual('manual-explore');alignJourneyViewport()}));
+  $('#journeyReset')?.addEventListener('click',()=>{if(confirm(isBn()?'আপনার ডেমোর পরিবর্তন ও নমুনা অর্ডার রিসেট করবেন?':'Reset your demo edits and sample order? Replay keeps your edits.'))$('#editorReset')?.click()});
+  $('#journeyOpenOrder')?.addEventListener('click',()=>{enterManual('open-created-order');handoff('manage');openOrder();alignJourneyViewport()});
 
   const delegatedJourneyActions={
     workflowRun:runSell,
@@ -1284,33 +1339,35 @@
   shell.addEventListener('click',event=>{
     const action=event.target.closest('#workflowRun,#placeOrderDemo,#workspaceOrdersBtn,#workspaceOrderRow,#prepareDelivery,#bookSampleDelivery,#simulatePickupUpdate,#courierAction');
     if(!action||!shell.contains(action))return;
+    if(journeyState.playback==='playing')enterManual('direct-action');
     delegatedJourneyActions[action.id]?.();
   });
 
   const editorPanel=$('#editorStoryPanel');
   if(editorPanel){
-    editorPanel.addEventListener('input',()=>captureStorefront({manual:true}));
-    editorPanel.addEventListener('change',()=>captureStorefront({manual:true}));
+    editorPanel.addEventListener('input',()=>{merchantEdited=true;captureStorefront({manual:true})});
+    editorPanel.addEventListener('change',()=>{merchantEdited=true;captureStorefront({manual:true})});
     editorPanel.addEventListener('pointerup',()=>setTimeout(()=>captureStorefront({manual:true}),0));
     editorPanel.addEventListener('dragend',()=>setTimeout(()=>captureStorefront({manual:true}),0));
     editorPanel.addEventListener('keydown',e=>{if(e.altKey&&(e.key==='ArrowUp'||e.key==='ArrowDown'))setTimeout(()=>captureStorefront({manual:true}),0)});
     editorPanel.addEventListener('focusin',e=>{if(e.target.matches('[contenteditable],input,button')){if(journeyState.playback==='playing')pauseJourney('manual-editor-interaction');journeyState.mode='manual';renderAll()}});
   }
-  $('#editorReset')?.addEventListener('click',()=>setTimeout(()=>{demoState=createDemoState();Object.assign(journeyState,{chapter:'build',mode:'guided',playback:'idle',beat:0,pauseReason:null,workflowDone:[],completedChapters:[]});captureStorefront({manual:false});setChapter('build',{internal:true});renderAll()},0));
-  $('#langToggle')?.addEventListener('click',()=>setTimeout(renderAll,0));
+  $('#editorReset')?.addEventListener('click',()=>setTimeout(()=>{cancelJourney();stopMotion();guidedEditApplied=false;merchantEdited=false;demoState=createDemoState();Object.assign(journeyState,{chapter:'build',mode:'guided',playback:'idle',beat:0,pauseReason:null,workflowDone:[],completedChapters:[]});captureStorefront({manual:false});setChapter('build',{internal:true});renderAll()},0));
+  $('#langToggle')?.addEventListener('click',()=>setTimeout(()=>{if(journeyState.playback==='playing')pauseJourney('language-change');setText('#journeyNarrationText',t(journeyState.chapter+'Narration'));renderAll()},0));
   window.__syncWorkflowLanguage=renderAll;
 
-  document.addEventListener('visibilitychange',()=>{if(document.hidden&&journeyState.playback==='playing')pauseJourney('document-hidden')});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&(journeyState.playback==='playing'||segmentRunning))pauseJourney('document-hidden')});
   if('IntersectionObserver' in window){
-    const visibilityObserver=new IntersectionObserver(entries=>{if(entries.some(e=>!e.isIntersecting)&&journeyState.playback==='playing')pauseJourney('stage-left-view')},{threshold:.08});
+    const visibilityObserver=new IntersectionObserver(entries=>{if(entries.some(e=>!e.isIntersecting)&&(journeyState.playback==='playing'||segmentRunning))pauseJourney('stage-left-view')},{threshold:.08});
     visibilityObserver.observe(shell);
   }
   reducedMotionMedia.addEventListener?.('change',event=>{journeyState.reducedMotion=event.matches;if(journeyState.playback==='playing')pauseJourney('motion-preference');renderAll()});
 
   const applyHash=()=>{
     const map={'#chapter-build':'build','#chapter-sell':'sell','#chapter-manage':'manage'},chapter=map[location.hash];if(!chapter)return;
+    pauseJourney('fragment-navigation');journeyState.mode='manual';journeyState.playback='idle';
     let sampleLoaded=false;if(chapter==='manage'&&!demoState.order.id){dispatch({type:'LOAD_SAMPLE_ORDER'});sampleLoaded=true}
-    setChapter(chapter,{internal:true,sampleLoaded});requestAnimationFrame(()=>$('#features')?.scrollIntoView({block:'start'}));
+    setChapter(chapter,{internal:true,sampleLoaded});requestAnimationFrame(alignJourneyViewport);
   };
   window.addEventListener('hashchange',applyHash);
 

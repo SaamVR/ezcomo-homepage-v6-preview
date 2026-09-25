@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#171916">
   <meta name="description" content="EZComo helps Bangladeshi merchants launch branded online stores and manage products, orders, payments and delivery from one workspace.">
-  <link rel="icon" href="data:,">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <title>EZComo — Build your store. Run the business behind it.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=v6-sticky-20260925">
+  <link rel="stylesheet" href="./styles.css?v=v6-final-20260925">
+  <link rel="stylesheet" href="./refinement.css?v=1">
 </head>
 <body class="v6-mature">
 <div id="pageTop" class="page-top-anchor" aria-hidden="true"></div>
@@ -72,7 +73,7 @@
     <div class="hero-stage reveal is-visible" id="heroStage">
       <div class="stage-glow" aria-hidden="true"></div>
       <div class="hero-store-shell">
-        <div class="hero-store-meta"><span><i></i>LIVE STOREFRONT</span><b id="heroWindowTitle">Threads</b></div>
+        <div class="hero-store-meta"><span><i></i>STOREFRONT PREVIEW</span><b id="heroWindowTitle">Threads</b></div>
         <div class="hero-preview-frame" id="heroStoreVisual" data-template-visual="threads">
           <div class="storefront-ui">
             <header class="storefront-nav">
@@ -156,6 +157,7 @@
     </div>
 
     <article class="journey-shell reveal" id="journeyShell" data-chapter="build" data-mode="guided" data-playback="idle" data-storefront-mode="editor">
+      <div class="journey-command">
       <nav class="journey-chapters" id="journeyChapterNav" aria-label="Product demonstration chapters">
         <button type="button" class="journey-chapter is-active" data-journey-chapter="build" aria-current="step">
           <span class="journey-chapter-marker"><b>01</b></span>
@@ -173,14 +175,34 @@
         </button>
       </nav>
 
+      <div class="journey-director">
+      <div class="journey-narration" id="journeyNarration" aria-live="polite">
+        <span class="mini-label" id="journeyModeLabel">GUIDED DEMO</span>
+        <strong id="journeyNarrationText" data-i18n="journeyBuildNarration">Edit your content and layout. See your storefront change as you work.</strong>
+      </div>
+
+      <div class="journey-controls" id="journeyControls">
+        <div class="journey-playback">
+          <button type="button" id="journeyPause" data-i18n="journeyPause" disabled>Pause</button>
+          <button type="button" class="journey-next" id="journeyNext" data-i18n="journeyNext" hidden>Next step</button>
+          <button type="button" id="journeyReplay" data-i18n="journeyReplay">Replay</button>
+          <button type="button" id="journeyReset" data-i18n="journeyReset">Reset demo</button>
+        </div>
+        <button type="button" class="journey-manual" id="journeyExploreStage" data-i18n="journeyExplore">Try it yourself</button>
+      </div>
+
+      </div>
+      <div class="journey-progress" role="progressbar" aria-label="Guided journey progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="journeyProgress"><span></span></div>
       <div class="journey-context" id="journeyContext">
         <span><b>Studio Tee</b> · Black / M · Qty 1 · <strong>৳1,490</strong></span>
         <span id="journeyOrderId" hidden>Order #1051</span>
       </div>
 
+      </div>
       <div class="journey-stage" id="journeyStage">
+        <div class="journey-scene-cue" id="journeySceneCue" aria-hidden="true"></div>
         <span id="chapter-build" class="journey-fragment-anchor" aria-hidden="true"></span>
-        <div class="journey-scene journey-scene-build is-active" data-journey-scene="build">
+        <div class="journey-scene journey-scene-build is-active" data-journey-scene="build" tabindex="-1">
           <div id="buildEditorMount">
 <article class="product-story-card editor-story chapter-demo-card journey-demo-card" id="editorStoryPanel" data-spotlight>
       <div class="story-card-head">
@@ -342,7 +364,7 @@
         </div>
 
         <span id="chapter-sell" class="journey-fragment-anchor" aria-hidden="true"></span>
-        <div class="journey-scene journey-scene-sell" data-journey-scene="sell" hidden aria-hidden="true">
+        <div class="journey-scene journey-scene-sell" data-journey-scene="sell" tabindex="-1" hidden aria-hidden="true">
           <div class="sell-composition">
             <div class="customer-storefront-mount" id="customerStorefrontMount"></div>
             <div class="sell-runner-mount" id="sellRunnerMount">
@@ -354,7 +376,7 @@
       </div>
       <div class="workflow-demo" id="workflowDemo">
         <div class="workflow-checkout">
-          <div class="checkout-top"><span>CUSTOMER CHECKOUT</span><i></i></div>
+          <div class="checkout-top"><span data-i18n="customerCheckout">CUSTOMER CHECKOUT</span><i></i></div>
           <div class="checkout-product"><div class="flat-product flat-tee workflow-product" aria-hidden="true"><i></i><b></b></div><div><strong>Studio Tee</strong><small>Black · M · Qty 1</small><span>৳1,490</span></div></div>
           <div class="checkout-total"><span>Total</span><strong>৳1,490</strong></div>
           <button type="button" class="place-order-btn" id="placeOrderDemo"><span data-i18n="placeOrder">Place order</span><i class="auto-cursor">↖</i></button>
@@ -372,6 +394,7 @@
             <div class="workflow-step" data-step="inventory"><span class="step-icon">▦</span><div><small data-i18n="stepInventory">INVENTORY</small><strong data-i18n="stepInventoryTitle">Stock updated</strong></div><em><s>18</s> → 17</em></div>
             <div class="workflow-step" data-step="profit"><span class="step-icon">↗</span><div><small data-i18n="stepProfit">EST. MARGIN</small><strong data-i18n="stepProfitTitle">Estimated margin</strong></div><em>+৳690</em></div>
           </div>
+          <button type="button" class="journey-order-link" id="journeyOpenOrder" hidden>Open this order in your workspace →</button>
           <div class="workflow-result" id="workflowResult"><span class="pulse-dot"></span><strong data-i18n="workflowResult">Order #1051 has reached the merchant workspace.</strong><small data-i18n="workflowResultNote">Payment and product details are attached. Delivery is the merchant’s next action.</small></div>
         </div>
       </div>
@@ -382,7 +405,7 @@
         </div>
 
         <span id="chapter-manage" class="journey-fragment-anchor" aria-hidden="true"></span>
-        <div class="journey-scene journey-scene-manage" data-journey-scene="manage" hidden aria-hidden="true">
+        <div class="journey-scene journey-scene-manage" data-journey-scene="manage" tabindex="-1" hidden aria-hidden="true">
 <article class="product-story-card workspace-story chapter-demo-card journey-demo-card" id="merchantWorkspace" data-spotlight>
       <div class="story-card-head">
         <div><span class="mini-label" data-i18n="workspaceLabel">03 · MANAGE · ORDER WORKSPACE</span><h3 data-i18n="workspaceTitle">Take the next action on the same order.</h3><p data-i18n="workspaceCopy">Review Studio Tee order #1051, confirm its payment and stock, then prepare sample delivery.</p></div>
@@ -393,7 +416,7 @@
         <div class="workspace-main">
           <div class="workspace-top">
             <div><small data-i18n="workspaceToday">TODAY · SAMPLE WORKSPACE</small><strong id="workspaceGreeting" data-i18n="workspaceGreeting">Order #1051 is waiting for the Sell workflow.</strong></div>
-            <button type="button" id="workspaceOrdersBtn" data-i18n="workspaceNewOrder">Open order #1051</button>
+            <button type="button" id="workspaceOrdersBtn" aria-expanded="false" aria-controls="workspaceOrderDetail" data-i18n="workspaceNewOrder">Open order #1051</button>
           </div>
           <div class="workspace-metrics">
             <article><span data-i18n="workspaceMetricOrders">Order</span><b>#1051</b><small>Studio Tee · Black · M</small></article>
@@ -404,7 +427,7 @@
           <div class="workspace-grid workspace-order-flow">
             <div class="workspace-orders">
               <div class="workspace-title"><b data-i18n="workspaceRecent">Order #1051</b><span id="workspaceSampleState" data-i18n="workspaceSample">sample order · waiting</span></div>
-              <button type="button" class="workspace-order-row active" id="workspaceOrderRow">
+              <button type="button" class="workspace-order-row active" id="workspaceOrderRow" aria-expanded="false" aria-controls="workspaceOrderDetail">
                 <span><b>Studio Tee</b><small>Black · M · Qty 1</small></span><strong>৳1,490</strong><em id="workspaceOrderState">Waiting</em>
               </button>
               <div class="workspace-order-detail" id="workspaceOrderDetail" hidden>
@@ -443,22 +466,7 @@
         </div>
       </div>
 
-      <div class="journey-narration" id="journeyNarration" aria-live="polite">
-        <span class="mini-label" data-i18n="journeyNow">GUIDED DEMO</span>
-        <strong id="journeyNarrationText" data-i18n="journeyBuildNarration">Edit your content and layout. See your storefront change as you work.</strong>
-      </div>
-
-      <div class="journey-controls" id="journeyControls">
-        <div class="journey-playback">
-          <button type="button" id="journeyPause" data-i18n="journeyPause" disabled>Pause</button>
-          <button type="button" class="journey-next" id="journeyNext" data-i18n="journeyNext" hidden>Next step</button>
-          <button type="button" id="journeyReplay" data-i18n="journeyReplay">Replay</button>
-          <button type="button" id="journeyReset" data-i18n="journeyReset">Reset demo</button>
-        </div>
-        <button type="button" class="journey-manual" id="journeyExploreStage" data-i18n="journeyExplore">Try it yourself</button>
-      </div>
-
-      <footer class="journey-outcome">
+      <footer class="journey-outcome" id="journeyOutcome">
         <div><span class="mini-label" data-i18n="journeyOutcomeLabel">ONE CONNECTED FLOW</span><strong data-i18n="journeyOutcome">One storefront. One order. A connected way to run your business.</strong></div>
         <div>
           <a class="btn btn-primary" data-signup href="https://ezcomo.shop/signup?template=threads" data-i18n="journeyStart">Start building your store</a>
@@ -712,6 +720,6 @@
 </footer>
 
 <div class="sticky-cta" id="stickyCta" aria-hidden="true"><div class="shell sticky-inner"><div><span class="status-dot"></span><b data-i18n="stickyText">Ready to give customers somewhere better than the DM inbox?</b></div><div><a class="btn btn-primary" data-signup href="https://ezcomo.shop/signup?template=threads" data-i18n="startFree">Start free</a><button id="stickyClose" type="button" aria-label="Dismiss">×</button></div></div></div>
-<script src="./app.js?v=v6-postqa-20260925" defer></script>
+<script src="./app.js?v=v6-final-20260925" defer></script>
 </body>
 </html>

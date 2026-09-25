@@ -1,0 +1,202 @@
+/* Final V6 refinement: presentation and readable UI, with existing product behavior retained. */
+:root{--focus-ring:#d77a56;--demo-action:#a63f29;--reading-width:65ch}
+body.v6-mature{font-size:16px;line-height:1.6}
+html[data-theme="dark"] body.v6-mature{--muted:#b5c2b9;--line:#35463b}
+body.v6-mature :where(button,a,input,[contenteditable]):focus-visible{outline:3px solid var(--focus-ring);outline-offset:4px}
+body.v6-mature :where(button,a){touch-action:manipulation}
+body.v6-mature .hero-lede{font-size:clamp(17px,1.35vw,20px);line-height:1.65;max-width:var(--reading-width)}
+body.v6-mature .hero-platform-note{font-size:14px;line-height:1.65;max-width:58ch;color:var(--muted)}
+body.v6-mature .hero-grid{gap:clamp(28px,4vw,64px)}
+body.v6-mature .hero h1{font-size:clamp(42px,5.15vw,74px);line-height:1.06;letter-spacing:-.045em;text-wrap:balance}
+body.v6-mature .section-heading h2{font-size:clamp(32px,3.7vw,50px);line-height:1.1;letter-spacing:-.035em;text-wrap:balance}
+body.v6-mature .section-heading p:not(.kicker){font-size:17px;line-height:1.65}
+body.v6-mature .desktop-nav a,body.v6-mature .nav-login{font-size:14px}
+body.v6-mature .btn{font-size:14px;min-height:46px;line-height:1.35}
+body.v6-mature .hero-actions .btn-primary,body.v6-mature #journeyWatch{background:var(--demo-action);border-color:var(--demo-action);color:#fff;box-shadow:0 7px 22px #a63f2929}
+body.v6-mature .hero-actions .btn-primary:hover,body.v6-mature #journeyWatch:hover{background:#87321f;transform:translateY(-2px)}
+body.v6-mature #journeyWatch:before{content:'▶';font-size:11px;margin-right:9px}
+body.v6-mature .kicker,body.v6-mature .mini-label{font-size:11px;line-height:1.5;letter-spacing:.1em}
+body.v6-mature .proof-node small,body.v6-mature .integration-row,body.v6-mature .plan-features li,body.v6-mature .pricing-fineprint,body.v6-mature .footer-bottom{font-size:14px;line-height:1.6}
+body.v6-mature .proof-node strong{font-size:14px}
+body.v6-mature .proof-rail{padding-block:25px}
+body.v6-mature .template-stage,body.v6-mature .demo-store-card{box-shadow:0 15px 35px #07110e10}
+body.v6-mature .faq-question{min-height:64px;font-size:17px}
+body.v6-mature .faq-answer{font-size:16px;line-height:1.75;max-width:72ch}
+body.v6-mature .footer-brand p,body.v6-mature .footer-links a{font-size:14px}
+body.v6-mature .section{scroll-margin-top:90px}
+body.v6-mature .connected-journey{padding-block:76px;background:#151d19;color:#f5f7f5}
+body.v6-mature .journey-intro{gap:40px;margin-bottom:30px}
+body.v6-mature .journey-intro-copy>p{color:#c1ccc5}
+body.v6-mature .journey-disclosure{font-size:13px;line-height:1.5;color:#c1ccc5;margin-top:14px}
+body.v6-mature .journey-shell{overflow:visible;border:1px solid #405147;box-shadow:0 24px 80px #0003;background:#edf1ed;border-radius:18px}
+.journey-command{position:sticky;top:72px;z-index:25;border-radius:17px 17px 0 0;background:#13231b;box-shadow:0 8px 16px #07110e12}
+body.v6-mature .journey-chapters{position:static;padding:8px 12px;gap:8px;border-radius:17px 17px 0 0;background:#14241b}
+body.v6-mature .journey-chapter{min-height:58px;padding:8px 12px;border-radius:10px}
+body.v6-mature .journey-chapter strong{font-size:16px}
+body.v6-mature .journey-chapter small{font-size:12px;color:#c1ccc5}
+body.v6-mature .journey-chapter-marker{width:32px;height:32px}
+body.v6-mature .journey-chapter-marker b{font-size:12px}
+body.v6-mature .journey-chapter.is-active{background:#244335;border-color:#6f9580}
+body.v6-mature .journey-chapter.is-active .journey-chapter-marker{background:#a63f29;color:#fff}
+.journey-director{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;border-top:1px solid #35473b;min-height:94px}
+body.v6-mature .journey-narration{display:grid;grid-template-columns:1fr;gap:3px;padding:12px 20px;border:0;min-height:0;background:transparent}
+body.v6-mature .journey-narration strong{font-size:16px;line-height:1.45;max-width:62ch;color:#fff}
+body.v6-mature .journey-narration .mini-label{color:#e7ae8f;font-size:10px}
+body.v6-mature .journey-controls{padding:10px 14px;display:flex;align-items:center;gap:8px;min-height:0;background:transparent}
+body.v6-mature .journey-controls button{font-size:13px;min-height:44px;padding-inline:12px;color:#fff;background:#233b2c;border-color:#6c8272}
+body.v6-mature .journey-controls button:disabled{opacity:.5}
+body.v6-mature .journey-playback{gap:6px}
+body.v6-mature #journeyReset{background:transparent;color:#bdcbc1;border-color:transparent}
+body.v6-mature #journeyExploreStage{background:#eef4ef;color:#153e2e;border-color:#eef4ef}
+.journey-progress{height:3px;background:#3a5142;overflow:hidden}
+.journey-progress span{display:block;width:var(--progress,0%);height:100%;background:#e3956d;transition:width .45s ease}
+body.v6-mature .journey-context{min-height:38px;padding:8px 20px;font-size:13px;gap:12px}
+body.v6-mature .journey-stage{min-height:590px;isolation:isolate;overflow:clip}
+body.v6-mature .journey-scene{scroll-margin-top:260px}
+body.v6-mature .journey-demo-card{padding:18px}
+body.v6-mature .journey-demo-card .story-card-head,body.v6-mature .journey-demo-card .workflow-head{margin-bottom:16px;gap:12px}
+body.v6-mature .journey-demo-card .story-card-head h3,body.v6-mature .journey-demo-card .workflow-head h3{font-size:24px;line-height:1.2;margin:5px 0}
+body.v6-mature .journey-demo-card .story-card-head p,body.v6-mature .journey-demo-card .workflow-head p{font-size:14px;margin:6px 0 0;color:#4e6255}
+body.v6-mature .journey-demo-card .story-card-note{display:none}
+/* Guided mode highlights a working surface; Explore restores the full editor's height. */
+body.v6-mature .journey-shell[data-mode="guided"] .journey-demo-card>.story-card-head{display:none}
+body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-build .editor-demo.builder-ui{min-height:0;grid-template-rows:46px 530px}
+body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-build .editor-canvas{height:478px}
+body.v6-mature .journey-scene-build .editor-block-btn{font-size:13px;min-height:40px}
+body.v6-mature .journey-scene-build .editor-inspector label,body.v6-mature .journey-scene-build .editor-help{font-size:13px;line-height:1.5}
+body.v6-mature .editor-inspector input{font-size:14px;min-height:42px}
+body.v6-mature .editor-swatches button{min-width:32px;min-height:32px}
+body.v6-mature .inspector-options button{min-height:40px;font-size:12px}
+body.v6-mature .sell-composition{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:20px}
+body.v6-mature .journey-scene-sell .workflow-demo{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:12px}
+body.v6-mature .journey-scene-sell #orderWorkflowCard{padding:6px}
+body.v6-mature .journey-shell[data-storefront-mode="customer"] #editorDemo .editor-canvas{height:545px;overflow:auto}
+body.v6-mature .journey-scene-sell .workflow-head{display:block}
+body.v6-mature .journey-scene-sell #workflowRun{display:none}
+body.v6-mature .connected-journey #orderWorkflowCard .workflow-step{opacity:1;padding:16px 8px;min-height:78px;border-radius:8px;transition:background .25s,box-shadow .25s}
+body.v6-mature .connected-journey #orderWorkflowCard .workflow-step.active{background:#edf5ee;box-shadow:inset 3px 0 #a63f29}
+body.v6-mature .connected-journey #orderWorkflowCard .workflow-step.done .step-icon{background:#174b39;color:#fff;border-color:#174b39}
+body.v6-mature .connected-journey #orderWorkflowCard .workflow-step strong{font-size:14px}
+body.v6-mature .connected-journey #orderWorkflowCard .workflow-step small{font-size:11px;letter-spacing:.06em}
+body.v6-mature .connected-journey #orderWorkflowCard .workflow-step em{font-size:14px;font-weight:700}
+body.v6-mature .connected-journey #orderWorkflowCard .workflow-now{padding:14px;border-radius:8px}
+body.v6-mature .connected-journey #orderWorkflowCard .workflow-now strong{font-size:14px;line-height:1.5}
+body.v6-mature .connected-journey #orderWorkflowCard .runner-top{font-size:11px}
+body.v6-mature .connected-journey #orderWorkflowCard .place-order-btn{background:#a63f29;color:#fff;font-size:14px;min-height:46px}
+body.v6-mature .workflow-checkout{padding:14px}
+body.v6-mature .checkout-product{flex-direction:column;align-items:flex-start}
+body.v6-mature .checkout-total{font-size:13px}
+body.v6-mature .workflow-result strong,body.v6-mature .workflow-result small{font-size:13px;line-height:1.5}
+.journey-order-link{width:100%;margin-top:14px;padding:12px;text-align:left;min-height:44px;border:1px solid #174b39;border-radius:8px;background:#174b39;color:#fff;font-family:inherit;font-size:14px;font-weight:700;line-height:1.5;cursor:pointer}
+.journey-order-link[hidden]{display:none}
+body.v6-mature .journey-scene-manage.is-active{grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);gap:16px}
+body.v6-mature .journey-scene-manage .workspace-demo{grid-template-columns:88px minmax(0,1fr);min-height:0}
+body.v6-mature .journey-scene-manage .workspace-main{padding:16px}
+body.v6-mature .journey-scene-manage .workspace-nav{padding:14px 8px}
+body.v6-mature .journey-scene-manage .workspace-nav span{font-size:12px;padding:9px 7px}
+body.v6-mature .journey-scene-manage .workspace-top{gap:12px;align-items:flex-start}
+body.v6-mature .journey-scene-manage .workspace-top strong{font-size:17px;line-height:1.4}
+body.v6-mature .journey-scene-manage .workspace-top small{font-size:10px;line-height:1.5}
+body.v6-mature .journey-scene-manage .workspace-top button{font-size:12px;min-height:44px;flex-shrink:0}
+body.v6-mature .journey-scene-manage .workspace-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:15px}
+body.v6-mature .journey-scene-manage .workspace-metrics article{padding:12px}
+body.v6-mature .journey-scene-manage .workspace-metrics b{font-size:20px}
+body.v6-mature .journey-scene-manage .workspace-metrics small{font-size:12px}
+body.v6-mature .journey-scene-manage .workspace-grid{grid-template-columns:1fr}
+body.v6-mature .journey-scene-manage .workspace-next{display:grid;padding:14px}
+body.v6-mature .journey-scene-manage .workspace-next-primary{display:none}
+body.v6-mature .journey-scene-manage .workspace-title{font-size:13px;gap:10px;flex-wrap:wrap}
+body.v6-mature .journey-scene-manage .workspace-title span{font-size:12px}
+body.v6-mature .journey-scene-manage .workspace-order-row{padding:12px;gap:8px;grid-template-columns:minmax(0,1fr) auto auto}
+body.v6-mature .journey-scene-manage .workspace-order-row em{font-size:12px}
+body.v6-mature .journey-scene-manage .workspace-order-detail{gap:8px}
+body.v6-mature .journey-scene-manage .workspace-order-detail[hidden]{display:none}
+body.v6-mature .journey-shell[data-mode="guided"] .workspace-order-detail>div:last-child{display:none}
+body.v6-mature .journey-shell[data-mode="guided"] .workspace-order-detail{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.v6-mature .journey-shell[data-mode="guided"] .workspace-next>small,body.v6-mature .journey-shell[data-mode="guided"] .workspace-next-link{display:none}
+body.v6-mature .journey-shell[data-mode="guided"] .workspace-metrics article:first-child{display:none}
+body.v6-mature .journey-shell[data-mode="guided"] .workspace-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.v6-mature .manage-flow-intro{padding:14px}
+body.v6-mature .manage-flow-intro strong{font-size:17px}
+body.v6-mature .journey-shell[data-chapter="manage"] #orderWorkflowCard{padding:12px}
+body.v6-mature .journey-shell[data-chapter="manage"] #orderWorkflowCard .workflow-step{padding:11px 6px;min-height:65px}
+body.v6-mature .journey-shell[data-chapter="manage"] .courier-action{font-size:12px;min-height:40px;padding:8px;color:#fff;background:#174b39;opacity:1}
+body.v6-mature .journey-outcome{padding:18px 22px;min-height:94px;border-radius:0 0 17px 17px}
+body.v6-mature .journey-outcome strong{font-size:17px;line-height:1.45}
+body.v6-mature .journey-outcome .mini-label{display:none}
+body.v6-mature .journey-outcome.is-complete{background:#183f2d}
+.journey-scene-cue{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:8;max-width:90%;padding:10px 16px;border:1px solid #bccdbd;border-radius:9px;background:#fff;color:#174b39;box-shadow:0 10px 25px #07110e20;font-size:14px;font-weight:700;pointer-events:none;opacity:0;transition:opacity .25s}
+.journey-shell[data-cue="visible"] .journey-scene-cue{opacity:1}
+.journey-transfer{position:fixed;z-index:100;pointer-events:none;display:grid;grid-template-columns:1fr auto;gap:4px;padding:18px 22px;border:1px solid #86b599;border-radius:12px;background:#174b39;color:white;box-shadow:0 20px 60px #07110e50}
+.journey-transfer span{grid-column:1/-1;font-size:11px;letter-spacing:.1em;color:#d5eadd}.journey-transfer strong{font-size:25px}.journey-transfer b{font-size:18px;align-self:center}
+@media(min-width:1121px){body.v6-mature .journey-shell[data-mode="guided"] .journey-stage{min-height:625px}}
+@media(max-width:1120px){
+ .journey-command{top:70px}.journey-director{grid-template-columns:1fr}.journey-controls{border-top:1px solid #35473b}
+ body.v6-mature .sell-composition{grid-template-columns:1fr 1fr}
+ body.v6-mature .journey-scene-sell .workflow-demo{grid-template-columns:1fr}
+ body.v6-mature .journey-scene-manage.is-active{grid-template-columns:1fr}
+ body.v6-mature .journey-scene-manage .workspace-demo{grid-template-columns:100px minmax(0,1fr)}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-build .editor-demo.builder-ui{grid-template-rows:46px 480px auto}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-build .editor-canvas{height:430px}
+}
+@media(max-width:700px){
+ body.v6-mature .section{padding-block:56px}
+ body.v6-mature .hero h1{font-size:clamp(39px,10vw,54px)}
+ body.v6-mature .hero-platform-note{font-size:14px}
+ body.v6-mature .journey-intro{gap:18px}
+ body.v6-mature .journey-intro-actions{display:grid;grid-template-columns:1fr}
+ .journey-command{position:static}
+ body.v6-mature .journey-chapters{position:static;gap:4px;padding:6px}
+ body.v6-mature .journey-chapter{padding:8px 4px;gap:5px;min-height:52px}
+ body.v6-mature .journey-chapter strong{font-size:14px}
+ body.v6-mature .journey-chapter-marker{width:26px;height:26px;flex-basis:26px}
+ body.v6-mature .journey-chapter-marker b{font-size:11px}
+ body.v6-mature .journey-narration{padding:12px 14px;min-height:91px}
+ body.v6-mature .journey-narration strong{font-size:15px}
+ body.v6-mature .journey-controls{flex-direction:column;align-items:stretch;padding:8px}
+ body.v6-mature .journey-playback{display:flex;flex-wrap:wrap}.journey-manual{width:100%}
+ body.v6-mature #journeyReset{margin-left:auto}
+ body.v6-mature .journey-context{padding:9px 12px;min-height:42px;flex-direction:row;flex-wrap:wrap;font-size:12px;gap:4px}
+ body.v6-mature .journey-stage{min-height:0}
+ body.v6-mature .journey-demo-card{padding:10px}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-build .editor-demo.builder-ui{grid-template-rows:42px 52px 420px auto;grid-template-areas:'top' 'palette' 'stage' 'inspector';min-height:0}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-build .editor-canvas{height:366px}
+ body.v6-mature .journey-scene-build .editor-stage{min-height:0}
+ body.v6-mature .journey-scene-build .editor-inspector{display:block;grid-area:inspector;padding:16px}
+ body.v6-mature .journey-scene-build .editor-inspector .editor-position-readout,body.v6-mature .journey-scene-build .editor-inspector .editor-help{display:none}
+ body.v6-mature .journey-shell[data-mode="guided"] .editor-inspector{display:none}
+ body.v6-mature .journey-shell[data-mode="manual"] .journey-scene-build .editor-demo.builder-ui{grid-template-rows:42px 52px 460px auto;grid-template-areas:'top' 'palette' 'stage' 'inspector';min-height:0}
+ body.v6-mature .journey-shell[data-mode="manual"] .journey-scene-build .editor-canvas{height:410px}
+ body.v6-mature .sell-composition{display:grid;grid-template-columns:1fr;gap:14px}
+ body.v6-mature .journey-shell[data-storefront-mode="customer"] #editorDemo .editor-canvas{height:290px}
+ body.v6-mature .journey-scene-sell .workflow-demo{grid-template-columns:1fr}
+ body.v6-mature .checkout-product{flex-direction:row}
+ body.v6-mature .journey-scene-manage .workspace-demo{grid-template-columns:1fr}
+ body.v6-mature .journey-scene-manage .workspace-nav{display:none}
+ body.v6-mature .journey-scene-manage .workspace-main{padding:12px}
+ body.v6-mature .journey-scene-manage .workspace-top{flex-wrap:wrap}
+ body.v6-mature .journey-shell[data-mode="guided"] .workspace-metrics{grid-template-columns:1fr 1fr}
+ body.v6-mature .journey-shell[data-mode="guided"] .workspace-order-detail{grid-template-columns:1fr}
+ body.v6-mature .journey-outcome{padding:16px;gap:16px}
+ body.v6-mature .journey-outcome>div:last-child{width:100%}
+ .journey-scene-cue{font-size:13px;padding:8px 12px;text-align:center;white-space:normal}
+ body.v6-mature .faq-question{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ body.v6-mature *,body.v6-mature *:before,body.v6-mature *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+body.v6-mature .pricing-compare article p{font-size:16px;line-height:1.65}
+body.v6-mature .onboarding-inner li{font-size:14px;line-height:1.5}
+body.v6-mature .local-point span,body.v6-mature .support-board{font-size:14px;line-height:1.6}
+/* Audit corrections: readable editor chrome and light-surface metadata. */
+body.v6-mature .connected-journey .editor-panel-label,body.v6-mature .connected-journey .editor-inspector label,body.v6-mature .connected-journey .inspector-name small,body.v6-mature .connected-journey .editor-help,body.v6-mature .connected-journey .editor-palette-tip span{color:#c4d2c9}
+body.v6-mature .connected-journey .editor-block-btn{color:#d0ddd4;grid-template-columns:10px 10px minmax(0,1fr) auto;gap:6px;padding:9px 6px}
+body.v6-mature .connected-journey .editor-block-btn>span:not(.section-drag-grip){white-space:normal;overflow-wrap:anywhere;line-height:1.25}
+body.v6-mature .connected-journey .editor-block-btn b{color:#b0c3b5;font-size:11px}
+body.v6-mature .connected-journey .editor-stage-head,body.v6-mature .connected-journey .editor-saved,body.v6-mature .connected-journey .editor-brand em{color:#c0d0c5;font-size:11px}
+body.v6-mature .connected-journey #orderWorkflowCard .mini-label,body.v6-mature .connected-journey #orderWorkflowCard .checkout-top,body.v6-mature .connected-journey #orderWorkflowCard .checkout-product span{color:#455e4e;font-size:12px;line-height:1.5}
+body.v6-mature .journey-shell[data-storefront-mode="customer"] .editable-layer.selected,body.v6-mature .journey-shell[data-storefront-mode="customer"] .editable-text{outline:none;box-shadow:none}
+@media(min-width:1121px){body.v6-mature .journey-scene-build .editor-demo.builder-ui{grid-template-columns:180px minmax(0,1fr) 205px}}
+@media(max-width:700px){body.v6-mature .connected-journey .editor-block-btn{grid-template-columns:10px 10px auto;min-height:38px}}
