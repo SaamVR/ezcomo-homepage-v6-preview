@@ -4,11 +4,11 @@ const FakeTimers=require('@sinonjs/fake-timers');
 const {readFileSync}=require('node:fs');
 const assert=require('node:assert/strict');
 const html=readFileSync('index.html','utf8').replace(/<script[^>]*src[^>]*><\/script>/g,'');
-function setup({reduced=false,hash=''}={}){
+function setup({reduced=false,hash='',phone=false}={}){
  const errors=[];
  const dom=new JSDOM(html,{url:'https://example.com/'+hash,runScripts:'outside-only',pretendToBeVisual:true});
  const w=dom.window;
- w.matchMedia=q=>({matches:q.includes('prefers-reduced-motion')?reduced:false,addEventListener(){},removeEventListener(){}});
+ w.matchMedia=q=>({matches:q.includes('prefers-reduced-motion')?reduced:q.includes('max-width:700px')?phone:false,addEventListener(){},removeEventListener(){}});
  w.IntersectionObserver=class{observe(){} unobserve(){} disconnect(){}};
  w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=()=>{};
  w.confirm=()=>true;
@@ -47,6 +47,9 @@ function click(t,id){const b=t.w.document.getElementById(id);assert.ok(b,id);b.c
 {
  const t=setup({hash:'#chapter-manage'});assert.equal(t.api.getState().demo.order.id,'1051');assert.match(t.w.document.getElementById('journeyNarrationText').textContent,/Sample order loaded/);
  click(t,'langToggle');t.clock.tick(10);assert.equal(t.api.getState().demo.order.id,'1051');assert.equal(t.w.document.documentElement.lang,'bn');assert.deepEqual(t.errors,[]);t.close();console.log('PASS deep link and language persistence');
+}
+{
+ const t=setup({phone:true});click(t,'journeyWatch');t.clock.tick(60000);assert.equal(t.api.getState().demo.order.id,null);assert.equal(t.w.document.getElementById('journeyNext').hidden,false);for(let i=0;i<5;i++)click(t,'journeyNext');assert.equal(t.api.getState().demo.delivery.state,'picked-up');assert.deepEqual(t.errors,[]);t.close();console.log('PASS phone-paced journey');
 }
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,'no duplicate HTML ids');
 console.log('PASS unique IDs');

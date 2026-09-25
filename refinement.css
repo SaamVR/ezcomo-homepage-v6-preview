@@ -190,3 +190,13 @@ body.v6-mature .journey-outcome.is-complete{background:#183f2d}
 body.v6-mature .pricing-compare article p{font-size:16px;line-height:1.65}
 body.v6-mature .onboarding-inner li{font-size:14px;line-height:1.5}
 body.v6-mature .local-point span,body.v6-mature .support-board{font-size:14px;line-height:1.6}
+/* Audit corrections: readable editor chrome and light-surface metadata. */
+body.v6-mature .connected-journey .editor-panel-label,body.v6-mature .connected-journey .editor-inspector label,body.v6-mature .connected-journey .inspector-name small,body.v6-mature .connected-journey .editor-help,body.v6-mature .connected-journey .editor-palette-tip span{color:#c4d2c9}
+body.v6-mature .connected-journey .editor-block-btn{color:#d0ddd4;grid-template-columns:10px 10px minmax(0,1fr) auto;gap:6px;padding:9px 6px}
+body.v6-mature .connected-journey .editor-block-btn>span:not(.section-drag-grip){white-space:normal;overflow-wrap:anywhere;line-height:1.25}
+body.v6-mature .connected-journey .editor-block-btn b{color:#b0c3b5;font-size:11px}
+body.v6-mature .connected-journey .editor-stage-head,body.v6-mature .connected-journey .editor-saved,body.v6-mature .connected-journey .editor-brand em{color:#c0d0c5;font-size:11px}
+body.v6-mature .connected-journey #orderWorkflowCard .mini-label,body.v6-mature .connected-journey #orderWorkflowCard .checkout-top,body.v6-mature .connected-journey #orderWorkflowCard .checkout-product span{color:#455e4e;font-size:12px;line-height:1.5}
+body.v6-mature .journey-shell[data-storefront-mode="customer"] .editable-layer.selected,body.v6-mature .journey-shell[data-storefront-mode="customer"] .editable-text{outline:none;box-shadow:none}
+@media(min-width:1121px){body.v6-mature .journey-scene-build .editor-demo.builder-ui{grid-template-columns:180px minmax(0,1fr) 205px}}
+@media(max-width:700px){body.v6-mature .connected-journey .editor-block-btn{grid-template-columns:10px 10px auto;min-height:38px}}

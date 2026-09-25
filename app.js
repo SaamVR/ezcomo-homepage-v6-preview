@@ -1101,7 +1101,7 @@
   const renderPlayback=()=>{
     shell.dataset.mode=journeyState.mode;shell.dataset.playback=journeyState.playback;
     const pause=$('#journeyPause'),watch=$('#journeyWatch'),next=$('#journeyNext');
-    if(watch)watch.disabled=journeyState.playback==='playing';
+    if(watch){watch.disabled=journeyState.playback==='playing';watch.textContent=pacedTour()?(isBn()?'ধাপে ধাপে দেখুন':'Watch the journey'):(isBn()?'পুরো যাত্রা দেখুন · ৫০ সেকেন্ড':'Watch the journey · 50 sec')}
     if(pause){
       const paused=journeyState.playback==='paused';
       pause.disabled=pacedTour()||(!paused&&journeyState.playback!=='playing'&&!segmentRunning);
@@ -1110,7 +1110,7 @@
     if(next)next.hidden=!(pacedTour()&&journeyState.playback==='paused'&&journeyState.mode==='guided');
     const progress=journeyState.playback==='complete'?100:Math.round(Math.min(journeyState.beat,14)/14*100);
     const bar=$('#journeyProgress');if(bar){bar.setAttribute('aria-valuenow',String(progress));bar.style.setProperty('--progress',progress+'%')}
-    setText('#journeyModeLabel',journeyState.mode==='manual'?(isBn()?'নিজে ব্যবহার করুন':'EXPLORING'):journeyState.playback==='paused'?(isBn()?'থামানো আছে':'PAUSED'):journeyState.playback==='complete'?(isBn()?'যাত্রা সম্পন্ন':'JOURNEY COMPLETE'):(isBn()?'গাইডেড ডেমো':'GUIDED DEMO'));
+    setText('#journeyModeLabel',journeyState.mode==='manual'?(isBn()?'নিজে ব্যবহার করুন':'EXPLORING'):journeyState.playback==='paused'?(pacedTour()?(isBn()?'নিজের গতিতে দেখুন':'AT YOUR PACE'):(isBn()?'থামানো আছে':'PAUSED')):journeyState.playback==='complete'?(isBn()?'যাত্রা সম্পন্ন':'JOURNEY COMPLETE'):(isBn()?'গাইডেড ডেমো':'GUIDED DEMO'));
     const nextOrder=$('#journeyOpenOrder');if(nextOrder){nextOrder.hidden=!demoState.order.id||journeyState.chapter!=='sell';nextOrder.textContent=isBn()?'ওয়ার্কস্পেসে এই অর্ডারটি খুলুন →':'Open this order in your workspace →'}
     $('#journeyOutcome')?.classList.toggle('is-complete',journeyState.playback==='complete');
     const explore=$('#journeyExploreStage');if(explore)explore.textContent=journeyState.mode==='manual'?(isBn()?'গাইডেড ডেমো দেখুন':'Watch guided demo'):(isBn()?'নিজে করে দেখুন':'Try it yourself');
