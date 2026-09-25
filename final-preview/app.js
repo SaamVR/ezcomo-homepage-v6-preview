@@ -1186,9 +1186,14 @@
   const alignJourneyViewport=()=>{
     const siteNav=$('.site-nav');
     if(!shell)return;
-    const offset=(siteNav?.offsetHeight||0)+8;
-    const top=Math.max(0,shell.getBoundingClientRect().top+window.scrollY-offset);
-    window.scrollTo({top,left:0,behavior:'auto'});
+    const settle=()=>{
+      const offset=(siteNav?.offsetHeight||0)+8;
+      const top=Math.max(0,shell.getBoundingClientRect().top+window.scrollY-offset);
+      window.scrollTo({top,left:0,behavior:'auto'});
+    };
+    settle();
+    requestAnimationFrame(()=>requestAnimationFrame(settle));
+    setTimeout(settle,180);
   };
   const setChapter=(chapter,{focus=false,internal=false,sampleLoaded=false,align=false}={})=>{
     if(!['build','sell','manage'].includes(chapter))return;

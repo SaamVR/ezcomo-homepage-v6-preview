@@ -208,15 +208,15 @@ body.v6-mature .journey-shell[data-storefront-mode="customer"] .editable-layer.s
  body.v6-mature .journey-chapter-marker{width:28px;height:28px}
  body.v6-mature .journey-chapter strong{font-size:14px}
  body.v6-mature .journey-chapter small{margin-top:2px;font-size:10px}
- body.v6-mature .journey-director{grid-template-columns:minmax(0,1fr) auto;min-height:56px}
+ body.v6-mature .journey-director{grid-template-columns:minmax(0,1fr) auto;min-height:60px}
  body.v6-mature .journey-narration{padding:7px 14px;gap:1px}
- body.v6-mature .journey-narration strong{font-size:14px;line-height:1.32;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ body.v6-mature .journey-narration strong{font-size:13px;line-height:1.35;max-width:64ch;white-space:normal;overflow:visible;text-overflow:clip}
  body.v6-mature .journey-narration .mini-label{font-size:9px}
  body.v6-mature .journey-controls{padding:6px 8px;gap:5px;border-top:0}
  body.v6-mature .journey-controls button{min-height:36px;padding-inline:9px;font-size:12px}
  body.v6-mature .journey-playback{gap:4px}
  body.v6-mature .journey-context{min-height:32px;padding:5px 14px;font-size:12px}
- body.v6-mature .journey-shell[data-mode="guided"] .journey-stage{height:clamp(500px,calc(100svh - 229px),625px);min-height:0;overflow:hidden}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-stage{height:clamp(500px,calc(100svh - 238px),625px);min-height:0;overflow:hidden}
  body.v6-mature .journey-shell[data-mode="guided"] .journey-scene.is-active{height:100%;min-height:0}
  body.v6-mature .journey-shell[data-mode="guided"] .journey-demo-card{height:100%;min-height:0;box-sizing:border-box}
  body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-build .editor-demo.builder-ui{height:100%;min-height:0;grid-template-rows:42px minmax(0,1fr)}
@@ -224,7 +224,8 @@ body.v6-mature .journey-shell[data-storefront-mode="customer"] .editable-layer.s
  body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-build .editor-canvas{height:100%;min-height:0}
  body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-sell.is-active{padding:10px}
  body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-sell .sell-composition{height:100%;align-items:stretch;gap:10px}
- body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-sell .customer-storefront-mount,body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-sell .sell-runner-mount,body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-sell .sell-workflow-mount{min-height:0}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-sell .customer-storefront-mount{min-height:0}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-sell .sell-runner-mount,body.v6-mature .journey-shell[data-mode="guided"] .journey-scene-sell .sell-workflow-mount{min-height:0;overflow:auto;scrollbar-width:thin}
  body.v6-mature .journey-shell[data-mode="guided"][data-storefront-mode="customer"] #editorStoryPanel,body.v6-mature .journey-shell[data-mode="guided"][data-storefront-mode="customer"] #editorDemo{height:100%;box-sizing:border-box}
  body.v6-mature .journey-shell[data-mode="guided"][data-storefront-mode="customer"] #editorDemo .editor-stage{height:100%;min-height:0;overflow:hidden}
  body.v6-mature .journey-shell[data-mode="guided"][data-storefront-mode="customer"] #editorDemo .editor-canvas{height:100%;min-height:0}
@@ -235,12 +236,15 @@ body.v6-mature .journey-shell[data-storefront-mode="customer"] .editable-layer.s
 }
 @media(min-width:701px) and (max-height:780px){
  body.v6-mature .journey-chapter{min-height:44px}
- body.v6-mature .journey-director{min-height:50px}
+ body.v6-mature .journey-director{min-height:56px}
  body.v6-mature .journey-controls button{min-height:34px;font-size:11px}
  body.v6-mature .journey-context{min-height:30px;padding-block:4px}
- body.v6-mature .journey-shell[data-mode="guided"] .journey-stage{height:clamp(480px,calc(100svh - 220px),570px)}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-stage{height:clamp(440px,calc(100svh - 235px),520px)}
 }
-@media(min-width:701px) and (max-width:900px){
- body.v6-mature .journey-narration strong{font-size:13px;max-width:34ch}
+@media(min-width:701px) and (max-width:960px){
+ body.v6-mature .journey-director{grid-template-columns:1fr}
+ body.v6-mature .journey-narration strong{font-size:13px;max-width:none}
+ body.v6-mature .journey-controls{justify-content:flex-end;border-top:1px solid #35473b}
  body.v6-mature .journey-controls button{padding-inline:7px;font-size:11px}
+ body.v6-mature .journey-shell[data-mode="guided"] .journey-stage{height:clamp(440px,calc(100svh - 285px),560px)}
 }
