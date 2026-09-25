@@ -971,7 +971,7 @@
   const sectionIds=["announcementBlock","headerBlock","heroBlock","categoriesBlock","productsBlock","promoBlock","newBlock","storyBlock","benefitsBlock","newsletterBlock","footerBlock"];
   const createDemoState=()=>({
     storefront:{selectedProduct:"studio-tee",edits:{},sectionOrder:[...sectionIds]},
-    cart:{product:"Studio Tee",variant:"Black · M",quantity:1,itemPrice:1490,sampleDelivery:60,total:1550},
+    cart:{product:"Studio Tee",variant:"Black · M",quantity:1,total:1490},
     order:{id:null,paymentMethod:null,paymentStatus:"none",fulfillmentStatus:"none",opened:false},
     inventory:{before:18,available:18,reserved:0},
     delivery:{provider:null,reference:null,state:"not-booked"},
@@ -1013,7 +1013,7 @@
       animate(target,[{transformOrigin:'top left',transform:`translate(${before.left-after.left}px,${before.top-after.top}px) scale(${before.width/after.width},${before.height/after.height})`},{transformOrigin:'top left',transform:'none'}],{duration:850});
     }else{
       const transfer=document.createElement('div');transfer.className='journey-transfer';transfer.setAttribute('aria-hidden','true');
-      transfer.innerHTML='<span>STUDIO TEE</span><strong>#1051</strong><b>৳1,550</b>';
+      transfer.innerHTML='<span>STUDIO TEE</span><strong>#1051</strong><b>৳1,490</b>';
       Object.assign(transfer.style,{left:before.left+'px',top:before.top+'px',width:Math.min(before.width,280)+'px'});document.body.appendChild(transfer);
       const animation=animate(transfer,[{opacity:1,transform:'translate(0,0) scale(1)'},{opacity:1,offset:.8,transform:`translate(${after.left-before.left}px,${after.top-before.top}px) scale(.95)`},{opacity:0,transform:`translate(${after.left-before.left}px,${after.top-before.top}px) scale(.95)`}],{duration:950});
       if(animation)animation.finished.then(()=>highlight(target)).catch(()=>{}).finally(()=>transfer.remove());else transfer.remove();
@@ -1152,7 +1152,7 @@
       el.classList.toggle('is-pending-value',!ready);
     };
     const paymentReady=paid||order.paymentStatus==='pending';
-    setWorkflowValue('payment',paid?'৳1,550':(order.paymentStatus==='pending'?t('pending'):'—'),paymentReady);
+    setWorkflowValue('payment',paid?'৳1,490':(order.paymentStatus==='pending'?t('pending'):'—'),paymentReady);
     setWorkflowValue('order',orderExists?'#1051':'—',orderExists);
     setWorkflowValue('booked',booked?'PX-84721':'—',booked);
     setWorkflowValue('pickup',picked?t('collected'):'—',picked);
