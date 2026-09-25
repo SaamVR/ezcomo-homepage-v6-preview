@@ -194,16 +194,16 @@
     journeyKicker:'আপনার ব্যবসা, একসাথে যুক্ত',journeyTitle:'স্টোর বানান। অর্ডারকে পরের কাজে নিয়ে যান।',journeyLead:'স্টোরফ্রন্ট নিজের মতো সাজান, ক্রেতার একটি অর্ডার দেখুন, তারপর EZComo-তেই পরের কাজ সামলান।',
     journeyWatch:'পুরো যাত্রা দেখুন',journeyExplore:'নিজে করে দেখুন',journeyDisclosure:'ইন্টার‌্যাকটিভ ডেমো · নমুনা ডেটা · কোনো আসল পেমেন্ট বা ডেলিভারি নয়',
     journeyBuildCopy:'নিজের মতো করুন',journeySellCopy:'অর্ডার নিন',journeyManageCopy:'ডেলিভারি প্রস্তুত করুন',journeyNow:'গাইডেড ডেমো',
-    journeyBuildNarration:'কনটেন্ট ও লেআউট edit করুন। কাজ করার সাথে storefront-এ পরিবর্তন দেখুন।',journeyCustomerTransition:'এবার ক্রেতার চোখে storefront দেখুন।',journeySellNarration:'ক্রেতার অর্ডার payment ও product details-সহ আপনার workspace-এ পৌঁছে যায়।',journeyManageTransition:'এবার অর্ডারটি আপনার manage করার পালা।',journeyManageNarration:'একই workspace থেকে অর্ডার দেখে delivery প্রস্তুত করুন।',
-    journeyPause:'থামান',journeyResume:'চালিয়ে যান',journeyNext:'পরের ধাপ',journeyReplay:'আবার চালান',journeyReset:'ডেমো রিসেট',journeyOutcomeLabel:'একটি যুক্ত কাজের ধারা',journeyOutcome:'একটি storefront। একটি order। ব্যবসা চালানোর একটি connected flow।',journeyStart:'নিজের স্টোর বানানো শুরু করুন',journeyExploreDemo:'ডেমো নিজে দেখুন',journeySampleLoaded:'নমুনা অর্ডার লোড করা হয়েছে',
-    journeyPrepareDelivery:'ডেলিভারি প্রস্তুত করুন',journeyBookDelivery:'নমুনা ডেলিভারি বুক করুন',journeyLaterPickup:'পরে · কুরিয়ার pickup update',journeySimulatePickup:'pickup update simulate করুন',
-    manageFlowLabel:'FULFILMENT FLOW',manageFlowTitle:'ডেলিভারি প্রস্তুত করুন, তারপর পরের courier update দেখুন।',manageFlowNote:'নমুনা Pathao booking · কোনো আসল delivery তৈরি হয় না',
-    chapterBuild:'Build',chapterSell:'Sell',chapterManage:'Manage',
-    builderLabel:'০১ · স্টোরফ্রন্ট এডিটর',builderTitle:'Storefront-কে নিজের ব্যবসার মতো সাজান।',builderCopy:'Headline, color বা section order বদলালেই storefront সঙ্গে সঙ্গে update হয়।',builderHint:'একটি কাজ দিয়ে শুরু করুন—headline edit করুন বা একটি section সরান।',
-    workflowLabel:'০২ · SELL · CUSTOMER ORDER',workflowTitle:'একই storefront থেকে ক্রেতা একটি অর্ডার দেয়।',workflowCopy:'একই Studio Tee checkout থেকে payment ও product details-সহ #1051 অর্ডার তৈরি হয়।',workflowRun:'নমুনা অর্ডার দিন',workflowResult:'#1051 অর্ডার merchant workspace-এ পৌঁছেছে।',workflowResultNote:'Payment ও product details যুক্ত আছে। Delivery এখন merchant-এর পরের কাজ।',workflowNowDone:'#1051 অর্ডার workspace-এ পৌঁছেছে।',
-    workspaceLabel:'০৩ · MANAGE · ORDER WORKSPACE',workspaceTitle:'একই অর্ডারের পরের কাজ করুন।',workspaceCopy:'Studio Tee-এর #1051 খুলে payment ও stock দেখুন, তারপর sample delivery প্রস্তুত করুন।',workspaceHint:'ইন্টার‌্যাকটিভ ডেমো · নমুনা ডেটা · একই #1051 অর্ডার',
-    workspaceGreeting:'#1051 অর্ডার sample checkout-এর অপেক্ষায়।',workspaceNewOrder:'#1051 অর্ডার খুলুন',workspaceSample:'sample order · waiting',workspaceNext:'পরের কাজ',workspaceNextNote:'একই sample order পুরো journey-তে যুক্ত থাকে।',workspaceBackToSell:'Customer order-এ ফিরুন ↑',workspaceMarginLabel:'আনুমানিক item margin',workspaceMarginNote:'নমুনা item cost ৳800 · courier, payment ও অন্য applicable fee বাদ',
-    workspaceWaiting:'অপেক্ষায়',workspaceReceived:'রিসিভড',workspaceBooking:'বুক হচ্ছে…',workspaceBooked:'বুকড',workspacePickedUp:'পিকআপ হয়েছে',workspaceRecorded:'রেকর্ডেড',workspaceSynced:'#1051 অর্ডার synced',workspaceRunSell:'#1051 workspace-এ পাঠাতে নমুনা অর্ডার দিন।'
+    journeyBuildNarration:'কনটেন্ট ও লেআউট সম্পাদনা করুন। কাজ করার সাথে স্টোরফ্রন্টে পরিবর্তন দেখুন।',journeyCustomerTransition:'এবার ক্রেতার চোখে স্টোরফ্রন্ট দেখুন।',journeySellNarration:'ক্রেতার অর্ডার পেমেন্ট ও পণ্যের তথ্যসহ আপনার ওয়ার্কস্পেসে পৌঁছে যায়।',journeyManageTransition:'এবার অর্ডারটি আপনার পরিচালনার পালা।',journeyManageNarration:'একই ওয়ার্কস্পেস থেকে অর্ডার দেখে ডেলিভারি প্রস্তুত করুন।',
+    journeyPause:'থামান',journeyResume:'চালিয়ে যান',journeyNext:'পরের ধাপ',journeyReplay:'আবার চালান',journeyReset:'ডেমো রিসেট',journeyOutcomeLabel:'একটি যুক্ত কাজের ধারা',journeyOutcome:'একটি স্টোরফ্রন্ট। একটি অর্ডার। ব্যবসা চালানোর একটি সংযুক্ত ধারা।',journeyStart:'নিজের স্টোর বানানো শুরু করুন',journeyExploreDemo:'ডেমো নিজে দেখুন',journeySampleLoaded:'নমুনা অর্ডার লোড করা হয়েছে',
+    journeyPrepareDelivery:'ডেলিভারি প্রস্তুত করুন',journeyBookDelivery:'নমুনা ডেলিভারি বুক করুন',journeyLaterPickup:'পরে · কুরিয়ার পিকআপ আপডেট',journeySimulatePickup:'পিকআপ আপডেট দেখুন',
+    manageFlowLabel:'ডেলিভারি ফ্লো',manageFlowTitle:'ডেলিভারি প্রস্তুত করুন, তারপর পরের কুরিয়ার আপডেট দেখুন।',manageFlowNote:'নমুনা Pathao বুকিং · কোনো আসল ডেলিভারি তৈরি হয় না',
+    chapterBuild:'তৈরি',chapterSell:'বিক্রি',chapterManage:'পরিচালনা',
+    builderLabel:'০১ · স্টোরফ্রন্ট এডিটর',builderTitle:'স্টোরফ্রন্টকে নিজের ব্যবসার মতো সাজান।',builderCopy:'হেডলাইন, রং বা সেকশনের ক্রম বদলালেই স্টোরফ্রন্ট সঙ্গে সঙ্গে আপডেট হয়।',builderHint:'একটি কাজ দিয়ে শুরু করুন—হেডলাইন সম্পাদনা করুন বা একটি সেকশন সরান।',
+    workflowLabel:'০২ · বিক্রি · ক্রেতার অর্ডার',workflowTitle:'একই স্টোরফ্রন্ট থেকে ক্রেতা একটি অর্ডার দেয়।',workflowCopy:'একই Studio Tee চেকআউট থেকে পেমেন্ট ও পণ্যের তথ্যসহ #1051 অর্ডার তৈরি হয়।',workflowRun:'নমুনা অর্ডার দিন',workflowResult:'#1051 অর্ডার মার্চেন্ট ওয়ার্কস্পেসে পৌঁছেছে।',workflowResultNote:'পেমেন্ট ও পণ্যের তথ্য যুক্ত আছে। ডেলিভারি এখন মার্চেন্টের পরের কাজ।',workflowNowDone:'#1051 অর্ডার ওয়ার্কস্পেসে পৌঁছেছে।',
+    workspaceLabel:'০৩ · পরিচালনা · অর্ডার ওয়ার্কস্পেস',workspaceTitle:'একই অর্ডারের পরের কাজ করুন।',workspaceCopy:'Studio Tee-এর #1051 খুলে পেমেন্ট ও স্টক দেখুন, তারপর নমুনা ডেলিভারি প্রস্তুত করুন।',workspaceHint:'ইন্টার‌্যাকটিভ ডেমো · নমুনা ডেটা · একই #1051 অর্ডার',
+    workspaceGreeting:'#1051 অর্ডার নমুনা চেকআউটের অপেক্ষায়।',workspaceNewOrder:'#1051 অর্ডার খুলুন',workspaceSample:'নমুনা অর্ডার · অপেক্ষায়',workspaceNext:'পরের কাজ',workspaceNextNote:'একই নমুনা অর্ডার পুরো ধারাজুড়ে যুক্ত থাকে।',workspaceBackToSell:'ক্রেতার অর্ডারে ফিরুন ↑',workspaceMarginLabel:'পণ্যের আনুমানিক মার্জিন',workspaceMarginNote:'নমুনা পণ্যের খরচ ৳800 · কুরিয়ার, পেমেন্ট ও অন্যান্য প্রযোজ্য ফি বাদ',
+    workspaceWaiting:'অপেক্ষায়',workspaceReceived:'গৃহীত',workspaceBooking:'বুক হচ্ছে…',workspaceBooked:'বুকড',workspacePickedUp:'পিকআপ হয়েছে',workspaceRecorded:'রেকর্ড করা হয়েছে',workspaceSynced:'#1051 অর্ডার যুক্ত হয়েছে',workspaceRunSell:'#1051 ওয়ার্কস্পেসে পাঠাতে নমুনা অর্ডার দিন।'
   });
 
   const faq = {
@@ -934,21 +934,21 @@
       marginNote:'Sample item cost ৳800 · excludes courier, payment and other applicable fees'
     },
     bn:{
-      buildNarration:'কনটেন্ট ও লেআউট edit করুন। কাজ করার সাথে storefront-এ পরিবর্তন দেখুন।',
-      customerTransition:'এবার ক্রেতার চোখে storefront দেখুন।',
-      sellNarration:'ক্রেতার অর্ডার payment ও product details-সহ আপনার workspace-এ পৌঁছে যায়।',
-      manageTransition:'এবার অর্ডারটি আপনার manage করার পালা।',
-      manageNarration:'একই workspace থেকে অর্ডার দেখে delivery প্রস্তুত করুন।',
-      laterPickup:'পরে · কুরিয়ার pickup update',
-      outcome:'একটি storefront। একটি order। ব্যবসা চালানোর একটি connected flow।',
+      buildNarration:'কনটেন্ট ও লেআউট সম্পাদনা করুন। কাজ করার সাথে স্টোরফ্রন্টে পরিবর্তন দেখুন।',
+      customerTransition:'এবার ক্রেতার চোখে স্টোরফ্রন্ট দেখুন।',
+      sellNarration:'ক্রেতার অর্ডার পেমেন্ট ও পণ্যের তথ্যসহ আপনার ওয়ার্কস্পেসে পৌঁছে যায়।',
+      manageTransition:'এবার অর্ডারটি আপনার পরিচালনার পালা।',
+      manageNarration:'একই ওয়ার্কস্পেস থেকে অর্ডার দেখে ডেলিভারি প্রস্তুত করুন।',
+      laterPickup:'পরে · কুরিয়ার পিকআপ আপডেট',
+      outcome:'একটি স্টোরফ্রন্ট। একটি অর্ডার। ব্যবসা চালানোর একটি সংযুক্ত ধারা।',
       sampleLoaded:'নমুনা অর্ডার লোড করা হয়েছে',
       pause:'থামান',resume:'চালিয়ে যান',
       waiting:'অপেক্ষায়',paid:'পেইড',pending:'পেন্ডিং',received:'রিসিভড',booked:'বুকড',picked:'পিকআপ হয়েছে',collected:'পিকআপ সম্পন্ন',
-      notBooked:'বুক হয়নি',awaitPickup:'Pathao · pickup-এর অপেক্ষা',pickupCollected:'Pathao pickup হয়েছে',
-      prepare:'ডেলিভারি প্রস্তুত করুন',sameOrder:'একই sample order পুরো journey-তে যুক্ত থাকে।',
-      sellReady:'ডেমো অর্ডারের জন্য প্রস্তুত।',sellDone:'#1051 অর্ডার workspace-এ পৌঁছেছে।',
-      courier:'Pathao booking প্রস্তুত হচ্ছে…',bookedNow:'PX-84721 কুরিয়ার বুকিং সংরক্ষণ করা হচ্ছে…',pickup:'পরে পাওয়া courier pickup update প্রয়োগ হচ্ছে…',inventory:'আগে reserve হওয়া Studio Tee stock ১৮ → ১৭ দেখানো হচ্ছে…',profit:'আনুমানিক item margin দেখানো হচ্ছে…',
-      marginNote:'নমুনা item cost ৳800 · courier, payment ও অন্য applicable fee বাদ'
+      notBooked:'বুক হয়নি',awaitPickup:'Pathao · পিকআপের অপেক্ষা',pickupCollected:'Pathao পিকআপ হয়েছে',
+      prepare:'ডেলিভারি প্রস্তুত করুন',sameOrder:'একই নমুনা অর্ডার পুরো ধারাজুড়ে যুক্ত থাকে।',
+      sellReady:'ডেমো অর্ডারের জন্য প্রস্তুত।',sellDone:'#1051 অর্ডার ওয়ার্কস্পেসে পৌঁছেছে।',
+      courier:'Pathao বুকিং প্রস্তুত হচ্ছে…',bookedNow:'PX-84721 কুরিয়ার বুকিং সংরক্ষণ করা হচ্ছে…',pickup:'পরে পাওয়া কুরিয়ার পিকআপ আপডেট প্রয়োগ হচ্ছে…',inventory:'আগে সংরক্ষিত Studio Tee স্টক ১৮ → ১৭ দেখানো হচ্ছে…',profit:'পণ্যের আনুমানিক মার্জিন দেখানো হচ্ছে…',
+      marginNote:'নমুনা পণ্যের খরচ ৳800 · কুরিয়ার, পেমেন্ট ও অন্যান্য প্রযোজ্য ফি বাদ'
     }
   };
   const isBn=()=>document.body.classList.contains('bn');
@@ -1134,7 +1134,14 @@
     renderPlayback();
   };
 
-  const setChapter=(chapter,{focus=false,internal=false,sampleLoaded=false}={})=>{
+  const alignJourneyViewport=()=>{
+    const siteNav=$('.site-nav');
+    if(!shell)return;
+    const offset=(siteNav?.offsetHeight||0)+8;
+    const top=Math.max(0,shell.getBoundingClientRect().top+window.scrollY-offset);
+    window.scrollTo({top,left:0,behavior:'auto'});
+  };
+  const setChapter=(chapter,{focus=false,internal=false,sampleLoaded=false,align=false}={})=>{
     if(!['build','sell','manage'].includes(chapter))return;
     if(!internal&&journeyState.playback==='playing')pauseJourney('chapter-selection');
     journeyState.chapter=chapter;shell.dataset.chapter=chapter;
@@ -1148,6 +1155,7 @@
     if(narration)narration.textContent=sampleLoaded?t('sampleLoaded'):(chapter==='build'?t('buildNarration'):chapter==='sell'?t('sellNarration'):t('manageNarration'));
     renderAll();
     if(focus){const scene=$('[data-journey-scene="'+chapter+'"]');$('h3,button,input,[tabindex]',scene||document)?.focus?.({preventScroll:true})}
+    if(align)requestAnimationFrame(alignJourneyViewport);
   };
 
   const stepNarration=name=>({
@@ -1246,16 +1254,16 @@
   const advanceReduced=()=>{
     if(!journeyState.reducedMotion||journeyState.mode!=='guided'||journeyState.playback==='complete')return;
     switch(journeyState.beat){
-      case 0:markComplete('build');setChapter('sell',{internal:true});setText('#journeyNarrationText',t('customerTransition'));journeyState.beat=1;break;
+      case 0:markComplete('build');setChapter('sell',{internal:true,align:true});setText('#journeyNarrationText',t('customerTransition'));journeyState.beat=1;break;
       case 1:dispatch({type:'SAMPLE_PAYMENT_CONFIRMED',method:'bkash'});dispatch({type:'SAMPLE_ORDER_PLACED'});addDone('payment');addDone('order');markComplete('sell');setText('#journeyNarrationText',t('sellNarration'));journeyState.beat=2;break;
-      case 2:setChapter('manage',{internal:true});openOrder();setText('#journeyNarrationText',t('manageNarration'));journeyState.beat=3;break;
+      case 2:setChapter('manage',{internal:true,align:true});openOrder();setText('#journeyNarrationText',t('manageNarration'));journeyState.beat=3;break;
       case 3:dispatch({type:'SAMPLE_DELIVERY_BOOKED'});addDone('courier');addDone('booked');setText('#journeyNarrationText',t('laterPickup'));journeyState.beat=4;break;
       default:dispatch({type:'SAMPLE_PICKUP_UPDATED'});['pickup','inventory','profit'].forEach(addDone);markComplete('manage');journeyState.playback='complete';setText('#journeyNarrationText',t('outcome'));
     }
     renderAll();
   };
 
-  $$('[data-journey-chapter]').forEach(btn=>btn.addEventListener('click',()=>{pauseJourney('chapter-selection');setChapter(btn.dataset.journeyChapter,{focus:true,internal:true})}));
+  document.querySelectorAll('[data-journey-chapter]').forEach(btn=>btn.addEventListener('click',()=>{pauseJourney('chapter-selection');setChapter(btn.dataset.journeyChapter,{focus:true,internal:true,align:true})}));
   $('#journeyWatch')?.addEventListener('click',replayJourney);
   $('#journeyPause')?.addEventListener('click',()=>journeyState.playback==='paused'?resumeJourney():pauseJourney('user'));
   $('#journeyReplay')?.addEventListener('click',replayJourney);
@@ -1263,14 +1271,21 @@
   [$('#journeyExplore'),$('#journeyExploreStage'),$('#journeyExploreFinal')].filter(Boolean).forEach(btn=>btn.addEventListener('click',()=>enterManual('manual-explore')));
   $('#journeyReset')?.addEventListener('click',()=>$('#editorReset')?.click());
 
-  $('#workflowRun')?.addEventListener('click',runSell);
-  $('#placeOrderDemo')?.addEventListener('click',runSell);
-  $('#workspaceOrdersBtn')?.addEventListener('click',openOrder);
-  $('#workspaceOrderRow')?.addEventListener('click',openOrder);
-  $('#prepareDelivery')?.addEventListener('click',openOrder);
-  $('#bookSampleDelivery')?.addEventListener('click',runBooking);
-  $('#simulatePickupUpdate')?.addEventListener('click',runPickup);
-  $('#courierAction')?.addEventListener('click',runBooking);
+  const delegatedJourneyActions={
+    workflowRun:runSell,
+    placeOrderDemo:runSell,
+    workspaceOrdersBtn:openOrder,
+    workspaceOrderRow:openOrder,
+    prepareDelivery:openOrder,
+    bookSampleDelivery:runBooking,
+    simulatePickupUpdate:runPickup,
+    courierAction:runBooking
+  };
+  shell.addEventListener('click',event=>{
+    const action=event.target.closest('#workflowRun,#placeOrderDemo,#workspaceOrdersBtn,#workspaceOrderRow,#prepareDelivery,#bookSampleDelivery,#simulatePickupUpdate,#courierAction');
+    if(!action||!shell.contains(action))return;
+    delegatedJourneyActions[action.id]?.();
+  });
 
   const editorPanel=$('#editorStoryPanel');
   if(editorPanel){
