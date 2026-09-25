@@ -172,6 +172,7 @@
     const flow=w>760&&h<650;
     player.dataset.layout=flow?'flow':'fitted';
     story.paced=reducedMotion.matches||w<=760||flow;
+    if(story.paced&&story.focused){story.focused=false;document.body.classList.remove('v7-focused')}
     if(!story.paced){
       const navH=$('.site-nav')?.offsetHeight||72;
       const reserve=story.focused?24:navH+32;
@@ -263,7 +264,7 @@
     story.paced=isPaced();
     const playing=story.playback==='playing',paused=story.playback==='paused',complete=story.playback==='complete';
     if(els.pause)els.pause.hidden=!playing;if(els.cont)els.cont.hidden=!paused||story.paced;
-    if(els.prev)els.prev.hidden=!story.paced||(story.beat<=0);if(els.next)els.next.hidden=!story.paced||complete;
+    if(els.prev)els.prev.hidden=!story.paced||(story.beat<=0)||complete;if(els.next)els.next.hidden=!story.paced||complete;
     if(els.tryStep)els.tryStep.hidden=!paused||story.paced;if(els.watchAgain)els.watchAgain.hidden=!complete;if(els.tryComplete)els.tryComplete.hidden=!complete;
     player.dataset.playback=story.playback;if(els.watch)els.watch.disabled=playing;
     const watchText=els.watch?.querySelector('[data-v7-copy="watch"]');if(watchText)watchText.textContent=story.paced?t('watchStep'):t('watch');
@@ -376,7 +377,7 @@
 
   function beginStory(){
     story.paced=isPaced();resetDemoEvents();
-    if(story.paced){story.playback='paused';story.pauseReason='paced';renderControls();player.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'});return}
+    if(story.paced){exitFocus({pause:false});story.playback='paused';story.pauseReason='paced';renderControls();player.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'start'});return}
     enterFocus();requestAnimationFrame(()=>requestAnimationFrame(()=>{alignPlayer();startClock()}));
   }
   function replayStory(){resetDemoEvents();beginStory()}
@@ -384,7 +385,7 @@
   function stepTo(next){
     cancelManagedAnimations();hideIndicator();story.beat=Math.max(0,Math.min(beats.length-1,next));story.elapsed=0;story.playback='paused';story.pauseReason='paced';story.runId++;story.fired.clear();
     if(story.beat>=6){business.orderCreated=true;business.payment='paid'}else business=createBusiness();
-    if(story.beat>=9)business.delivery='awaiting-pickup';if(story.beat>=10)business.delivery='picked-up';if(story.beat===11)story.playback='complete';
+    if(story.beat>=9){business.delivery='awaiting-pickup';business.bookingRef=fixture.bookingRef}if(story.beat>=10)business.delivery='picked-up';if(story.beat===11)story.playback='complete';
     renderBeat();renderBusiness();renderControls();
   }
 
