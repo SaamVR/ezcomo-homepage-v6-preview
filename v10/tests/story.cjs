@@ -46,3 +46,16 @@ function change(t,id,value,type='change'){const el=t.w.document.getElementById(i
 {
  const t=setup({phone:true});click(t,'cxWatch');t.clock.tick(3000);t.w.innerHeight-=70;t.w.dispatchEvent(new t.w.Event('resize'));assert.equal(t.api.getState().playing,true,'mobile browser chrome height changes must not interrupt film');t.w.innerWidth+=100;t.w.dispatchEvent(new t.w.Event('resize'));assert.equal(t.api.getState().playing,false,'layout width change pauses safely');t.close();console.log('PASS mobile browser chrome resize versus layout change');
 }
+
+{
+ const t=setup();const box=t.w.document.getElementById('cxPlayer'),nav=t.w.document.querySelector('.site-nav');t.w.innerHeight=900;
+ let top=82;box.getBoundingClientRect=()=>({top,bottom:top+740,height:740,width:1100});nav.getBoundingClientRect=()=>({height:72});
+ t.w.dispatchEvent(new t.w.Event('scroll'));t.clock.tick(32);assert.equal(t.w.document.body.classList.contains('cx-demo-focused'),true);assert.equal(nav.getAttribute('aria-hidden'),'true');assert.equal(nav.inert,true);assert.equal(box.style.getPropertyValue('--cx-focus-height'),'806px');
+ top=12;t.w.dispatchEvent(new t.w.Event('scroll'));t.clock.tick(32);assert.equal(box.style.getPropertyValue('--cx-focus-height'),'876px');
+ t.w.document.dispatchEvent(new t.w.KeyboardEvent('keydown',{key:'Escape'}));assert.equal(nav.inert,false);assert.equal(nav.hasAttribute('aria-hidden'),false);t.w.dispatchEvent(new t.w.Event('scroll'));t.clock.tick(32);assert.equal(t.w.document.body.classList.contains('cx-demo-focused'),false,'Escape stays dismissed until leaving section');
+ top=300;t.w.dispatchEvent(new t.w.Event('scroll'));t.clock.tick(32);top=12;t.w.dispatchEvent(new t.w.Event('scroll'));t.clock.tick(32);assert.equal(nav.inert,true);click(t,'cxExitFocus');assert.equal(nav.inert,false);assert.ok(nav.contains(t.w.document.activeElement));
+ t.w.document.activeElement.blur();top=300;t.w.dispatchEvent(new t.w.Event('scroll'));t.clock.tick(32);top=12;t.w.dispatchEvent(new t.w.Event('scroll'));t.clock.tick(32);assert.equal(nav.inert,true);top=-500;t.w.dispatchEvent(new t.w.Event('scroll'));t.clock.tick(32);assert.equal(nav.inert,false);assert.equal(box.style.getPropertyValue('--cx-focus-height'),'');t.close();console.log('PASS scroll focus, reclaimed height, accessible navbar restoration and no re-hiding after Escape');
+}
+{
+ const t=setup();click(t,'cxWatch');t.clock.tick(115000);assert.equal(t.api.getState().settled,true);assert.equal(t.api.getState().playing,false);t.close();console.log('PASS faster desktop story completes within 115 seconds');
+}

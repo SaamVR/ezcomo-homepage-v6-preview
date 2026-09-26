@@ -10,7 +10,7 @@ Visual language: warm off-white demo surfaces, graphite text, forest green actio
 
 ## Motion direction
 
-The story is a 32-beat, approximately two-minute sequence. Build gets about half the screen time. Chapter shortcuts and previous/next controls allow skipping. One requestAnimationFrame clock owns all sequencing and type-on progress. No nested setTimeout choreography, scroll lock, external animation dependency, payment call or booking request.
+The story is a 32-beat, approximately 102-second desktop / 114-second mobile sequence. Build gets about half the screen time. Chapter shortcuts and previous/next controls allow skipping. One requestAnimationFrame clock owns all sequencing and type-on progress. No nested setTimeout choreography, scroll lock, external animation dependency, payment call or booking request.
 
 | Passage | Action and meaningful result | Motion principle |
 | --- | --- | --- |
@@ -31,9 +31,9 @@ Control anticipation is about 650–850ms. Most interface responses settle over 
 
 Desktop: narrow task rail + edit panel + live storefront. Sell and Manage bring in the persistent right-hand guide. Mobile: full-width task forms; Preview opens separately; native merchant bottom navigation replaces the desktop sidebar. Mobile captions and a current-step guide avoid shrinking desktop panels into a phone.
 
-The player uses viewport-relative height with an allowance for the existing navbar. Its content panels scroll internally where needed. Guided focus scrolls only those panels, never the page. Very short landscape screens use a taller readable section rather than scaling text down. Navigation stays available.
+The player uses viewport-relative height with an allowance for the existing navbar. Its content panels scroll internally where needed. Guided focus scrolls only those panels, never the page. Very short landscape screens use a taller readable section rather than scaling text down. When the demo reaches the top of the viewport, the navbar translates out of view and the player expands to the available height. Navbar layout space is retained to avoid page jumps. Scrolling beyond the section restores navigation; Escape and Show navigation restore it immediately. Hidden navigation is inert and removed from the accessibility tree until restored.
 
-Autoplay starts only with at least 85% of the demo in view. Leaving the viewport, keyboard use, page hiding and viewport changes pause the story. Re-entering does not force a restart. A compact pause/resume control remains available. Reduced-motion mode is completely user paced and omits decorative transforms and type-on animation. Controls retain focus rings, pressed/current state and semantic labels. Demo product interface is marked English when the surrounding marketing page is switched to Bangla.
+Autoplay starts only with at least 85% of the demo in view. Leaving the viewport, keyboard use, page hiding and layout-width changes pause the story. Mobile browser chrome height changes do not interrupt playback. Re-entering does not force a restart. A compact pause/resume control remains available. Reduced-motion mode is completely user paced and omits decorative transforms and type-on animation. Controls retain focus rings, pressed/current state and semantic labels. Demo product interface is marked English when the surrounding marketing page is switched to Bangla.
 
 ## State and interactions
 
@@ -52,3 +52,9 @@ Integration checks cover the full guided sequence, pause/resume, replay, user ed
 The matching GitHub Actions workflow runs on changes to V10. Runtime dependencies: none. Test-only dependencies: jsdom and fake timers.
 
 Rendered-browser QA remains outstanding: the session's earlier browser access was blocked, so DOM tests are not being presented as visual verification. Before production promotion, inspect 360/390/430/768/1440 widths, short laptop height, keyboard focus and a complete film on an actual phone. V10 is published as a reviewable preview, not a replacement of ezcomo.shop.
+
+## V10.1 visibility and focus refinement
+
+Outer demo controls and supporting text now have explicit light/dark theme colors. Primary button uses white on forest green (7.94:1 contrast). Secondary action and surrounding copy follow scoped, high-contrast section tokens rather than inheriting the hero’s pale-on-dark button style.
+
+Playback advances at 1.25× the original story clock, reducing total viewing time by 20% while retaining all 32 beats. Existing movement easing stays intact. New tests cover focused viewport height, navbar inert/ARIA state, Escape dismissal, explicit navigation restoration, leaving the section, and completion at the faster pace.

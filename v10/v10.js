@@ -8,6 +8,7 @@ const all = (q, root=player) => [...root.querySelectorAll(q)];
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const phone = matchMedia('(max-width: 700px)');
 const EASE = 'cubic-bezier(.22,1,.36,1)';
+const STORY_SPEED = 1.25;
 const defaults = () => ({chapter:'build',tool:'page',view:'home',preview:false,headline:'Everyday essentials.',body:'Good things for everyday living.',button:'Shop collection',promoText:'The weekend edit',content:'hero',layout:'split',promo:'feature',palette:'original',size:'M',bag:0,order:false,admin:'home',courier:'',shipment:0,settled:false,published:false,saved:false});
 let state=defaults(), step=0, playing=false, elapsed=0, last=0, raf=0, applied=false, mode='guided', started=false, inView=true, manualSnapshot=null;
 let undo=[], redo=[], animations=new Set(), highlighted=null, previousChapter='build';
@@ -138,7 +139,7 @@ function applyBeat(){
  if(state.shipment&&state.chapter==='manage'){const active=$('cxPipeline').querySelector('.is-current');animate(active,[{opacity:.2,transform:'translateY(9px)'},{opacity:1,transform:'translateY(0)'}],{duration:650})}
 }
 function tick(now){
- if(!playing)return;if(!last)last=now;elapsed+=Math.min(now-last,100);last=now;
+ if(!playing)return;if(!last)last=now;elapsed+=Math.min(now-last,100)*STORY_SPEED;last=now;
  const b=beats[step];
  if(b.type&&!motion.matches&&elapsed>=800&&elapsed<2200){const full=b.patch[b.type],portion=Math.max(1,Math.round(full.length*Math.min(1,(elapsed-800)/1300)));state[b.type]=full.slice(0,portion);render()}
  const actionAt=b.type&&!motion.matches?2200:850;
@@ -164,7 +165,7 @@ function seek(index,playAfter=false){
  if(playAfter&&!motion.matches)play();
 }
 function next(){if(!applied){applyBeat();pause();text('cxPlay',motion.matches?'Next step':'Resume');return}seek(Math.min(step+1,beats.length-1));if(!motion.matches)applyBeat()}
-function align(){const nav=document.querySelector('.site-nav');const y=player.getBoundingClientRect().top+window.scrollY-(nav?.getBoundingClientRect().height||64)-12;window.scrollTo({top:y,behavior:motion.matches?'auto':'smooth'})}
+function align(){focusDismissed=false;const y=player.getBoundingClientRect().top+window.scrollY-12;window.scrollTo({top:y,behavior:motion.matches?'auto':'smooth'});queueFocusUpdate()}
 function manual(){if(mode!=='manual'){pause();clearMotion();mode='manual';text('cxNarrationLabel','YOUR TURN · INTERACTIVE DEMO');text('cxCaption','Try a control. Your changes stay inside this sample store.');render()}}
 function edit(patch,{history=true}={}){manual();if(history){undo.push({...state});if(undo.length>30)undo.shift();redo=[]}Object.assign(state,patch,{saved:false});render()}
 function action(patch,caption){manual();Object.assign(state,patch);render();if(caption)text('cxCaption',caption)}
@@ -209,6 +210,46 @@ motion.addEventListener?.('change',()=>{pause();clearMotion();if(motion.matches)
 phone.addEventListener?.('change',()=>{pause();clearMotion();render()});
 let layoutWidth=window.innerWidth;
 window.addEventListener('resize',()=>{if(Math.abs(window.innerWidth-layoutWidth)<4)return;layoutWidth=window.innerWidth;if(playing)pause();clearMotion()},{passive:true});
+// Scroll-focused presentation preserves the navbar's layout space: no page jump.
+const siteNav=document.querySelector('.site-nav');
+const mobileNav=$('mobileNav');
+let focused=false,focusDismissed=false,focusFrame=0;
+function setFocus(value){
+ if(value===focused)return;
+ focused=value;document.body.classList.toggle('cx-demo-focused',value);
+ if(siteNav){siteNav.inert=value;if(value)siteNav.setAttribute('aria-hidden','true');else siteNav.removeAttribute('aria-hidden')}
+ show('cxExitFocus',value);
+ if(!value)player.style.removeProperty('--cx-focus-height');
+}
+function updateFocus(){
+ focusFrame=0;const r=player.getBoundingClientRect(),vh=window.innerHeight;
+ if(!r.height)return;
+ const navHeight=siteNav?.getBoundingClientRect().height||72;
+ const near=r.top<=navHeight+28&&r.bottom>=vh*.6;
+ const outside=r.top>navHeight+70||r.bottom<vh*.42;
+ if(outside)focusDismissed=false;
+ const navBusy=siteNav?.contains(document.activeElement)||mobileNav?.classList.contains('open');
+ const active=!focusDismissed&&!navBusy&&!document.hidden&&vh>=480&&(focused?!outside:near);
+ setFocus(active);
+ if(active){
+  // Use space actually visible above the box; scrolling closer reveals more stage.
+  // The sticky header is translated away, so the page's content position stays stable.
+  const available=Math.max(360,vh-Math.max(12,r.top)-12);
+  player.style.setProperty('--cx-focus-height',Math.floor(available)+'px');
+ }
+}
+function queueFocusUpdate(){if(!focusFrame)focusFrame=requestAnimationFrame(updateFocus)}
+function restoreNavigation({focus=false}={}){
+ focusDismissed=true;setFocus(false);
+ if(focus)siteNav?.querySelector('a,button')?.focus({preventScroll:true});
+}
+bind('cxExitFocus',()=>restoreNavigation({focus:true}));
+window.addEventListener('scroll',queueFocusUpdate,{passive:true});
+window.addEventListener('resize',queueFocusUpdate,{passive:true});
+document.addEventListener('focusin',()=>{if(siteNav?.contains(document.activeElement))restoreNavigation();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&focused){pause();restoreNavigation()}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)setFocus(false);else queueFocusUpdate()});
+queueFocusUpdate();
 function hash(){const chapter={'#chapter-build':0,'#chapter-sell':16,'#chapter-manage':23}[location.hash];if(chapter!==undefined){seek(chapter);align()}}
 window.addEventListener('hashchange',hash);
 window.__ezcomoV10={getState:()=>({...state,step,playing,mode,applied}),beats:beats.map(({label,ms})=>({label,ms})),play,pause,next,seek,manual};
