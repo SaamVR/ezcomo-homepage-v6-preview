@@ -1,55 +1,41 @@
-/* DOM integration checks. Run with NODE_PATH pointing to jsdom and @sinonjs/fake-timers. */
-const {JSDOM}=require('jsdom');
-const FakeTimers=require('@sinonjs/fake-timers');
-const {readFileSync}=require('node:fs');
-const assert=require('node:assert/strict');
+/* Deterministic integration checks: local sample state only. */
+const {JSDOM}=require('jsdom'),FakeTimers=require('@sinonjs/fake-timers'),{readFileSync}=require('node:fs'),assert=require('node:assert/strict');
 const html=readFileSync('index.html','utf8').replace(/<script[^>]*src[^>]*><\/script>/g,'');
-function setup({reduced=false,hash='',phone=false}={}){
- const errors=[];
- const dom=new JSDOM(html,{url:'https://example.com/'+hash,runScripts:'outside-only',pretendToBeVisual:true});
- const w=dom.window;
+function setup({reduced=false,phone=false,hash='',observer=true}={}){
+ const errors=[],observers=[];const dom=new JSDOM(html,{url:'https://example.com/'+hash,runScripts:'outside-only',pretendToBeVisual:true}),w=dom.window;w.innerHeight=900;
  w.matchMedia=q=>({matches:q.includes('prefers-reduced-motion')?reduced:q.includes('max-width:700px')?phone:false,addEventListener(){},removeEventListener(){}});
- w.IntersectionObserver=class{observe(){} unobserve(){} disconnect(){}};
- w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=()=>{};
- w.confirm=()=>true;
- w.addEventListener('error',e=>errors.push(e.error));
+ if(observer)w.IntersectionObserver=class{constructor(fn){this.fn=fn;this.nodes=[];observers.push(this)}observe(n){this.nodes.push(n)}unobserve(){}disconnect(){}};
+ w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=()=>{};w.confirm=()=>true;w.addEventListener('error',e=>errors.push(e.error));
  const clock=FakeTimers.withGlobal(w).install({toFake:['setTimeout','clearTimeout','requestAnimationFrame','cancelAnimationFrame','Date','performance']});
- w.eval(readFileSync('app.js','utf8'));
- assert.ok(w.__ezcomoV6,'journey initialized');assert.deepEqual(errors,[]);
- return{w,clock,api:w.__ezcomoV6,errors,close(){clock.uninstall();w.close()}};
+ w.eval(readFileSync('app.js','utf8'));w.eval(readFileSync('story.js','utf8'));assert.ok(w.__ezcomoStory);assert.deepEqual(errors,[]);
+ return{w,clock,api:w.__ezcomoStory,errors,observers,close(){assert.deepEqual(errors,[]);clock.uninstall();w.close()}};
 }
 function click(t,id){const b=t.w.document.getElementById(id);assert.ok(b,id);b.click()}
+function chapter(t,name){t.w.document.querySelector(`[data-story-chapter="${name}"]`).click()}
 {
- const t=setup();const before=t.w.document.querySelector('#heroBlock .editable-title').textContent;
- click(t,'journeyWatch');t.clock.tick(8100);
- assert.notEqual(t.w.document.querySelector('#heroBlock .editable-title').textContent,before,'guided edit visibly changes the storefront');
- click(t,'journeyPause');const paused=JSON.stringify(t.api.getState().demo);t.clock.tick(60000);assert.equal(JSON.stringify(t.api.getState().demo),paused,'pause stops commerce progression');
- click(t,'journeyPause');t.clock.tick(60000);
- let s=t.api.getState();assert.equal(s.journey.playback,'complete');assert.equal(s.demo.order.id,'1051');assert.equal(s.demo.delivery.state,'picked-up');assert.equal(s.demo.inventory.available,17);
- click(t,'journeyReplay');t.clock.tick(60000);s=t.api.getState();assert.equal(s.demo.inventory.available,17,'replay does not double-decrement');
- assert.deepEqual(t.errors,[]);t.close();console.log('PASS guided edit, pause/resume, complete journey, replay inventory');
+ const t=setup();click(t,'storyWatch');t.clock.tick(9000);assert.notEqual(t.w.document.querySelector('#heroBlock .editable-title').textContent,'Make the everyday unmistakably yours.');
+ click(t,'storyPlay');const paused=JSON.stringify(t.api.getState());t.clock.tick(90000);assert.equal(JSON.stringify(t.api.getState()),paused);
+ click(t,'storyPlay');t.clock.tick(60000);const s=t.api.getState();assert.equal(s.playback,'complete');assert.equal(s.order.id,'1051');assert.equal(s.order.total,1550);assert.equal(s.delivery,'picked-up');
+ t.clock.tick(90000);assert.equal(t.api.getState().playback,'complete');click(t,'storyReplay');t.clock.tick(60000);assert.equal(t.api.getState().order.total,1550);t.close();console.log('PASS guided edit, clock pause/resume, one order, settled finish, replay');
 }
 {
- const t=setup();const input=t.w.document.getElementById('editorTextInput');input.value='My own storefront';input.dispatchEvent(new t.w.Event('input',{bubbles:true}));
- click(t,'journeyWatch');t.clock.tick(9000);assert.equal(t.w.document.querySelector('#heroBlock .editable-title').textContent,'My own storefront','tour preserves a merchant edit');
- t.w.document.querySelector('[data-journey-chapter="manage"]').click();t.clock.tick(60000);assert.equal(t.api.getState().journey.chapter,'manage');assert.equal(t.api.getState().journey.mode,'manual');assert.equal(t.api.getState().demo.delivery.state,'not-booked','chapter navigation cancels old callbacks');
- click(t,'prepareDelivery');click(t,'bookSampleDelivery');t.clock.tick(800);click(t,'journeyPause');t.clock.tick(9000);assert.equal(t.api.getState().demo.delivery.state,'not-booked');click(t,'journeyPause');t.clock.tick(9000);assert.equal(t.api.getState().demo.delivery.state,'awaiting-pickup');
- click(t,'simulatePickupUpdate');t.clock.tick(15000);assert.equal(t.api.getState().demo.delivery.state,'picked-up');assert.equal(t.api.getState().demo.inventory.available,17);
- click(t,'journeyReset');t.clock.tick(500);assert.equal(t.api.getState().demo.order.id,null);t.clock.tick(60000);assert.equal(t.api.getState().demo.order.id,null,'reset cancels pending actions');
- assert.deepEqual(t.errors,[]);t.close();console.log('PASS merchant edits, manual chapters, delivery pause/resume, reset');
+ const t=setup();click(t,'storyExplore');const title=t.w.document.querySelector('#heroBlock .editable-title');title.textContent='My own store';title.dispatchEvent(new t.w.Event('input',{bubbles:true}));
+ click(t,'storyWatch');t.clock.tick(16000);assert.equal(title.textContent,'My own store');chapter(t,'manage');t.clock.tick(60000);assert.equal(t.api.getState().delivery,'not-booked');assert.match(t.w.document.getElementById('storyCaption').textContent,/Sample order/);
+ click(t,'storyReview');click(t,'storyBook');click(t,'storyBook');assert.equal(t.api.getState().delivery,'awaiting-pickup');click(t,'storyPickup');assert.equal(t.api.getState().delivery,'picked-up');click(t,'storyWatch');t.clock.tick(60000);assert.equal(title.textContent,'My own store');t.close();console.log('PASS edit preservation, chapter cancellation, idempotent delivery');
 }
 {
- const t=setup({reduced:true});click(t,'journeyWatch');t.clock.tick(60000);assert.equal(t.api.getState().demo.order.id,null,'reduced motion is user paced');
- assert.equal(t.w.document.getElementById('journeyNext').hidden,false);
- for(let i=0;i<5;i++)click(t,'journeyNext');assert.equal(t.api.getState().journey.playback,'complete');assert.equal(t.api.getState().demo.delivery.state,'picked-up');
- assert.deepEqual(t.errors,[]);t.close();console.log('PASS user-paced reduced motion');
+ const t=setup();chapter(t,'sell');click(t,'storyAdd');assert.equal(t.api.getState().cart,false);click(t,'storyColour');click(t,'storySize');click(t,'storyAdd');assert.equal(t.api.getState().cart,true);click(t,'storyPlace');assert.equal(t.api.getState().order.total,1550);click(t,'storyViewOrder');click(t,'commerceOrderRow');click(t,'storyBook');click(t,'storyPickup');assert.equal(t.api.getState().delivery,'picked-up');t.close();console.log('PASS hands-on customer to merchant flow');
+}
+for(const options of [{reduced:true},{phone:true}]){
+ const t=setup(options);click(t,'storyWatch');t.clock.tick(60000);assert.equal(t.api.getState().beat,0);assert.equal(t.api.getState().order,null);for(let i=0;i<11;i++)click(t,'storyNext');assert.equal(t.api.getState().playback,'complete');assert.equal(t.api.getState().delivery,'picked-up');click(t,'storyBack');assert.equal(t.api.getState().beat,10);t.close();console.log('PASS user-paced journey '+JSON.stringify(options));
 }
 {
- const t=setup({hash:'#chapter-manage'});assert.equal(t.api.getState().demo.order.id,'1051');assert.match(t.w.document.getElementById('journeyNarrationText').textContent,/Sample order loaded/);
- click(t,'langToggle');t.clock.tick(10);assert.equal(t.api.getState().demo.order.id,'1051');assert.equal(t.w.document.documentElement.lang,'bn');assert.deepEqual(t.errors,[]);t.close();console.log('PASS deep link and language persistence');
+ const t=setup();click(t,'storyWatch');t.clock.tick(25000);const o=t.observers.find(o=>o.nodes.some(n=>n.id==='storyStage'));o.fn([{isIntersecting:false,intersectionRatio:0}]);const s=JSON.stringify(t.api.getState());t.clock.tick(60000);assert.equal(JSON.stringify(t.api.getState()),s);assert.equal(t.api.getState().immersive,false);o.fn([{isIntersecting:true,intersectionRatio:1}]);assert.equal(t.api.getState().playback,'paused');t.close();console.log('PASS visibility pause, no unexpected restart');
 }
 {
- const t=setup({phone:true});click(t,'journeyWatch');t.clock.tick(60000);assert.equal(t.api.getState().demo.order.id,null);assert.equal(t.w.document.getElementById('journeyNext').hidden,false);for(let i=0;i<5;i++)click(t,'journeyNext');assert.equal(t.api.getState().demo.delivery.state,'picked-up');assert.deepEqual(t.errors,[]);t.close();console.log('PASS phone-paced journey');
+ const t=setup({hash:'#chapter-manage',observer:false});assert.equal(t.api.getState().order.id,'1051');click(t,'langToggle');assert.equal(t.w.document.documentElement.lang,'bn');assert.match(t.w.document.getElementById('storyCaption').textContent,/নমুনা/);assert.equal(t.api.getState().order.id,'1051');t.close();console.log('PASS deep link, language, observer fallback');
 }
-const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,'no duplicate HTML ids');
-console.log('PASS unique IDs');
+{
+ const t=setup();click(t,'storyWatch');t.w.document.dispatchEvent(new t.w.KeyboardEvent('keydown',{key:'Escape'}));assert.equal(t.api.getState().immersive,false);assert.equal(t.api.getState().playback,'paused');t.close();console.log('PASS Escape restores navigation');
+}
+const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length);console.log('PASS unique HTML IDs');

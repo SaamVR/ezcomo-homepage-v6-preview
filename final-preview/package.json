@@ -1,0 +1,1 @@
+{"name":"ezcomo-homepage-final-preview","private":true,"version":"1.0.0","scripts":{"test":"node --check app.js && node --check story.js && node tests/journey.cjs"},"devDependencies":{"@sinonjs/fake-timers":"15.4.0","jsdom":"30.1.1"},"engines":{"node":">=24"}}
