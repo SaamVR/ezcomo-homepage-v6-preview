@@ -9,9 +9,64 @@ const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const phone = matchMedia('(max-width: 700px)');
 const EASE = 'cubic-bezier(.22,1,.36,1)';
 const STORY_SPEED = 1.25;
-const defaults = () => ({chapter:'build',tool:'page',view:'home',preview:false,headline:'Everyday essentials.',body:'Good things for everyday living.',button:'Shop collection',promoText:'The weekend edit',content:'hero',layout:'split',promo:'feature',palette:'original',size:'M',bag:0,order:false,admin:'home',courier:'',shipment:0,settled:false,published:false,saved:false});
+const defaults = () => ({chapter:'build',tool:'page',view:'home',preview:false,headline:'Everyday essentials.',body:'Good things for everyday living.',button:'Shop collection',promoText:'The weekend edit',content:'hero',sectionTexts:{},sectionColors:{},sectionAligns:{},canvasMode:'overview',layout:'split',promo:'feature',palette:'original',size:'M',bag:0,order:false,admin:'home',courier:'',shipment:0,settled:false,published:false,saved:false});
 let state=defaults(), step=0, playing=false, elapsed=0, last=0, raf=0, applied=false, mode='guided', started=false, inView=true, manualSnapshot=null;
 let undo=[], redo=[], animations=new Set(), highlighted=null, previousChapter='build';
+let canvasFrame=0,canvasKey='',pendingSectionFocus=false;
+const sectionMap={
+ announcement:{id:'cxAnnouncement',text:'cxAnnouncementText',label:'Announcement',value:'Thoughtful essentials. Everyday prices.'},
+ header:{id:'cxStoreHeader',text:'cxStoreBrand',label:'Header',value:'THREADS'},
+ hero:{id:'cxHero',text:'cxHeroText',label:'Hero'},
+ categories:{id:'cxCategories',text:'cxCategoriesTitle',label:'Categories',value:'Shop by collection'},
+ products:{id:'cxFeatured',text:'cxProductsTitle',label:'Featured products',value:'Featured products'},
+ promo:{id:'cxPromo',text:'cxPromoText',label:'Collection promo'},
+ new:{id:'cxNew',text:'cxNewTitle',label:'New arrivals',value:'New arrivals'},
+ story:{id:'cxBrandStory',text:'cxBrandStoryTitle',label:'Brand story',value:'Made for your everyday.'},
+ benefits:{id:'cxBenefits',text:'cxBenefitsTitle',label:'Store benefits',value:'Good things, thoughtfully chosen.'},
+ newsletter:{id:'cxNewsletter',text:'cxNewsletterTitle',label:'Newsletter',value:'A little inspiration in your inbox.'},
+ footer:{id:'cxStoreFooter',text:'cxFooterBrand',label:'Footer',value:'THREADS'}
+};
+function selectedText(){return state.content==='hero'?state.headline:state.content==='promo'?state.promoText:state.sectionTexts[state.content]??sectionMap[state.content].value}
+function renderSections(){
+ const selected=sectionMap[state.content]||sectionMap.hero;
+ text('cxInspectorTitle',selected.label+' content');
+ markButtons('[data-section]','section',state.content);
+ markButtons('[data-section-color]','sectionColor',state.sectionColors[state.content]||'');
+ markButtons('[data-section-align]','sectionAlign',state.sectionAligns[state.content]||'left');
+ $('cxOverview').setAttribute('aria-pressed',String(state.canvasMode==='overview'));
+ $('cxDetail').setAttribute('aria-pressed',String(state.canvasMode==='detail'));
+ for(const[key,info]of Object.entries(sectionMap)){
+  const el=$(info.id),copy=$(info.text);el.classList.toggle('cx-selected-section',key===state.content);copy.classList.toggle('cx-selected-copy',key===state.content&&state.tool==='page');
+  if(info.value!==undefined)text(info.text,state.sectionTexts[key]??info.value);
+  el.style.backgroundColor=state.sectionColors[key]||'';
+  el.style.color=state.sectionColors[key]?'#202923':'';
+  if(el===copy)el.style.textAlign=state.sectionAligns[key]||'';else copy.style.textAlign=state.sectionAligns[key]||'';
+ }
+ queueCanvas();
+}
+function fitCanvas(){
+ canvasFrame=0;const canvas=$('cxCanvas'),sizer=$('cxCanvasSize'),store=$('cxStore');
+ if(phone.matches||state.chapter!=='build'){
+  canvas.style.removeProperty('width');canvas.style.removeProperty('transform');sizer.style.removeProperty('width');sizer.style.removeProperty('height');canvasKey='';return;
+ }
+ const width=store.clientWidth-20,height=store.clientHeight-20;if(width<=0||height<=0)return;
+ const logical=state.canvasMode==='overview'?800:Math.max(620,Math.min(900,width));
+ canvas.style.width=logical+'px';const natural=Math.max(1,canvas.scrollHeight);
+ const scale=state.canvasMode==='overview'?Math.min(1,width/logical,Math.max(.3,height/natural)):Math.min(1,width/logical);
+ const next=[width,height,natural,state.canvasMode,state.view,state.content].join(':');
+ canvas.style.transform=`scale(${scale})`;sizer.style.width=(logical*scale)+'px';sizer.style.height=(natural*scale)+'px';text('cxZoomReadout',Math.round(scale*100)+'%');
+ if(next!==canvasKey||pendingSectionFocus){
+  if(state.canvasMode==='overview'||state.view!=='home')store.scrollTop=0;
+  else if(pendingSectionFocus||state.content!==canvasKey.split(':').at(-1)){
+   const el=$(sectionMap[state.content].id);let offset=0,node=el;
+   while(node&&node!==canvas){offset+=node.offsetTop;node=node.offsetParent}
+   store.scrollTop=Math.max(0,offset*scale-14);
+  }
+ }
+ canvasKey=next;pendingSectionFocus=false;
+}
+function queueCanvas(focus=false){pendingSectionFocus=pendingSectionFocus||focus;if(!canvasFrame)canvasFrame=requestAnimationFrame(fitCanvas)}
+function selectSection(key){if(!sectionMap[key])return;action({content:key,tool:'page',view:'home'},'Editing '+sectionMap[key].label.toLowerCase()+'. The same section is selected on your storefront.');$('cxTitleInput').value=selectedText();queueCanvas(true)}
 const beats = [
  {label:'Your storefront, your starting point.',copy:'Start with a template. Then make it feel like your business.',ms:3300,prep:{chapter:'build',tool:'page',preview:false,view:'home'},target:'cxTitleInput'},
  {label:'01 / PAGE · YOUR WORDS',copy:'Change the headline. Your storefront responds as you type.',ms:5700,target:'cxTitleInput',patch:{headline:'Your everyday. Your own way.'},type:'headline'},
@@ -70,7 +125,8 @@ function render(){
  all('[data-panel]').forEach(el=>el.hidden=el.dataset.panel!==state.tool);
  const store=$('cxStore');store.dataset.layout=state.layout;store.dataset.promo=state.promo;store.dataset.palette=state.palette;
  text('cxHeroText',state.headline);text('cxHeroBody',state.body);text('cxShop',state.button);text('cxPromoText',state.promoText);
- setValue('cxContentSection',state.content);setValue('cxTitleInput',state.content==='hero'?state.headline:state.promoText);setValue('cxBodyInput',state.body);setValue('cxButtonInput',state.button);
+ setValue('cxContentSection',state.content);setValue('cxTitleInput',selectedText());setValue('cxBodyInput',state.body);setValue('cxButtonInput',state.button);
+ renderSections();
  $('cxBodyInput').closest('label').hidden=state.content!=='hero';$('cxButtonInput').closest('label').hidden=state.content!=='hero';
  text('cxSaveState',state.published?'Sample published':state.saved?'Draft saved':'Draft');text('cxPublish',state.published?'Published ✓':'Publish changes');
  text('cxPreviewLabel',state.published?'Published sample':'Draft preview');
@@ -126,7 +182,9 @@ function transition(before){
  if(previousChapter!==state.chapter){animate(state.chapter==='manage'?$('cxDashboard'):$('cxWorkspace'),[{opacity:.4,transform:'translateX(-18px)'},{opacity:1,transform:'translateX(0)'}],{duration:700});if(previousChapter==='build')animate($('cxGuide'),[{opacity:0,transform:'translateX(24px)'},{opacity:1,transform:'translateX(0)'}],{duration:700,delay:150});previousChapter=state.chapter}
 }
 function beginBeat(){
- clearMotion();applied=false;const b=beats[step],before=snapshotRects();Object.assign(state,b.prep||{});render();transition(before);
+ clearMotion();applied=false;const b=beats[step],before=snapshotRects();Object.assign(state,b.prep||{});
+ if(state.chapter==='build'){state.canvasMode=step===0||state.preview||state.tool==='style'?'overview':'detail';if(step<8)state.content='hero';if(step===8||step===9)state.content='promo';if(step===15)state.canvasMode='detail';pendingSectionFocus=true}
+ render();transition(before);
  text('cxNarrationLabel',b.label);text('cxCaption',b.copy);
  if(state.chapter==='build'&&state.preview)$('cxStore').scrollTop=0;
  focusTarget(b.target);last=0;
@@ -176,10 +234,19 @@ all('[data-layout]').filter(b=>b.tagName==='BUTTON').forEach(b=>b.addEventListen
 all('[data-promo]').filter(b=>b.tagName==='BUTTON').forEach(b=>b.addEventListener('click',()=>edit({promo:b.dataset.promo})));
 all('[data-palette]').filter(b=>b.tagName==='BUTTON').forEach(b=>b.addEventListener('click',()=>edit({palette:b.dataset.palette})));
 all('[data-size]').forEach(b=>b.addEventListener('click',()=>action({size:b.dataset.size})));
-$('cxContentSection').addEventListener('change',e=>action({content:e.target.value}));
+$('cxContentSection').addEventListener('change',e=>selectSection(e.target.value));
+all('[data-section]').forEach(b=>b.addEventListener('click',()=>selectSection(b.dataset.section)));
+$('cxCanvas').addEventListener('click',e=>{if(state.chapter!=='build'||state.view!=='home'||e.target.closest('button,a,input,select,textarea'))return;const el=e.target.closest('[data-canvas-section]');if(el)selectSection(el.dataset.canvasSection)});
+all('[data-section-color]').forEach(b=>b.addEventListener('click',()=>edit({sectionColors:{...state.sectionColors,[state.content]:b.dataset.sectionColor}})));
+all('[data-section-align]').forEach(b=>b.addEventListener('click',()=>edit({sectionAligns:{...state.sectionAligns,[state.content]:b.dataset.sectionAlign}})));
+bind('cxResetSectionColor',()=>{const next={...state.sectionColors};delete next[state.content];edit({sectionColors:next})});
+bind('cxOverview',()=>{action({canvasMode:'overview'},'Overview fits more of your storefront into the canvas. Your controls stay full size.');queueCanvas()});
+bind('cxDetail',()=>{action({canvasMode:'detail'},'Detail brings your selected section closer. Scroll inside the canvas to explore.');queueCanvas(true)});
+bind('cxNewShop',()=>action({view:'product'},'Studio Tee opens with its product details and size options.'));
+bind('cxSubscribe',()=>{manual();text('cxCaption','This is a sample newsletter section. Edit its heading in the properties panel; no subscription is submitted.')});
 for(const[id,key]of [['cxTitleInput','headline'],['cxBodyInput','body'],['cxButtonInput','button']]){
  $(id).addEventListener('focus',()=>{manual();undo.push({...state});redo=[];render()});
- $(id).addEventListener('input',e=>edit({[key==='headline'&&state.content==='promo'?'promoText':key]:e.target.value},{history:false}));
+ $(id).addEventListener('input',e=>{const value=e.target.value;if(key==='headline'&&!['hero','promo'].includes(state.content))edit({sectionTexts:{...state.sectionTexts,[state.content]:value}},{history:false});else edit({[key==='headline'&&state.content==='promo'?'promoText':key]:value},{history:false})});
 }
 bind('cxUndo',()=>{if(!undo.length)return;manual();redo.push({...state});state=undo.pop();render()});bind('cxRedo',()=>{if(!redo.length)return;manual();undo.push({...state});state=redo.pop();render()});
 bind('cxSave',()=>action({saved:true},'Sample draft saved in this session. Publish is a separate action.'));
@@ -250,6 +317,8 @@ document.addEventListener('focusin',()=>{if(siteNav?.contains(document.activeEle
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&focused){pause();restoreNavigation()}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)setFocus(false);else queueFocusUpdate()});
 queueFocusUpdate();
+if('ResizeObserver'in window){const canvasObserver=new ResizeObserver(()=>queueCanvas());canvasObserver.observe($('cxStore'));canvasObserver.observe($('cxCanvas'))}
+window.addEventListener('resize',()=>queueCanvas(),{passive:true});
 function hash(){const chapter={'#chapter-build':0,'#chapter-sell':16,'#chapter-manage':23}[location.hash];if(chapter!==undefined){seek(chapter);align()}}
 window.addEventListener('hashchange',hash);
 window.__ezcomoV10={getState:()=>({...state,step,playing,mode,applied}),beats:beats.map(({label,ms})=>({label,ms})),play,pause,next,seek,manual};

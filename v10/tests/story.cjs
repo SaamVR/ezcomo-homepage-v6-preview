@@ -59,3 +59,25 @@ function change(t,id,value,type='change'){const el=t.w.document.getElementById(i
 {
  const t=setup();click(t,'cxWatch');t.clock.tick(115000);assert.equal(t.api.getState().settled,true);assert.equal(t.api.getState().playing,false);t.close();console.log('PASS faster desktop story completes within 115 seconds');
 }
+
+{
+ const t=setup();click(t,'cxExplore');const d=t.w.document,body=d.getElementById('cxEditorBody');
+ assert.deepEqual([...body.children].map(e=>e.id||e.className),['cx-rail','cxPageTree','cxPreviewPane','cxEditorPanel']);
+ assert.equal(d.querySelectorAll('#cxPageTree [data-section]').length,11);
+ d.querySelector('#cxPageTree [data-section="newsletter"]').click();assert.equal(t.api.getState().content,'newsletter');assert.equal(d.getElementById('cxInspectorTitle').textContent,'Newsletter content');
+ const input=d.getElementById('cxTitleInput');input.focus();change(t,'cxTitleInput','Fresh stories from our studio','input');assert.equal(d.getElementById('cxNewsletterTitle').textContent,'Fresh stories from our studio');assert.equal(d.getElementById('cxHeroText').textContent,'Everyday essentials.');
+ d.querySelector('[data-section-color="#dce4d8"]').click();assert.equal(d.getElementById('cxNewsletter').style.backgroundColor,'rgb(220, 228, 216)');
+ d.querySelector('[data-section-align="center"]').click();assert.equal(d.getElementById('cxNewsletterTitle').style.textAlign,'center');click(t,'cxResetSectionColor');assert.equal(d.getElementById('cxNewsletter').style.backgroundColor,'');
+ d.getElementById('cxBrandStoryTitle').dispatchEvent(new t.w.MouseEvent('click',{bubbles:true}));assert.equal(t.api.getState().content,'story');assert.equal(d.querySelector('#cxPageTree [data-section="story"]').getAttribute('aria-pressed'),'true');
+ click(t,'cxOverview');assert.equal(t.api.getState().canvasMode,'overview');click(t,'cxDetail');assert.equal(t.api.getState().canvasMode,'detail');t.close();console.log('PASS reference editor structure, all sections, contextual editing, color and alignment');
+}
+{
+ const t=setup(),d=t.w.document,store=d.getElementById('cxStore'),canvas=d.getElementById('cxCanvas'),sizer=d.getElementById('cxCanvasSize');
+ Object.defineProperty(store,'clientWidth',{value:620});Object.defineProperty(store,'clientHeight',{value:520});Object.defineProperty(canvas,'scrollHeight',{value:1200});
+ t.clock.tick(32);assert.ok(parseFloat(sizer.style.height)<=500,'overview fits available canvas height');assert.ok(parseFloat(sizer.style.width)<=600,'overview fits available canvas width');assert.equal(d.getElementById('cxZoomReadout').textContent,'42%');
+ click(t,'cxDetail');t.clock.tick(32);assert.equal(d.getElementById('cxZoomReadout').textContent,'97%');assert.ok(parseFloat(sizer.style.height)>500,'detail uses readable width and allows vertical scrolling');
+ chapter(t,'sell');t.clock.tick(32);assert.equal(canvas.style.transform,'');assert.equal(sizer.style.height,'');t.close();console.log('PASS canvas fit calculations and scaling removed for selling');
+}
+{
+ const t=setup({phone:true});click(t,'cxExplore');change(t,'cxContentSection','categories');change(t,'cxTitleInput','Browse our collections','input');assert.equal(t.w.document.getElementById('cxCategoriesTitle').textContent,'Browse our collections');click(t,'cxMobilePreview');assert.equal(t.api.getState().preview,true);t.clock.tick(32);assert.equal(t.w.document.getElementById('cxCanvas').style.transform,'');t.close();console.log('PASS mobile section editing and unscaled separate preview');
+}

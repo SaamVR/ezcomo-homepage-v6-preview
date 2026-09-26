@@ -29,7 +29,7 @@ Control anticipation is about 650–850ms. Most interface responses settle over 
 
 ## Responsive and accessibility behavior
 
-Desktop: narrow task rail + edit panel + live storefront. Sell and Manage bring in the persistent right-hand guide. Mobile: full-width task forms; Preview opens separately; native merchant bottom navigation replaces the desktop sidebar. Mobile captions and a current-step guide avoid shrinking desktop panels into a phone.
+Desktop: slim task rail + dark page-section navigator + scalable live storefront canvas + dark properties inspector on the right, following the supplied editor screenshot. Sell and Manage bring in the persistent right-hand guide. Mobile: full-width task forms; Preview opens separately; native merchant bottom navigation replaces the desktop sidebar. Mobile captions and a current-step guide avoid shrinking desktop panels into a phone.
 
 The player uses viewport-relative height with an allowance for the existing navbar. Its content panels scroll internally where needed. Guided focus scrolls only those panels, never the page. Very short landscape screens use a taller readable section rather than scaling text down. When the demo reaches the top of the viewport, the navbar translates out of view and the player expands to the available height. Navbar layout space is retained to avoid page jumps. Scrolling beyond the section restores navigation; Escape and Show navigation restore it immediately. Hidden navigation is inert and removed from the accessibility tree until restored.
 
@@ -39,7 +39,7 @@ Autoplay starts only with at least 85% of the demo in view. Leaving the viewport
 
 `v10.js` is the authoritative owner of editor, checkout, order, courier and playback state. DOM visibility, button availability, progress, labels and guide content derive from that state. No backend is connected; all sample data lives in the tab. The same size, product and order identity continue across the customer and merchant views.
 
-Supported manual interactions: text edits, layout, promotion and theme selection, undo/redo, preview, save, sample publish, product details, size, cart, checkout, order creation, dashboard navigation, courier selection, booking and advancing illustrative delivery/settlement updates. Other dashboard areas are explicitly explanatory demo panels. The second catalog item directs users back to the sample product followed by this story.
+Supported manual interactions: selection and text editing across 11 page sections, section background and text alignment, canvas Overview/Detail, layout, promotion and theme selection, undo/redo, preview, save, sample publish, product details, size, cart, checkout, order creation, dashboard navigation, courier selection, booking and advancing illustrative delivery/settlement updates. Other dashboard areas are explicitly explanatory demo panels. The second catalog item directs users back to the sample product followed by this story.
 
 Illustrative COD model: item ৳1,490 + delivery ৳60 = collected ৳1,550. Separate later remittance is ৳1,490 after a sample ৳60 courier fee. Remittance is not labelled profit or an immediately funded wallet. No real provider requests occur.
 
@@ -58,3 +58,13 @@ Rendered-browser QA remains outstanding: the session's earlier browser access wa
 Outer demo controls and supporting text now have explicit light/dark theme colors. Primary button uses white on forest green (7.94:1 contrast). Secondary action and surrounding copy follow scoped, high-contrast section tokens rather than inheriting the hero’s pale-on-dark button style.
 
 Playback advances at 1.25× the original story clock, reducing total viewing time by 20% while retaining all 32 beats. Existing movement easing stays intact. New tests cover focused viewport height, navbar inert/ARIA state, Escape dismissal, explicit navigation restoration, leaving the section, and completion at the faster pace.
+
+## V10.2 — reference editor and visible page structure
+
+The supplied editor reference replaces the previous Build column arrangement. Desktop keeps the rail, section navigator, center canvas and right inspector visible throughout Build, including overview beats. The reference’s dark green navigator and inspector contrast with the ivory tool rail and storefront. Page structure covers Announcement, Header, Hero, Categories, Featured products, Collection promo, New arrivals, Brand story, Store benefits, Newsletter and Footer. Selecting a tree item or non-button canvas content selects the same section and loads its heading into the inspector. All 11 headings are editable.
+
+Overview calculates a canvas-only scale using the available width and height; it does not shrink the editor controls or whole demo. A 30% lower bound retains a scrollable canvas on unusually small desktop areas. Detail uses a narrower logical storefront width for larger type and scrolls to the selected section. The scale percentage is visible, both modes are buttons, and the story automatically uses Detail for content/layout changes and Overview for whole-store results. Only the storefront is scaled; the editor controls retain native sizing.
+
+Mobile uses its existing full-width forms with all sections in the selection field. Mobile previews and the Sell chapter remove desktop canvas scaling. No real subscription, publish or booking action is submitted. The existing navbar focus behavior and faster story clock remain unchanged.
+
+Additional integration checks cover DOM column order, the 11-section navigator, generic section edits, selected-section styling, color reset, alignment, canvas width/height calculations, unscaled selling, and mobile editing/preview. Rendered-browser visual verification remains pending, as noted above.
