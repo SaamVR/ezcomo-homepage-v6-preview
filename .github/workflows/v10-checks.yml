@@ -1,0 +1,24 @@
+name: V10 product story checks
+on:
+  push:
+    paths: ['v10/**', '.github/workflows/v10-checks.yml']
+  pull_request:
+    paths: ['v10/**', '.github/workflows/v10-checks.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  story-checks:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: v10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: v10/package-lock.json
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test

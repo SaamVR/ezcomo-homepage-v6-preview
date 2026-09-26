@@ -1,0 +1,15 @@
+{
+  "name": "ezcomo-homepage-v10",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node --check app.js && node --check v10.js && node tests/story.cjs"
+  },
+  "devDependencies": {
+    "@sinonjs/fake-timers": "15.4.0",
+    "jsdom": "30.1.1"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
