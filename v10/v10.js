@@ -149,8 +149,8 @@ function tick(now){
 }
 function pause(){playing=false;cancelAnimationFrame(raf);last=0;animations.forEach(a=>a.pause());render()}
 function play(){
- if(motion.matches){if(step===beats.length-1&&applied){seek(0);return}next();return}
  if(mode==='manual'){manualSnapshot={...state};mode='guided';seek(step,false)}
+ if(motion.matches){if(step===beats.length-1&&applied){seek(0);return}next();return}
  if(step===beats.length-1&&applied){state=defaults();step=0;elapsed=0;beginBeat()}
  if(!started){started=true;beginBeat()}
  playing=true;last=0;animations.forEach(a=>a.play());render();cancelAnimationFrame(raf);raf=requestAnimationFrame(tick);
@@ -207,7 +207,8 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
 if('IntersectionObserver'in window){new IntersectionObserver(entries=>{const e=entries[0];inView=e.intersectionRatio>.85;if((!e.isIntersecting||e.intersectionRatio<.4)&&playing)pause();if(inView&&!started&&mode==='guided'&&!motion.matches&&!document.hidden)play()},{threshold:[0,.4,.85,1]}).observe(player)}
 motion.addEventListener?.('change',()=>{pause();clearMotion();if(motion.matches){applyBeat();text('cxPlay','Next step')}});
 phone.addEventListener?.('change',()=>{pause();clearMotion();render()});
-window.addEventListener('resize',()=>{if(playing)pause();clearMotion()},{passive:true});
+let layoutWidth=window.innerWidth;
+window.addEventListener('resize',()=>{if(Math.abs(window.innerWidth-layoutWidth)<4)return;layoutWidth=window.innerWidth;if(playing)pause();clearMotion()},{passive:true});
 function hash(){const chapter={'#chapter-build':0,'#chapter-sell':16,'#chapter-manage':23}[location.hash];if(chapter!==undefined){seek(chapter);align()}}
 window.addEventListener('hashchange',hash);
 window.__ezcomoV10={getState:()=>({...state,step,playing,mode,applied}),beats:beats.map(({label,ms})=>({label,ms})),play,pause,next,seek,manual};

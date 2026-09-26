@@ -42,3 +42,7 @@ function change(t,id,value,type='change'){const el=t.w.document.getElementById(i
 {
  const t=setup();const ids=[...t.w.document.querySelectorAll('[id]')].map(e=>e.id);assert.equal(ids.length,new Set(ids).size);for(const el of t.w.document.querySelectorAll('[src],[href]')){const p=el.getAttribute('src')||el.getAttribute('href');if(p.startsWith('./')||p.startsWith('../'))assert.ok(fs.existsSync(p.split('?')[0]),'local asset '+p)}t.close();console.log('PASS IDs and local asset references');
 }
+
+{
+ const t=setup({phone:true});click(t,'cxWatch');t.clock.tick(3000);t.w.innerHeight-=70;t.w.dispatchEvent(new t.w.Event('resize'));assert.equal(t.api.getState().playing,true,'mobile browser chrome height changes must not interrupt film');t.w.innerWidth+=100;t.w.dispatchEvent(new t.w.Event('resize'));assert.equal(t.api.getState().playing,false,'layout width change pauses safely');t.close();console.log('PASS mobile browser chrome resize versus layout change');
+}
