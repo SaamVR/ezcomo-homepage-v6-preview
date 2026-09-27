@@ -68,3 +68,15 @@ Overview calculates a canvas-only scale using the available width and height; it
 Mobile uses its existing full-width forms with all sections in the selection field. Mobile previews and the Sell chapter remove desktop canvas scaling. No real subscription, publish or booking action is submitted. The existing navbar focus behavior and faster story clock remain unchanged.
 
 Additional integration checks cover DOM column order, the 11-section navigator, generic section edits, selected-section styling, color reset, alignment, canvas width/height calculations, unscaled selling, and mobile editing/preview. Rendered-browser visual verification remains pending, as noted above.
+
+## V10.3 — checkout, courier choice and screen magnet
+
+Sell offers online payment (Stripe, PayPal, bKash, Nagad and City Bank) or COD, with local provider marks. The 36-beat film types a complete name, telephone and address, demonstrates online/bKash selection, then chooses COD to continue the collection-and-remittance story. Manual visitors can edit the fields and choose either payment route. Validation requires complete contact information and a provider for online payment. The same details appear in the merchant order. Automated tour details are illustrative, not verified customer records. Inputs stay in tab memory; no order or payment request is transmitted.
+
+The courier picker includes FedEx, DHL, Pathao and Steadfast; the film opens it and selects Pathao. Arrow keys, Home/End and Escape support keyboard navigation. Brand sources are in `v10/brands/SOURCES.json`. Showing a provider does not create or verify an integration.
+
+Manual online orders record payment at checkout, collect zero cash on delivery and never receive a second COD credit. COD retains the separate later remittance event. Build → Sell → Manage retain their design with explicit button boundaries, hover feedback and workflow connectors.
+
+The screen magnet waits 160ms after scrolling settles, then aligns the player 12px from the top using 360ms eased scrolling (instant with reduced motion). Height is viewport minus 24px; hidden navigation is inert. The next wheel gesture, touch drag, page-navigation key, Escape or Show navigation releases focus. Native scroll events are never cancelled. Dismissal lasts until leaving the capture region. Viewports under 480px and open navigation do not auto-capture.
+
+All 17 automated check groups pass, including form validation, five online providers, customer/payment continuity, courier keyboard selection, automatic Pathao selection, no duplicate COD credit, idle snapping, native wheel release, navigation restoration and finished tour copy. Desktop playback remains under 115 seconds. CSS parses without errors. Rendered-browser QA remains pending because browser access was blocked earlier in this session.
