@@ -341,7 +341,7 @@ function settleFrame(){
  const r=player.getBoundingClientRect();if(!r.height)return;
  cancelAnimationFrame(snapFrame);setFocus(true);snapping=true;
  const start=window.scrollY,target=Math.max(0,start+player.getBoundingClientRect().top-12),began=performance.now();
- function move(now){const t=motion.matches?1:Math.min(1,(now-began)/360);window.scrollTo({top:start+(target-start)*(1-Math.pow(1-t,3)),behavior:'instant'});if(t<1)snapFrame=requestAnimationFrame(move);else{snapping=false;snapFrame=0}}
+ function move(now){const t=motion.matches?1:Math.min(1,(now-began)/360);window.scrollTo({top:start+(target-start)*(1-Math.pow(1-t,3)),behavior:'auto'});if(t<1)snapFrame=requestAnimationFrame(move);else{snapping=false;snapFrame=0}}
  snapFrame=requestAnimationFrame(move);
 }
 function updateFocus(){
