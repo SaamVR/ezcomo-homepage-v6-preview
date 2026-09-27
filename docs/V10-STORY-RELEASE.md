@@ -2,7 +2,7 @@
 
 ## Scope and approved direction
 
-Implements the approved desktop/mobile interface boards as one demonstration at `/v10/`. The root homepage, V7 and previous final-preview remain intact. Original V6 navigation and hero markup are retained. Lower sections use the clarified release copy and receive spacing, type, footer-link and connection-status refinements.
+Implements the approved desktop/mobile interface boards as the canonical EZComo homepage. The frozen implementation remains available at `/v10/`, and the repository root now serves the same V10 experience as the final homepage. V7 and previous final-preview remain available as rollback/reference snapshots. Original V6 navigation and hero markup are retained. Lower sections use the clarified release copy and receive spacing, type, footer-link and connection-status refinements.
 
 Audience: Bangladesh merchants, with phone users a first-class surface. Core message: familiar editor controls lead to a storefront, the storefront creates an order, and the same order reaches a merchant workspace and fulfilment flow.
 
@@ -51,7 +51,7 @@ Integration checks cover the full guided sequence, pause/resume, replay, user ed
 
 The matching GitHub Actions workflow runs on changes to V10. Runtime dependencies: none. Test-only dependencies: jsdom and fake timers.
 
-Rendered-browser QA remains outstanding: the session's earlier browser access was blocked, so DOM tests are not being presented as visual verification. Before production promotion, inspect 360/390/430/768/1440 widths, short laptop height, keyboard focus and a complete film on an actual phone. V10 is published as a reviewable preview, not a replacement of ezcomo.shop.
+Rendered-browser QA is complete for the final homepage promotion. The live GitHub Pages build was checked in dark and light themes at 390/768/1440 with zero horizontal overflow and no browser/page errors in the tested states. The connected Build → Sell → Manage journey, reduced-motion behavior, Bangla mode, pricing contrast fixes, storefront-card contrast fixes, and persistent chapter navigation were also exercised in the deployed runtime. This repository now treats V10 as the canonical homepage preview; production `ezcomo.shop` is still unchanged.
 
 ## V10.1 visibility and focus refinement
 
@@ -80,3 +80,27 @@ Manual online orders record payment at checkout, collect zero cash on delivery a
 The screen magnet waits 160ms after scrolling settles, then aligns the player 12px from the top using 360ms eased scrolling (instant with reduced motion). Height is viewport minus 24px; hidden navigation is inert. The next wheel gesture, touch drag, page-navigation key, Escape or Show navigation releases focus. Native scroll events are never cancelled. Dismissal lasts until leaving the capture region. Viewports under 480px and open navigation do not auto-capture.
 
 All 17 automated check groups pass, including form validation, five online providers, customer/payment continuity, courier keyboard selection, automatic Pathao selection, no duplicate COD credit, idle snapping, native wheel release, navigation restoration and finished tour copy. Desktop playback remains under 115 seconds. CSS parses without errors. Rendered-browser QA remains pending because browser access was blocked earlier in this session.
+
+
+## Final homepage promotion — 2026-09-28
+
+V10 is the approved final homepage design.
+
+Canonical preview URL:
+
+`https://saamvr.github.io/ezcomo-homepage-v6-preview/`
+
+Frozen V10 snapshot:
+
+`https://saamvr.github.io/ezcomo-homepage-v6-preview/v10/`
+
+Promotion strategy:
+
+- the root `index.html` now renders the finalized V10 homepage;
+- V10 assets remain under `/v10/`, so the approved snapshot stays directly reviewable and rollback-friendly;
+- the root homepage references the same tested `v10/app.js`, `v10/v10.js` and `v10/v10.css` assets;
+- finished demo-store links are retained from the root;
+- the previous root homepage remains recoverable through Git history;
+- production/main and `ezcomo.shop` are not modified by this promotion.
+
+Final contrast QA also includes the dark-mode pricing and storefront corrections: Free/Advanced plan names and prices use warm white on dark cards; Pricing supporting copy/fine print/link use readable dark tones on the beige surface; finished storefront headings use warm white on dark cards; and the FASHION/HOTEL/FOOD labels use the brighter clay accent. Light mode remains unchanged.
