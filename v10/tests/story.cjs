@@ -97,3 +97,14 @@ function customer(t){change(t,'cxCustomerName','Ayesha Rahman','input');change(t
 {
  const t=setup();click(t,'cxWatch');t.clock.tick(180000);assert.equal(t.api.getState().customerName,'Ayesha Rahman');assert.equal(t.api.getState().provider,'bkash');assert.equal(t.api.getState().payment,'cod');assert.equal(t.api.getState().courier,'pathao');assert.doesNotMatch(t.w.document.body.textContent,/\bsample\b/i);t.close();console.log('PASS guided customer entry, online-to-COD choice, Pathao selection and finished tour copy');
 }
+
+
+{
+ const css=fs.readFileSync('v10.css','utf8');
+ assert.match(css,/V10\.2: dark-mode contrast corrections/);
+ assert.match(css,/#pricing \.pricing-compare article:not\(\.featured\) h3[\s\S]*?color:#f0ebe2/);
+ assert.match(css,/#pricing \.pricing-fineprint a[\s\S]*?color:#28372f/);
+ assert.match(css,/#templates \.store-example-copy h3[\s\S]*?color:#f0ebe2/);
+ assert.match(html,/\.\/v10\.css\?v=5/);
+ console.log('PASS V10 dark-mode contrast overrides and cache key');
+}
